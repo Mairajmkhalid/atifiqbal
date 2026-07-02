@@ -124,10 +124,14 @@ function Nav() {
           ))}
         </ul>
         <a
-          href="#contact"
-          className="hidden md:inline-flex text-xs uppercase tracking-[0.24em] text-navy-deep bg-gold px-4 py-2 hover:bg-gold-soft transition-colors"
+          href="/Atif_Iqbal_CV.pdf"
+          download
+          className="hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-navy-deep bg-gold px-4 py-2 hover:bg-gold-soft transition-colors"
         >
-          Get in Touch
+          Download CV
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" strokeLinecap="square" />
+          </svg>
         </a>
       </div>
     </nav>
@@ -160,10 +164,14 @@ function Hero() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a
-              href="#about"
-              className="inline-flex items-center gap-3 bg-gold text-navy-deep px-6 py-3 text-xs uppercase tracking-[0.28em] hover:bg-gold-soft transition-colors"
+              href="/Atif_Iqbal_CV.pdf"
+              download
+              className="group inline-flex items-center gap-3 bg-gold text-navy-deep px-6 py-3 text-xs uppercase tracking-[0.28em] hover:bg-gold-soft transition-colors"
             >
-              Profile
+              Download CV
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="transition-transform group-hover:translate-y-0.5">
+                <path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" strokeLinecap="square" />
+              </svg>
             </a>
             <a
               href="#contact"
