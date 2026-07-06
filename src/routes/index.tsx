@@ -430,10 +430,11 @@ function Gallery() {
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-deep via-navy-deep/70 to-transparent p-6">
                   <p className="text-xs uppercase tracking-[0.24em] text-gold">Portfolio</p>
-                <p className="font-serif text-xl text-cream mt-1">{g.label}</p>
-              </figcaption>
-            </figure>
-          ))}
+                  <p className="font-serif text-xl text-cream mt-1">{g.label}</p>
+                </figcaption>
+              </figure>
+            );
+          })}
         </div>
       </div>
     </section>
