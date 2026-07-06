@@ -54,14 +54,6 @@ const media = [
   { outlet: "Television & Talk Shows", note: "Healthcare awareness programs" },
 ];
 
-const gallery = [
-  { src: galleryDubai, label: "Global Leadership Excellence", place: "Dubai · 2025" },
-  { src: galleryPresidential, label: "National Recognition", place: "Islamabad" },
-  { src: galleryCeoSummit, label: "CEO Summit", place: "Islamabad · 2025" },
-  { src: galleryPhilippines, label: "127th Philippine Independence", place: "Diplomatic Reception · 2025" },
-  { src: galleryDiplomatic, label: "Consular Reception", place: "Diplomatic Engagement" },
-  { src: galleryCeoToday, label: "CEO Today Magazine", place: "Cover Feature" },
-];
 
 const stats = [
   { value: "30+", label: "Years in Industry" },
