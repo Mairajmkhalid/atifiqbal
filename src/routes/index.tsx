@@ -260,10 +260,10 @@ function Stats() {
         {stats.map((s, i) => (
           <div
             key={s.label}
-            className={`py-10 md:py-14 px-4 sm:px-6 text-center md:text-left ${i > 0 ? "md:border-l border-gold/15" : ""} ${i >= 2 ? "border-t md:border-t-0 border-gold/15" : ""}`}
+            className={`stat-tile py-12 md:py-16 px-5 sm:px-8 text-center md:text-left group ${i > 0 ? "md:border-l border-gold/15" : ""} ${i >= 2 ? "border-t md:border-t-0 border-gold/15" : ""}`}
           >
-            <p className="font-serif text-4xl sm:text-5xl md:text-6xl text-gold leading-none">{s.value}</p>
-            <p className="mt-3 sm:mt-4 text-[10px] uppercase tracking-[0.4em] text-cream/50">{s.label}</p>
+            <p className="font-serif text-4xl sm:text-5xl md:text-6xl text-gold leading-none transition-colors duration-500 group-hover:text-gold-soft">{s.value}</p>
+            <p className="mt-3 sm:mt-4 text-[10px] uppercase tracking-[0.42em] text-cream/50">{s.label}</p>
           </div>
         ))}
       </div>
