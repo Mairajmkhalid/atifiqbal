@@ -744,7 +744,7 @@ function Footer() {
           </span>
         </div>
         <p className="text-[10px] uppercase tracking-[0.4em] text-cream/40">
-          © {new Date().getFullYear()} · Excellence in Leadership
+          © {COPYRIGHT_YEAR} · Excellence in Leadership
         </p>
       </div>
     </footer>
