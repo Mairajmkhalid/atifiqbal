@@ -594,34 +594,34 @@ const gallerySections: GallerySection[] = [
 
 function bentoSpanFor(count: number, index: number): string {
   // Editorial bento layout: alternate hero-sized and standard tiles based on total count
-  if (count <= 3) return "md:col-span-4 min-h-[360px]";
-  if (count === 4) return "md:col-span-6 min-h-[380px]";
+  if (count <= 3) return "md:col-span-4 min-h-[280px] md:min-h-[360px]";
+  if (count === 4) return "md:col-span-6 min-h-[300px] md:min-h-[380px]";
   // 5+: first tile large, then a rhythmic mix
   const pattern = [
-    "md:col-span-8 min-h-[520px]",
-    "md:col-span-4 min-h-[520px]",
-    "md:col-span-4 min-h-[320px]",
-    "md:col-span-4 min-h-[320px]",
-    "md:col-span-4 min-h-[320px]",
-    "md:col-span-6 min-h-[360px]",
-    "md:col-span-6 min-h-[360px]",
-    "md:col-span-4 min-h-[320px]",
-    "md:col-span-4 min-h-[320px]",
-    "md:col-span-4 min-h-[320px]",
+    "md:col-span-8 min-h-[340px] md:min-h-[520px]",
+    "md:col-span-4 min-h-[300px] md:min-h-[520px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
+    "md:col-span-6 min-h-[280px] md:min-h-[360px]",
+    "md:col-span-6 min-h-[280px] md:min-h-[360px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
   ];
   return pattern[index % pattern.length];
 }
 
 function GallerySectionBlock({ section, index }: { section: GallerySection; index: number }) {
   return (
-    <div id={section.id} className={index === 0 ? "" : "mt-24"}>
-      <div className="max-w-3xl mb-12">
+    <div id={section.id} className={index === 0 ? "" : "mt-16 md:mt-24"}>
+      <div className="max-w-3xl mb-10 md:mb-12">
         <p className="eyebrow mb-6">
           <span className="gold-rule mr-4" /> {section.eyebrow}
         </p>
-        <h3 className="font-serif text-3xl md:text-5xl leading-[1.1] text-cream">{section.title}</h3>
+        <h3 className="font-serif text-2xl sm:text-3xl md:text-5xl leading-[1.15] text-cream">{section.title}</h3>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4">
         {section.items.map((g, i) => (
           <figure
             key={g.src}
@@ -634,9 +634,9 @@ function GallerySectionBlock({ section, index }: { section: GallerySection; inde
               className={`absolute inset-0 w-full h-full ${g.contain ? "object-contain bg-noir-soft p-3" : "object-cover object-top"} grayscale-[35%] group-hover:grayscale-0 scale-[1.03] group-hover:scale-100 transition-all duration-[1400ms]`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/30 to-transparent pointer-events-none" />
-            <figcaption className="absolute inset-x-0 bottom-0 p-5">
+            <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{g.place}</p>
-              <p className="font-serif italic text-lg md:text-xl text-cream mt-1.5 leading-tight">{g.label}</p>
+              <p className="font-serif italic text-base sm:text-lg md:text-xl text-cream mt-1.5 leading-tight">{g.label}</p>
             </figcaption>
           </figure>
         ))}
@@ -647,13 +647,13 @@ function GallerySectionBlock({ section, index }: { section: GallerySection; inde
 
 function Gallery() {
   return (
-    <section id="gallery" className="py-32 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="max-w-3xl mb-20">
+    <section id="gallery" className="py-20 md:py-32 bg-noir">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+        <div className="max-w-3xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
             <span className="gold-rule mr-4" /> The Archive
           </p>
-          <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-cream">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-cream">
             A visual record of engagements, awards, and
             <em className="text-gold not-italic"> diplomatic milestones.</em>
           </h2>
