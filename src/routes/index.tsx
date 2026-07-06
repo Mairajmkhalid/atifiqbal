@@ -163,7 +163,7 @@ function Hero() {
             "linear-gradient(90deg, rgba(11,15,32,0.85) 0%, rgba(11,15,32,0.55) 35%, rgba(11,15,32,0.15) 60%, rgba(11,15,32,0) 100%)",
         }}
       />
-      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 pt-24 pb-24">
+      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 pt-40 md:pt-48 pb-24">
         <div className="max-w-xl text-cream">
           <p className="eyebrow mb-6 hero-rise" style={{ animationDelay: "0.1s" }}>
             <span className="gold-rule mr-4 hero-rule-anim" />
