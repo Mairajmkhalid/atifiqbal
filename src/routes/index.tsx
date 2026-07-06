@@ -148,14 +148,22 @@ function Hero() {
     <section
       id="top"
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(11,15,32,0.75), rgba(11,15,32,0.9)), url(${heroBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20 grid lg:grid-cols-[1.4fr_1fr] gap-16 items-center w-full">
-        <div className="text-cream">
+      <img
+        src={portrait}
+        alt="Portrait of Atif Iqbal, Group CEO of HIGH-Q Pharmaceuticals"
+        className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-[65%_center]"
+      />
+      <div
+        className="absolute inset-0"
+        aria-hidden
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(11,15,32,0.92) 0%, rgba(11,15,32,0.78) 40%, rgba(11,15,32,0.35) 65%, rgba(11,15,32,0.05) 100%)",
+        }}
+      />
+      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-24">
+        <div className="max-w-xl text-cream">
           <p className="eyebrow mb-6">
             <span className="gold-rule mr-4" />
             Group CEO — HIGH-Q Pharmaceuticals
@@ -163,7 +171,7 @@ function Hero() {
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-8">
             Atif <span className="italic text-gold">Iqbal</span>
           </h1>
-          <p className="text-lg md:text-xl text-cream/80 max-w-xl leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-cream/85 leading-relaxed font-light">
             Industrial leader, diplomat, and philanthropist. Steward of the HIGH-Q Group
             and Vida Laboratories — building bridges between industry, medicine, and nations.
           </p>
@@ -185,19 +193,9 @@ function Hero() {
               Contact
             </a>
           </div>
-        </div>
-        <div className="relative hidden lg:block">
-          <div className="absolute -inset-4 border border-gold/30" aria-hidden />
-          <img
-            src={portrait}
-            alt="Portrait of Atif Iqbal"
-            width={960}
-            height={1280}
-            className="relative w-full h-[560px] object-cover object-top"
-          />
-          <div className="absolute -bottom-6 -left-6 bg-gold text-navy-deep px-5 py-3">
-            <p className="text-[10px] uppercase tracking-[0.3em]">Est. 1994</p>
-          </div>
+          <p className="mt-12 text-[10px] uppercase tracking-[0.4em] text-gold/80">
+            Est. 1994
+          </p>
         </div>
       </div>
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/50 text-[10px] uppercase tracking-[0.4em]">
