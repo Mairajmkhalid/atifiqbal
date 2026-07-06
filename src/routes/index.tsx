@@ -3,6 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroAtifAsset from "@/assets/hero-atif.png.asset.json";
 const portrait = heroAtifAsset.url;
 import atifDesk from "@/assets/atif-desk.png";
+import globalLeadershipDubaiAsset from "@/assets/global-leadership-dubai.png.asset.json";
+const globalLeadershipDubai = globalLeadershipDubaiAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Profile,
