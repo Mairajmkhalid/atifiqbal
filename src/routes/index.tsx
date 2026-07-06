@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroBg from "@/assets/hero-bg.jpg";
-import portrait from "@/assets/atif-portrait.png";
+import heroAtifAsset from "@/assets/hero-atif.png.asset.json";
+const portrait = heroAtifAsset.url;
 import atifDesk from "@/assets/atif-desk.png";
 import galleryCeoSummit from "@/assets/gallery-ceo-summit.jpg";
 import galleryDubai from "@/assets/gallery-dubai.jpg";
