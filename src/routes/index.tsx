@@ -272,13 +272,13 @@ function Stats() {
 
 function About() {
   return (
-    <section id="about" className="py-32 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="max-w-2xl mb-20">
+    <section id="about" className="py-20 md:py-32 bg-noir">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+        <div className="max-w-2xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
             <span className="gold-rule mr-4" /> Biography
           </p>
-          <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-cream">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-cream">
             A life built at the intersection of <em className="text-gold not-italic">industry</em>,
             diplomacy, and service.
           </h2>
@@ -288,7 +288,7 @@ function About() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Portrait tile */}
           <div className="md:col-span-5 md:row-span-2 cinema-card overflow-hidden group">
-            <div className="relative h-full min-h-[520px]">
+            <div className="relative h-full min-h-[360px] md:min-h-[520px]">
               <img
                 src={atifDesk}
                 alt="Atif Iqbal at the HIGH-Q Group office"
@@ -297,17 +297,17 @@ function About() {
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 scale-105 group-hover:scale-100 transition-all duration-1000"
               />
-              <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-noir via-noir/70 to-transparent">
+              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 bg-gradient-to-t from-noir via-noir/70 to-transparent">
                 <p className="text-[10px] uppercase tracking-[0.4em] text-gold">Portrait</p>
-                <p className="font-serif italic text-2xl text-cream mt-2">At the HIGH-Q office</p>
+                <p className="font-serif italic text-xl sm:text-2xl text-cream mt-2">At the HIGH-Q office</p>
               </div>
             </div>
           </div>
 
           {/* Biography prose */}
-          <div className="md:col-span-7 cinema-card p-10 md:p-12">
+          <div className="md:col-span-7 cinema-card p-6 sm:p-10 md:p-12">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">The Vision</p>
-            <div className="space-y-5 text-cream/75 leading-relaxed text-[17px] font-light">
+            <div className="space-y-5 text-cream/75 leading-relaxed text-base sm:text-[17px] font-light">
               <p>
                 Born in 1972 with an entrepreneurial spirit, Mr. Atif Iqbal began his career in
                 1994 at the root level of the family business, HIGH-Q International — an
