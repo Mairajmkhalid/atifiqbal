@@ -124,7 +124,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 lg:px-24"
+      className="relative min-h-screen flex items-start justify-start overflow-hidden px-6 lg:px-24 pt-32 lg:pt-40"
     >
       {/* Background portrait — cinematic, right-aligned, feathered */}
       <div className="absolute inset-0 bg-noir" aria-hidden />
@@ -158,8 +158,8 @@ function Hero() {
         }}
       />
 
-      {/* Centered cinematic title */}
-      <div className="relative z-10 text-center max-w-4xl">
+      {/* Top-left cinematic title */}
+      <div className="relative z-10 text-left max-w-4xl">
         <p className="eyebrow mb-8 hero-rise" style={{ animationDelay: "0.2s" }}>
           Group CEO · HIGH-Q Pharmaceuticals
         </p>
@@ -170,14 +170,14 @@ function Hero() {
           Atif <span className="italic text-gold">Iqbal</span>
         </h1>
         <p
-          className="mx-auto max-w-2xl text-base md:text-lg text-cream/70 font-light leading-relaxed hero-rise"
+          className="max-w-2xl text-base md:text-lg text-cream/70 font-light leading-relaxed hero-rise"
           style={{ animationDelay: "0.7s" }}
         >
           Industrial leader, diplomat, and philanthropist. Steward of the HIGH-Q Group and
           Vida Laboratories — building bridges between industry, medicine, and nations.
         </p>
         <div
-          className="mt-12 flex flex-wrap justify-center gap-4 hero-rise"
+          className="mt-12 flex flex-wrap justify-start gap-4 hero-rise"
           style={{ animationDelay: "0.95s" }}
         >
           <a
