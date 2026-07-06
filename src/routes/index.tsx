@@ -237,6 +237,17 @@ function About() {
             A life built at the intersection of <em className="text-gold not-italic">industry</em>,
             diplomacy, and service.
           </h2>
+          <div className="mt-10 relative">
+            <div className="absolute -inset-3 border border-gold/40" aria-hidden />
+            <img
+              src={atifDesk}
+              alt="Atif Iqbal at the HIGH-Q Group office"
+              width={1500}
+              height={1000}
+              loading="lazy"
+              className="relative w-full h-[340px] object-cover"
+            />
+          </div>
         </div>
         <div className="space-y-6 text-navy/90 leading-relaxed text-lg">
           <p>
