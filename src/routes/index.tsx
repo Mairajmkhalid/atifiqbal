@@ -669,28 +669,28 @@ function Gallery() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-32 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="cinema-card p-10 md:p-16 relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-32 bg-noir">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+        <div className="cinema-card p-6 sm:p-10 md:p-16 relative overflow-hidden">
           <div
-            className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none"
+            className="absolute -bottom-40 -left-40 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] rounded-full pointer-events-none"
             style={{ background: "radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%)" }}
             aria-hidden
           />
-          <div className="relative grid md:grid-cols-2 gap-16">
-            <div>
+          <div className="relative grid md:grid-cols-2 gap-10 md:gap-16">
+            <div className="min-w-0">
               <p className="eyebrow mb-6">
                 <span className="gold-rule mr-4" /> Contact
               </p>
-              <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-cream italic">
+              <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-cream italic">
                 Connect for<br />strategic dialogue.
               </h2>
-              <p className="mt-8 text-cream/60 leading-relaxed max-w-md">
+              <p className="mt-6 sm:mt-8 text-cream/60 leading-relaxed max-w-md">
                 For collaborations, board inquiries, speaking engagements, and diplomatic
                 correspondence — reach out through the official channels below.
               </p>
 
-              <div className="mt-12 space-y-6">
+              <div className="mt-10 sm:mt-12 space-y-5 sm:space-y-6">
                 {[
                   { label: "Email", value: "atif@highq.pk", href: "mailto:atif@highq.pk" },
                   { label: "Direct", value: "+92 321 2595007", href: "tel:+923212595007" },
@@ -699,11 +699,11 @@ function Contact() {
                   <a
                     key={c.label}
                     href={c.href}
-                    className="flex items-baseline gap-4 group border-b border-gold/15 pb-4"
+                    className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 group border-b border-gold/15 pb-4"
                   >
-                    <span className="text-[10px] uppercase tracking-[0.4em] text-gold w-24 shrink-0">{c.label}</span>
-                    <span className="flex-1 h-px bg-gold/20" />
-                    <span className="font-serif text-xl text-cream group-hover:text-gold transition-colors duration-500">
+                    <span className="text-[10px] uppercase tracking-[0.4em] text-gold sm:w-24 shrink-0">{c.label}</span>
+                    <span className="hidden sm:block flex-1 h-px bg-gold/20" />
+                    <span className="font-serif text-lg sm:text-xl text-cream group-hover:text-gold transition-colors duration-500 break-all sm:break-normal">
                       {c.value}
                     </span>
                   </a>
@@ -718,7 +718,7 @@ function Contact() {
                 { label: "Residence", body: "B-42, KDA Scheme-1, Karachi, Pakistan." },
                 { label: "Group", body: "HIGH-Q Pharmaceuticals · Vida Laboratories · HIGH-Q Simulation Centre." },
               ].map((c) => (
-                <div key={c.label} className="border border-gold/15 p-6 hover:border-gold/50 transition-colors duration-500">
+                <div key={c.label} className="border border-gold/15 p-5 sm:p-6 hover:border-gold/50 transition-colors duration-500">
                   <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-3">{c.label}</p>
                   <p className="text-cream/70 leading-relaxed text-sm">{c.body}</p>
                 </div>
@@ -734,7 +734,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-gold/10 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div className="flex items-center gap-3">
           <span className="font-serif italic text-2xl text-gold leading-none">AI</span>
           <span className="text-[10px] uppercase tracking-[0.4em] text-cream/50">
