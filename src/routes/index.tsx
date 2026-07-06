@@ -440,7 +440,7 @@ function Awards() {
 }
 
 type GalleryItem = { src: string; label: string; place: string; contain?: boolean };
-type GallerySection = { id: string; eyebrow: string; title: React.ReactNode; items: GalleryItem[] };
+type GallerySection = { id: string; eyebrow: string; title: ReactNode; items: GalleryItem[] };
 
 const gallerySections: GallerySection[] = [
   {
