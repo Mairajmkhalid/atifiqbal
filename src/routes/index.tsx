@@ -65,23 +65,24 @@ const stats = [
 ];
 
 function Nav() {
-  const items = [
+  const items: [string, string][] = [
     ["about", "About"],
     ["memberships", "Councils"],
     ["awards", "Awards"],
     ["gallery", "Gallery"],
     ["contact", "Contact"],
   ];
+  const [open, setOpen] = useState(false);
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-noir/70 border-b border-gold/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between">
+        <a href="#top" className="flex items-center gap-3 min-w-0" onClick={() => setOpen(false)}>
           <span className="font-serif italic text-2xl leading-none text-gold">AI</span>
-          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.4em] text-cream/60">
+          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.4em] text-cream/60 truncate">
             Atif Iqbal
           </span>
         </a>
-        <ul className="hidden md:flex items-center gap-10">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-10">
           {items.map(([id, label]) => (
             <li key={id}>
               <a
@@ -96,14 +97,57 @@ function Nav() {
         <a
           href="/Atif_Iqbal_CV.pdf"
           download
-          className="hidden md:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-5 py-2.5 hover:bg-gold-soft transition-colors duration-500"
+          className="hidden md:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-4 lg:px-5 py-2.5 hover:bg-gold-soft transition-colors duration-500"
         >
-          Download CV
+          <span className="hidden lg:inline">Download CV</span>
+          <span className="lg:hidden">CV</span>
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" strokeLinecap="square" />
           </svg>
         </a>
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 text-gold"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            {open ? (
+              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="square" />
+            ) : (
+              <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="square" />
+            )}
+          </svg>
+        </button>
       </div>
+      {open && (
+        <div className="md:hidden border-t border-gold/10 bg-noir/95 backdrop-blur-xl">
+          <ul className="px-4 py-4 flex flex-col divide-y divide-gold/10">
+            {items.map(([id, label]) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  onClick={() => setOpen(false)}
+                  className="block py-4 text-[11px] uppercase tracking-[0.4em] text-cream/70 hover:text-gold"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a
+                href="/Atif_Iqbal_CV.pdf"
+                download
+                onClick={() => setOpen(false)}
+                className="mt-3 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-5 py-3"
+              >
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
