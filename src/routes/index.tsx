@@ -122,17 +122,28 @@ function Nav() {
             </li>
           ))}
         </ul>
-        <a
-          href="/Atif_Iqbal_CV.pdf"
-          download
-          className="btn-gold hidden md:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-4 lg:px-5 py-2.5"
-        >
-          <span className="hidden lg:inline">Download CV</span>
-          <span className="lg:hidden">CV</span>
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" strokeLinecap="square" />
-          </svg>
-        </a>
+        <div className="hidden md:flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => downloadProfilePdf(setBusy)}
+            disabled={busy}
+            className="no-print inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-gold border border-gold/40 hover:bg-gold/10 px-3 lg:px-4 py-2.5 disabled:opacity-50"
+          >
+            <span className="hidden lg:inline">{busy ? "Preparing…" : "Download Profile"}</span>
+            <span className="lg:hidden">{busy ? "…" : "PDF"}</span>
+          </button>
+          <a
+            href="/Atif_Iqbal_CV.pdf"
+            download
+            className="btn-gold inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-4 lg:px-5 py-2.5"
+          >
+            <span className="hidden lg:inline">Download CV</span>
+            <span className="lg:hidden">CV</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" strokeLinecap="square" />
+            </svg>
+          </a>
+        </div>
         <button
           type="button"
           aria-label="Toggle menu"
