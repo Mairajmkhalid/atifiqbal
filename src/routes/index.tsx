@@ -409,25 +409,27 @@ function Gallery() {
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
-          {gallery.map((g, i) => (
-            <figure
-              key={g.label}
-              className={`group relative overflow-hidden border border-gold/20 ${
-                i === 0 ? "md:col-span-2" : ""
-              }`}
-            >
-              <img
-                src={g.src}
-                alt={g.label}
-                loading="lazy"
-                width={1024}
-                height={1024}
-                className={`w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105 ${
-                  i === 0 ? "h-[420px]" : "h-[340px]"
+          {gallery.map((g, i) => {
+            const wide = i === 0 || i === gallery.length - 1;
+            return (
+              <figure
+                key={g.label}
+                className={`group relative overflow-hidden border border-gold/20 ${
+                  wide ? "md:col-span-2" : ""
                 }`}
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-deep via-navy-deep/70 to-transparent p-6">
-                <p className="text-xs uppercase tracking-[0.24em] text-gold">Portfolio</p>
+              >
+                <img
+                  src={g.src}
+                  alt={g.label}
+                  loading="lazy"
+                  width={1024}
+                  height={1024}
+                  className={`w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105 ${
+                    wide ? "h-[460px]" : "h-[340px]"
+                  }`}
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-deep via-navy-deep/70 to-transparent p-6">
+                  <p className="text-xs uppercase tracking-[0.24em] text-gold">Portfolio</p>
                 <p className="font-serif text-xl text-cream mt-1">{g.label}</p>
               </figcaption>
             </figure>
