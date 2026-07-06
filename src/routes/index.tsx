@@ -371,16 +371,24 @@ function Memberships() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Featured — Gold slab */}
-          <div className="md:col-span-4 bg-gold text-noir p-8 sm:p-10 flex flex-col justify-between min-h-[240px] md:min-h-[300px]">
-            <div>
+          <div className="md:col-span-4 relative overflow-hidden bg-gradient-to-br from-gold to-[#b8933e] text-noir p-8 sm:p-10 flex flex-col justify-between min-h-[260px] md:min-h-[320px] transition-transform duration-700 hover:-translate-y-1">
+            <div
+              className="absolute -top-16 -right-16 w-56 h-56 rounded-full pointer-events-none opacity-30"
+              style={{ background: "radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 65%)" }}
+              aria-hidden
+            />
+            <div className="relative">
               <p className="text-[10px] uppercase tracking-[0.4em] text-noir/60 mb-4">Chairman · 2026</p>
               <h3 className="font-serif text-2xl sm:text-3xl leading-tight">
                 Pakistan – Rwanda &amp; Pakistan – Myanmar Business Councils
               </h3>
             </div>
-            <p className="text-xs uppercase tracking-[0.3em] text-noir/70 mt-6">
-              Founding chairmanships
-            </p>
+            <div className="relative flex items-center gap-3 mt-6">
+              <span className="h-px w-10 bg-noir/50" />
+              <p className="text-[10px] uppercase tracking-[0.35em] text-noir/70">
+                Founding chairmanships
+              </p>
+            </div>
           </div>
 
           {/* Council list */}
