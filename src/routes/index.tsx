@@ -203,12 +203,6 @@ function Hero() {
               Contact
             </a>
           </div>
-          <p
-            className="mt-12 text-[10px] uppercase tracking-[0.4em] text-gold/80 hero-rise"
-            style={{ animationDelay: "1s" }}
-          >
-            Est. 1994
-          </p>
         </div>
       </div>
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/50 text-[10px] uppercase tracking-[0.4em] animate-pulse">
