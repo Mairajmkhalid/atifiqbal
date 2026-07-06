@@ -215,7 +215,7 @@ function Hero() {
           Atif <span className="italic text-gold">Iqbal</span>
         </h1>
         <p
-          className="max-w-2xl text-sm sm:text-base md:text-lg text-cream/70 font-light leading-relaxed hero-rise"
+          className="text-sm sm:text-base md:text-lg text-cream/70 font-light leading-relaxed hero-rise"
           style={{ animationDelay: "0.7s" }}
         >
           Industrial leader, diplomat, and philanthropist. Steward of the HIGH-Q Group and
