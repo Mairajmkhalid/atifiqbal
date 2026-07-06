@@ -1,13 +1,8 @@
+import type { ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroAtifAsset from "@/assets/hero-atif.png.asset.json";
 const portrait = heroAtifAsset.url;
 import atifDesk from "@/assets/atif-desk.png";
-import galleryCeoSummit from "@/assets/gallery-ceo-summit.jpg";
-import galleryDubai from "@/assets/gallery-dubai.jpg";
-import galleryPresidential from "@/assets/gallery-presidential.jpg";
-import galleryPhilippines from "@/assets/gallery-philippines.jpg";
-import galleryDiplomatic from "@/assets/gallery-diplomatic.jpg";
-import galleryCeoToday from "@/assets/gallery-ceo-today.jpg";
 
 export const Route = createFileRoute("/")({
   component: Profile,
