@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroAtifAsset from "@/assets/hero-atif.png.asset.json";
 const portrait = heroAtifAsset.url;
