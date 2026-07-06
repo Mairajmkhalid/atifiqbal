@@ -170,7 +170,7 @@ function Hero() {
       <img
         src={portrait}
         alt="Portrait of Atif Iqbal, Group CEO of HIGH-Q Pharmaceuticals"
-        className="hero-image absolute inset-0 w-full h-full object-cover object-top sm:object-right opacity-90"
+        className="hero-image absolute inset-0 w-full h-full object-cover object-[78%_center] sm:object-right opacity-90"
         style={{
           WebkitMaskImage:
             "radial-gradient(ellipse 80% 90% at 75% 50%, #000 30%, rgba(0,0,0,0.55) 60%, transparent 92%)",
