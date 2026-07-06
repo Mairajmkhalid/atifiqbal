@@ -228,7 +228,7 @@ function Hero() {
           <a
             href="/Atif_Iqbal_CV.pdf"
             download
-            className="group inline-flex items-center justify-center gap-3 bg-gold text-noir px-6 sm:px-8 py-3.5 sm:py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold-soft transition-colors duration-500"
+            className="btn-gold group inline-flex items-center justify-center gap-3 bg-gold text-noir px-7 sm:px-9 py-4 sm:py-[1.05rem] text-[10px] uppercase tracking-[0.4em]"
           >
             Download CV
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-y-0.5">
@@ -237,7 +237,7 @@ function Hero() {
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-3 border border-gold/50 text-cream px-6 sm:px-8 py-3.5 sm:py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold/10 transition-colors duration-500"
+            className="btn-ghost-gold inline-flex items-center justify-center gap-3 border border-gold/40 text-cream px-7 sm:px-9 py-4 sm:py-[1.05rem] text-[10px] uppercase tracking-[0.4em]"
           >
             Contact
           </a>
