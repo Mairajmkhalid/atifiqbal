@@ -397,24 +397,25 @@ function Memberships() {
               {memberships.slice(2).map((m, i) => (
                 <div
                   key={m.name}
-                  className={`p-5 sm:p-6 min-w-0 ${i % 2 === 0 ? "sm:border-r border-gold/10" : ""} border-b border-gold/10 last:border-b-0 hover:bg-gold/5 transition-colors duration-500`}
+                  className={`group relative p-5 sm:p-7 min-w-0 ${i % 2 === 0 ? "sm:border-r border-gold/10" : ""} border-b border-gold/10 last:border-b-0 transition-colors duration-500 hover:bg-gold/[0.04]`}
                 >
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-gold">{m.role}</p>
-                  <p className="font-serif text-base sm:text-lg text-cream mt-2 leading-snug break-words">{m.name}</p>
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-cream/40 mt-2">{m.year}</p>
+                  <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 bg-gold transition-all duration-500 group-hover:h-2/3" />
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-gold">{m.role}</p>
+                  <p className="font-serif text-base sm:text-lg text-cream mt-2 leading-snug break-words transition-colors duration-500 group-hover:text-gold-soft">{m.name}</p>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-cream/40 mt-2">{m.year}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Affiliations chips */}
-          <div className="md:col-span-12 cinema-card p-6 sm:p-8">
+          <div className="md:col-span-12 cinema-card cinema-card-hover p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Also Affiliated With</p>
             <div className="flex flex-wrap gap-2">
               {affiliations.map((a) => (
                 <span
                   key={a}
-                  className="text-xs tracking-wide border border-gold/25 text-cream/70 px-3 sm:px-4 py-2 hover:border-gold hover:text-gold transition-colors duration-500"
+                  className="text-xs tracking-wide border border-gold/25 text-cream/70 px-3.5 sm:px-4 py-2 hover:border-gold hover:text-gold hover:bg-gold/5 transition-all duration-500 cursor-default"
                 >
                   {a}
                 </span>
