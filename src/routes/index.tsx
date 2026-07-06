@@ -174,12 +174,23 @@ function Nav() {
                 </a>
               </li>
             ))}
-            <li>
+            <li className="flex flex-col gap-2 pt-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  downloadProfilePdf(setBusy);
+                }}
+                disabled={busy}
+                className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-gold border border-gold/40 px-5 py-3 disabled:opacity-50"
+              >
+                {busy ? "Preparing PDF…" : "Download Profile PDF"}
+              </button>
               <a
                 href="/Atif_Iqbal_CV.pdf"
                 download
                 onClick={() => setOpen(false)}
-                className="mt-3 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-5 py-3"
+                className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-5 py-3"
               >
                 Download CV
               </a>
