@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroAtifAsset from "@/assets/hero-atif.png.asset.json";
 const portrait = heroAtifAsset.url;
@@ -65,23 +65,24 @@ const stats = [
 ];
 
 function Nav() {
-  const items = [
+  const items: [string, string][] = [
     ["about", "About"],
     ["memberships", "Councils"],
     ["awards", "Awards"],
     ["gallery", "Gallery"],
     ["contact", "Contact"],
   ];
+  const [open, setOpen] = useState(false);
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-noir/70 border-b border-gold/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between">
+        <a href="#top" className="flex items-center gap-3 min-w-0" onClick={() => setOpen(false)}>
           <span className="font-serif italic text-2xl leading-none text-gold">AI</span>
-          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.4em] text-cream/60">
+          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.4em] text-cream/60 truncate">
             Atif Iqbal
           </span>
         </a>
-        <ul className="hidden md:flex items-center gap-10">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-10">
           {items.map(([id, label]) => (
             <li key={id}>
               <a
@@ -96,14 +97,57 @@ function Nav() {
         <a
           href="/Atif_Iqbal_CV.pdf"
           download
-          className="hidden md:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-5 py-2.5 hover:bg-gold-soft transition-colors duration-500"
+          className="hidden md:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-4 lg:px-5 py-2.5 hover:bg-gold-soft transition-colors duration-500"
         >
-          Download CV
+          <span className="hidden lg:inline">Download CV</span>
+          <span className="lg:hidden">CV</span>
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" strokeLinecap="square" />
           </svg>
         </a>
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 text-gold"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            {open ? (
+              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="square" />
+            ) : (
+              <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="square" />
+            )}
+          </svg>
+        </button>
       </div>
+      {open && (
+        <div className="md:hidden border-t border-gold/10 bg-noir/95 backdrop-blur-xl">
+          <ul className="px-4 py-4 flex flex-col divide-y divide-gold/10">
+            {items.map(([id, label]) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  onClick={() => setOpen(false)}
+                  className="block py-4 text-[11px] uppercase tracking-[0.4em] text-cream/70 hover:text-gold"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a
+                href="/Atif_Iqbal_CV.pdf"
+                download
+                onClick={() => setOpen(false)}
+                className="mt-3 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-5 py-3"
+              >
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
@@ -124,7 +168,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex items-start justify-start overflow-hidden px-6 lg:px-24 pt-32 lg:pt-40"
+      className="relative min-h-[100svh] flex items-start justify-start overflow-hidden px-5 sm:px-6 lg:px-24 pt-28 sm:pt-32 lg:pt-40 pb-24"
     >
       {/* Background portrait — cinematic, right-aligned, feathered */}
       <div className="absolute inset-0 bg-noir" aria-hidden />
@@ -159,31 +203,31 @@ function Hero() {
       />
 
       {/* Top-left cinematic title */}
-      <div className="relative z-10 text-left max-w-4xl">
-        <p className="eyebrow mb-8 hero-rise" style={{ animationDelay: "0.2s" }}>
+      <div className="relative z-10 text-left max-w-4xl w-full">
+        <p className="eyebrow mb-6 sm:mb-8 hero-rise" style={{ animationDelay: "0.2s" }}>
           Group CEO · HIGH-Q Pharmaceuticals
         </p>
         <h1
-          className="font-serif font-light text-white leading-[0.9] text-6xl md:text-8xl lg:text-[10rem] mb-8 hero-rise"
+          className="font-serif font-light text-white leading-[0.9] text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] mb-6 sm:mb-8 hero-rise break-words"
           style={{ animationDelay: "0.45s" }}
         >
           Atif <span className="italic text-gold">Iqbal</span>
         </h1>
         <p
-          className="max-w-2xl text-base md:text-lg text-cream/70 font-light leading-relaxed hero-rise"
+          className="max-w-2xl text-sm sm:text-base md:text-lg text-cream/70 font-light leading-relaxed hero-rise"
           style={{ animationDelay: "0.7s" }}
         >
           Industrial leader, diplomat, and philanthropist. Steward of the HIGH-Q Group and
           Vida Laboratories — building bridges between industry, medicine, and nations.
         </p>
         <div
-          className="mt-12 flex flex-wrap justify-start gap-4 hero-rise"
+          className="mt-10 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-start gap-3 sm:gap-4 hero-rise"
           style={{ animationDelay: "0.95s" }}
         >
           <a
             href="/Atif_Iqbal_CV.pdf"
             download
-            className="group inline-flex items-center gap-3 bg-gold text-noir px-8 py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold-soft transition-colors duration-500"
+            className="group inline-flex items-center justify-center gap-3 bg-gold text-noir px-6 sm:px-8 py-3.5 sm:py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold-soft transition-colors duration-500"
           >
             Download CV
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-y-0.5">
@@ -192,7 +236,7 @@ function Hero() {
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 border border-gold/50 text-cream px-8 py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold/10 transition-colors duration-500"
+            className="inline-flex items-center justify-center gap-3 border border-gold/50 text-cream px-6 sm:px-8 py-3.5 sm:py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold/10 transition-colors duration-500"
           >
             Contact
           </a>
@@ -200,7 +244,7 @@ function Hero() {
       </div>
 
       {/* Cinematic hairline */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+      <div className="hidden sm:flex absolute bottom-12 left-1/2 -translate-x-1/2 flex-col items-center gap-4">
         <div className="h-16 w-px bg-gradient-to-b from-transparent via-gold to-transparent gold-drop" />
         <span className="text-[10px] uppercase tracking-[0.5em] text-cream/40">Scroll</span>
       </div>
@@ -211,14 +255,14 @@ function Hero() {
 function Stats() {
   return (
     <section className="border-y border-gold/15 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4">
         {stats.map((s, i) => (
           <div
             key={s.label}
-            className={`py-14 px-6 text-center md:text-left ${i > 0 ? "md:border-l border-gold/15" : ""}`}
+            className={`py-10 md:py-14 px-4 sm:px-6 text-center md:text-left ${i > 0 ? "md:border-l border-gold/15" : ""} ${i >= 2 ? "border-t md:border-t-0 border-gold/15" : ""}`}
           >
-            <p className="font-serif text-5xl md:text-6xl text-gold leading-none">{s.value}</p>
-            <p className="mt-4 text-[10px] uppercase tracking-[0.4em] text-cream/50">{s.label}</p>
+            <p className="font-serif text-4xl sm:text-5xl md:text-6xl text-gold leading-none">{s.value}</p>
+            <p className="mt-3 sm:mt-4 text-[10px] uppercase tracking-[0.4em] text-cream/50">{s.label}</p>
           </div>
         ))}
       </div>
@@ -228,13 +272,13 @@ function Stats() {
 
 function About() {
   return (
-    <section id="about" className="py-32 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="max-w-2xl mb-20">
+    <section id="about" className="py-20 md:py-32 bg-noir">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+        <div className="max-w-2xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
             <span className="gold-rule mr-4" /> Biography
           </p>
-          <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-cream">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-cream">
             A life built at the intersection of <em className="text-gold not-italic">industry</em>,
             diplomacy, and service.
           </h2>
@@ -244,7 +288,7 @@ function About() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Portrait tile */}
           <div className="md:col-span-5 md:row-span-2 cinema-card overflow-hidden group">
-            <div className="relative h-full min-h-[520px]">
+            <div className="relative h-full min-h-[360px] md:min-h-[520px]">
               <img
                 src={atifDesk}
                 alt="Atif Iqbal at the HIGH-Q Group office"
@@ -253,17 +297,17 @@ function About() {
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 scale-105 group-hover:scale-100 transition-all duration-1000"
               />
-              <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-noir via-noir/70 to-transparent">
+              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 bg-gradient-to-t from-noir via-noir/70 to-transparent">
                 <p className="text-[10px] uppercase tracking-[0.4em] text-gold">Portrait</p>
-                <p className="font-serif italic text-2xl text-cream mt-2">At the HIGH-Q office</p>
+                <p className="font-serif italic text-xl sm:text-2xl text-cream mt-2">At the HIGH-Q office</p>
               </div>
             </div>
           </div>
 
           {/* Biography prose */}
-          <div className="md:col-span-7 cinema-card p-10 md:p-12">
+          <div className="md:col-span-7 cinema-card p-6 sm:p-10 md:p-12">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">The Vision</p>
-            <div className="space-y-5 text-cream/75 leading-relaxed text-[17px] font-light">
+            <div className="space-y-5 text-cream/75 leading-relaxed text-base sm:text-[17px] font-light">
               <p>
                 Born in 1972 with an entrepreneurial spirit, Mr. Atif Iqbal began his career in
                 1994 at the root level of the family business, HIGH-Q International — an
@@ -285,7 +329,7 @@ function About() {
           </div>
 
           {/* Academics tile */}
-          <div className="md:col-span-4 cinema-card p-8">
+          <div className="md:col-span-4 cinema-card p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Academics</p>
             <ul className="space-y-3 text-sm text-cream/70">
               <li>MBA Marketing — Newport Institute University, 1999</li>
@@ -295,7 +339,7 @@ function About() {
           </div>
 
           {/* Certifications tile */}
-          <div className="md:col-span-3 cinema-card p-8">
+          <div className="md:col-span-3 cinema-card p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Certifications</p>
             <ul className="space-y-3 text-sm text-cream/70">
               <li>IBA — cGMP</li>
@@ -312,13 +356,13 @@ function About() {
 
 function Memberships() {
   return (
-    <section id="memberships" className="py-32 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="max-w-3xl mb-20">
+    <section id="memberships" className="py-20 md:py-32 bg-noir">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+        <div className="max-w-3xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
             <span className="gold-rule mr-4" /> Councils & Memberships
           </p>
-          <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-cream">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-cream">
             Serving on councils that shape trade, health, and diplomacy across
             <em className="text-gold not-italic"> four continents.</em>
           </h2>
@@ -326,10 +370,10 @@ function Memberships() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Featured — Gold slab */}
-          <div className="md:col-span-4 bg-gold text-noir p-10 flex flex-col justify-between min-h-[300px]">
+          <div className="md:col-span-4 bg-gold text-noir p-8 sm:p-10 flex flex-col justify-between min-h-[240px] md:min-h-[300px]">
             <div>
               <p className="text-[10px] uppercase tracking-[0.4em] text-noir/60 mb-4">Chairman · 2026</p>
-              <h3 className="font-serif text-3xl leading-tight">
+              <h3 className="font-serif text-2xl sm:text-3xl leading-tight">
                 Pakistan – Rwanda &amp; Pakistan – Myanmar Business Councils
               </h3>
             </div>
@@ -340,14 +384,14 @@ function Memberships() {
 
           {/* Council list */}
           <div className="md:col-span-8 cinema-card p-2">
-            <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2">
               {memberships.slice(2).map((m, i) => (
                 <div
                   key={m.name}
-                  className={`p-6 ${i % 2 === 0 ? "md:border-r border-gold/10" : ""} border-b border-gold/10 last:border-b-0 hover:bg-gold/5 transition-colors duration-500`}
+                  className={`p-5 sm:p-6 min-w-0 ${i % 2 === 0 ? "sm:border-r border-gold/10" : ""} border-b border-gold/10 last:border-b-0 hover:bg-gold/5 transition-colors duration-500`}
                 >
                   <p className="text-[10px] uppercase tracking-[0.3em] text-gold">{m.role}</p>
-                  <p className="font-serif text-lg text-cream mt-2 leading-snug">{m.name}</p>
+                  <p className="font-serif text-base sm:text-lg text-cream mt-2 leading-snug break-words">{m.name}</p>
                   <p className="text-[10px] uppercase tracking-[0.3em] text-cream/40 mt-2">{m.year}</p>
                 </div>
               ))}
@@ -355,13 +399,13 @@ function Memberships() {
           </div>
 
           {/* Affiliations chips */}
-          <div className="md:col-span-12 cinema-card p-8">
+          <div className="md:col-span-12 cinema-card p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Also Affiliated With</p>
             <div className="flex flex-wrap gap-2">
               {affiliations.map((a) => (
                 <span
                   key={a}
-                  className="text-xs tracking-wide border border-gold/25 text-cream/70 px-4 py-2 hover:border-gold hover:text-gold transition-colors duration-500"
+                  className="text-xs tracking-wide border border-gold/25 text-cream/70 px-3 sm:px-4 py-2 hover:border-gold hover:text-gold transition-colors duration-500"
                 >
                   {a}
                 </span>
@@ -377,13 +421,13 @@ function Memberships() {
 function Awards() {
   const [featured, ...rest] = awards;
   return (
-    <section id="awards" className="py-32 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="max-w-3xl mb-20">
+    <section id="awards" className="py-20 md:py-32 bg-noir">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+        <div className="max-w-3xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
             <span className="gold-rule mr-4" /> Awards & Media
           </p>
-          <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-cream">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-cream">
             Recognised on the world stage — from the House of Lords to the
             <em className="text-gold not-italic"> Middle East.</em>
           </h2>
@@ -391,16 +435,16 @@ function Awards() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Featured award — spotlight tile */}
-          <div className="md:col-span-6 cinema-card p-10 md:p-14 relative overflow-hidden min-h-[380px] flex flex-col justify-between">
+          <div className="md:col-span-6 cinema-card p-8 sm:p-10 md:p-14 relative overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col justify-between">
             <div
-              className="absolute -top-20 -right-20 w-80 h-80 rounded-full pointer-events-none gold-pulse"
+              className="absolute -top-20 -right-20 w-64 sm:w-80 h-64 sm:h-80 rounded-full pointer-events-none gold-pulse"
               style={{ background: "radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 65%)" }}
               aria-hidden
             />
             <div className="relative">
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-4">{featured.year} · Featured</p>
-              <h3 className="font-serif text-4xl md:text-5xl text-cream leading-tight">{featured.title}</h3>
-              <p className="mt-6 text-cream/60 text-sm">{featured.place}</p>
+              <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-cream leading-tight">{featured.title}</h3>
+              <p className="mt-5 sm:mt-6 text-cream/60 text-sm">{featured.place}</p>
             </div>
             <div className="relative text-gold mt-8">
               <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
@@ -410,13 +454,13 @@ function Awards() {
           </div>
 
           {/* Media strip */}
-          <div className="md:col-span-6 cinema-card p-10">
-            <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-8">Featured In</p>
+          <div className="md:col-span-6 cinema-card p-8 sm:p-10">
+            <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6 sm:mb-8">Featured In</p>
             <ul className="space-y-5">
               {media.map((m) => (
-                <li key={m.outlet} className="flex items-baseline justify-between gap-6 border-b border-gold/10 pb-4 last:border-0">
-                  <div>
-                    <p className="font-serif italic text-xl text-cream">{m.outlet}</p>
+                <li key={m.outlet} className="flex items-baseline justify-between gap-4 sm:gap-6 border-b border-gold/10 pb-4 last:border-0">
+                  <div className="min-w-0">
+                    <p className="font-serif italic text-lg sm:text-xl text-cream break-words">{m.outlet}</p>
                     <p className="text-xs text-cream/50 mt-1">{m.note}</p>
                   </div>
                 </li>
@@ -428,10 +472,10 @@ function Awards() {
           {rest.map((a) => (
             <div
               key={a.title}
-              className="md:col-span-3 cinema-card p-8 hover:border-gold/60 transition-colors duration-500"
+              className="md:col-span-3 cinema-card p-6 sm:p-8 hover:border-gold/60 transition-colors duration-500"
             >
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{a.year}</p>
-              <h3 className="font-serif text-xl text-cream mt-3 leading-tight">{a.title}</h3>
+              <h3 className="font-serif text-lg sm:text-xl text-cream mt-3 leading-tight">{a.title}</h3>
               <p className="text-xs text-cream/50 mt-3 leading-relaxed">{a.place}</p>
             </div>
           ))}
@@ -550,34 +594,34 @@ const gallerySections: GallerySection[] = [
 
 function bentoSpanFor(count: number, index: number): string {
   // Editorial bento layout: alternate hero-sized and standard tiles based on total count
-  if (count <= 3) return "md:col-span-4 min-h-[360px]";
-  if (count === 4) return "md:col-span-6 min-h-[380px]";
+  if (count <= 3) return "md:col-span-4 min-h-[280px] md:min-h-[360px]";
+  if (count === 4) return "md:col-span-6 min-h-[300px] md:min-h-[380px]";
   // 5+: first tile large, then a rhythmic mix
   const pattern = [
-    "md:col-span-8 min-h-[520px]",
-    "md:col-span-4 min-h-[520px]",
-    "md:col-span-4 min-h-[320px]",
-    "md:col-span-4 min-h-[320px]",
-    "md:col-span-4 min-h-[320px]",
-    "md:col-span-6 min-h-[360px]",
-    "md:col-span-6 min-h-[360px]",
-    "md:col-span-4 min-h-[320px]",
-    "md:col-span-4 min-h-[320px]",
-    "md:col-span-4 min-h-[320px]",
+    "md:col-span-8 min-h-[340px] md:min-h-[520px]",
+    "md:col-span-4 min-h-[300px] md:min-h-[520px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
+    "md:col-span-6 min-h-[280px] md:min-h-[360px]",
+    "md:col-span-6 min-h-[280px] md:min-h-[360px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
+    "md:col-span-4 min-h-[280px] md:min-h-[320px]",
   ];
   return pattern[index % pattern.length];
 }
 
 function GallerySectionBlock({ section, index }: { section: GallerySection; index: number }) {
   return (
-    <div id={section.id} className={index === 0 ? "" : "mt-24"}>
-      <div className="max-w-3xl mb-12">
+    <div id={section.id} className={index === 0 ? "" : "mt-16 md:mt-24"}>
+      <div className="max-w-3xl mb-10 md:mb-12">
         <p className="eyebrow mb-6">
           <span className="gold-rule mr-4" /> {section.eyebrow}
         </p>
-        <h3 className="font-serif text-3xl md:text-5xl leading-[1.1] text-cream">{section.title}</h3>
+        <h3 className="font-serif text-2xl sm:text-3xl md:text-5xl leading-[1.15] text-cream">{section.title}</h3>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4">
         {section.items.map((g, i) => (
           <figure
             key={g.src}
@@ -590,9 +634,9 @@ function GallerySectionBlock({ section, index }: { section: GallerySection; inde
               className={`absolute inset-0 w-full h-full ${g.contain ? "object-contain bg-noir-soft p-3" : "object-cover object-top"} grayscale-[35%] group-hover:grayscale-0 scale-[1.03] group-hover:scale-100 transition-all duration-[1400ms]`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/30 to-transparent pointer-events-none" />
-            <figcaption className="absolute inset-x-0 bottom-0 p-5">
+            <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{g.place}</p>
-              <p className="font-serif italic text-lg md:text-xl text-cream mt-1.5 leading-tight">{g.label}</p>
+              <p className="font-serif italic text-base sm:text-lg md:text-xl text-cream mt-1.5 leading-tight">{g.label}</p>
             </figcaption>
           </figure>
         ))}
@@ -603,13 +647,13 @@ function GallerySectionBlock({ section, index }: { section: GallerySection; inde
 
 function Gallery() {
   return (
-    <section id="gallery" className="py-32 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="max-w-3xl mb-20">
+    <section id="gallery" className="py-20 md:py-32 bg-noir">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+        <div className="max-w-3xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
             <span className="gold-rule mr-4" /> The Archive
           </p>
-          <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-cream">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-cream">
             A visual record of engagements, awards, and
             <em className="text-gold not-italic"> diplomatic milestones.</em>
           </h2>
@@ -625,28 +669,28 @@ function Gallery() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-32 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="cinema-card p-10 md:p-16 relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-32 bg-noir">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+        <div className="cinema-card p-6 sm:p-10 md:p-16 relative overflow-hidden">
           <div
-            className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none"
+            className="absolute -bottom-40 -left-40 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] rounded-full pointer-events-none"
             style={{ background: "radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%)" }}
             aria-hidden
           />
-          <div className="relative grid md:grid-cols-2 gap-16">
-            <div>
+          <div className="relative grid md:grid-cols-2 gap-10 md:gap-16">
+            <div className="min-w-0">
               <p className="eyebrow mb-6">
                 <span className="gold-rule mr-4" /> Contact
               </p>
-              <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-cream italic">
+              <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-cream italic">
                 Connect for<br />strategic dialogue.
               </h2>
-              <p className="mt-8 text-cream/60 leading-relaxed max-w-md">
+              <p className="mt-6 sm:mt-8 text-cream/60 leading-relaxed max-w-md">
                 For collaborations, board inquiries, speaking engagements, and diplomatic
                 correspondence — reach out through the official channels below.
               </p>
 
-              <div className="mt-12 space-y-6">
+              <div className="mt-10 sm:mt-12 space-y-5 sm:space-y-6">
                 {[
                   { label: "Email", value: "atif@highq.pk", href: "mailto:atif@highq.pk" },
                   { label: "Direct", value: "+92 321 2595007", href: "tel:+923212595007" },
@@ -655,11 +699,11 @@ function Contact() {
                   <a
                     key={c.label}
                     href={c.href}
-                    className="flex items-baseline gap-4 group border-b border-gold/15 pb-4"
+                    className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 group border-b border-gold/15 pb-4"
                   >
-                    <span className="text-[10px] uppercase tracking-[0.4em] text-gold w-24 shrink-0">{c.label}</span>
-                    <span className="flex-1 h-px bg-gold/20" />
-                    <span className="font-serif text-xl text-cream group-hover:text-gold transition-colors duration-500">
+                    <span className="text-[10px] uppercase tracking-[0.4em] text-gold sm:w-24 shrink-0">{c.label}</span>
+                    <span className="hidden sm:block flex-1 h-px bg-gold/20" />
+                    <span className="font-serif text-lg sm:text-xl text-cream group-hover:text-gold transition-colors duration-500 break-all sm:break-normal">
                       {c.value}
                     </span>
                   </a>
@@ -674,7 +718,7 @@ function Contact() {
                 { label: "Residence", body: "B-42, KDA Scheme-1, Karachi, Pakistan." },
                 { label: "Group", body: "HIGH-Q Pharmaceuticals · Vida Laboratories · HIGH-Q Simulation Centre." },
               ].map((c) => (
-                <div key={c.label} className="border border-gold/15 p-6 hover:border-gold/50 transition-colors duration-500">
+                <div key={c.label} className="border border-gold/15 p-5 sm:p-6 hover:border-gold/50 transition-colors duration-500">
                   <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-3">{c.label}</p>
                   <p className="text-cream/70 leading-relaxed text-sm">{c.body}</p>
                 </div>
@@ -690,7 +734,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-gold/10 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div className="flex items-center gap-3">
           <span className="font-serif italic text-2xl text-gold leading-none">AI</span>
           <span className="text-[10px] uppercase tracking-[0.4em] text-cream/50">
@@ -707,7 +751,7 @@ function Footer() {
 
 function Profile() {
   return (
-    <div className="min-h-screen bg-noir text-cream">
+    <div className="min-h-screen bg-noir text-cream overflow-x-hidden">
       <Nav />
       <ReelBadge scene="01" section="Profile" />
       <Hero />
