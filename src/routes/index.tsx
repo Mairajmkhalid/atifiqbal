@@ -5,6 +5,7 @@ const portrait = heroAtifAsset.url;
 import atifDesk from "@/assets/atif-desk.png";
 import globalLeadershipDubaiAsset from "@/assets/global-leadership-dubai.png.asset.json";
 const globalLeadershipDubai = globalLeadershipDubaiAsset.url;
+const COPYRIGHT_YEAR = new Date().getFullYear();
 
 export const Route = createFileRoute("/")({
   component: Profile,
@@ -593,10 +594,12 @@ const gallerySections: GallerySection[] = [
 ];
 
 function bentoSpanFor(count: number, index: number): string {
-  // Editorial bento layout: alternate hero-sized and standard tiles based on total count
-  if (count <= 3) return "md:col-span-4 min-h-[280px] md:min-h-[360px]";
+  // Editorial bento layout — always fill the 12-col row so small chapters don't leave gaps.
+  if (count === 1) return "md:col-span-12 min-h-[320px] md:min-h-[440px]";
+  if (count === 2) return "md:col-span-6 min-h-[320px] md:min-h-[440px]";
+  if (count === 3) return "md:col-span-4 min-h-[300px] md:min-h-[400px]";
   if (count === 4) return "md:col-span-6 min-h-[300px] md:min-h-[380px]";
-  // 5+: first tile large, then a rhythmic mix
+  // 5+: hero-led rhythmic mix
   const pattern = [
     "md:col-span-8 min-h-[340px] md:min-h-[520px]",
     "md:col-span-4 min-h-[300px] md:min-h-[520px]",
@@ -742,7 +745,7 @@ function Footer() {
           </span>
         </div>
         <p className="text-[10px] uppercase tracking-[0.4em] text-cream/40">
-          © {new Date().getFullYear()} · Excellence in Leadership
+          © {COPYRIGHT_YEAR} · Excellence in Leadership
         </p>
       </div>
     </footer>
