@@ -50,12 +50,6 @@ const awards = [
   { year: "2023", title: "Export Award", place: "Presented by H.E. Former PM Shehbaz Sharif — 6th Pakistan Pharma Summit" },
 ];
 
-const media = [
-  { outlet: "CEO Today Magazine", note: "Cover feature — Paving the Way for Growth" },
-  { outlet: "Pakistan Today", note: "EU pharmaceutical imports — commentary" },
-  { outlet: "The Financial Daily", note: "RKSM Chairmanship coverage" },
-  { outlet: "Television & Talk Shows", note: "Healthcare awareness programs" },
-];
 
 
 const stats = [
