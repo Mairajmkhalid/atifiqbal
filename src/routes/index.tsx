@@ -1,13 +1,8 @@
+import type { ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroAtifAsset from "@/assets/hero-atif.png.asset.json";
 const portrait = heroAtifAsset.url;
 import atifDesk from "@/assets/atif-desk.png";
-import galleryCeoSummit from "@/assets/gallery-ceo-summit.jpg";
-import galleryDubai from "@/assets/gallery-dubai.jpg";
-import galleryPresidential from "@/assets/gallery-presidential.jpg";
-import galleryPhilippines from "@/assets/gallery-philippines.jpg";
-import galleryDiplomatic from "@/assets/gallery-diplomatic.jpg";
-import galleryCeoToday from "@/assets/gallery-ceo-today.jpg";
 
 export const Route = createFileRoute("/")({
   component: Profile,
@@ -59,14 +54,6 @@ const media = [
   { outlet: "Television & Talk Shows", note: "Healthcare awareness programs" },
 ];
 
-const gallery = [
-  { src: galleryDubai, label: "Global Leadership Excellence", place: "Dubai · 2025" },
-  { src: galleryPresidential, label: "National Recognition", place: "Islamabad" },
-  { src: galleryCeoSummit, label: "CEO Summit", place: "Islamabad · 2025" },
-  { src: galleryPhilippines, label: "127th Philippine Independence", place: "Diplomatic Reception · 2025" },
-  { src: galleryDiplomatic, label: "Consular Reception", place: "Diplomatic Engagement" },
-  { src: galleryCeoToday, label: "CEO Today Magazine", place: "Cover Feature" },
-];
 
 const stats = [
   { value: "30+", label: "Years in Industry" },
@@ -452,13 +439,172 @@ function Awards() {
   );
 }
 
+type GalleryItem = { src: string; label: string; place: string; contain?: boolean };
+type GallerySection = { id: string; eyebrow: string; title: ReactNode; items: GalleryItem[] };
+
+const gallerySections: GallerySection[] = [
+  {
+    id: "gallery-social",
+    eyebrow: "Chapter I",
+    title: (
+      <>
+        Participation in recent <em className="text-gold not-italic">social &amp; diplomatic</em> events.
+      </>
+    ),
+    items: [
+      { src: "/profile/social-myanmar.jpg", label: "78th Independence Day of Myanmar", place: "Islamabad · with H.E. Wunna Han" },
+      { src: "/profile/social-china-consulate.jpg", label: "Economic Diplomatic Forum 2026", place: "Chinese Consulate · Karachi" },
+      { src: "/profile/social-quaid-summit.jpg", label: "Quaid-e-Azam Leadership Summit", place: "National Leadership Awards · Karachi 2025" },
+      { src: "/profile/social-us-consul.jpg", label: "With H.E. Conrad Tribble", place: "Consul General · U.S. Consulate" },
+      { src: "/profile/social-oman-consul.jpg", label: "With H.E. Sami Al Khanjari", place: "Consul General · Oman" },
+      { src: "/profile/social-philippines.jpg", label: "With H.E. Dr. Imran Yousuf Muhammad", place: "Honorary Consul General · Philippines" },
+      { src: "/profile/social-consuls-group.jpg", label: "Consuls General of Turkey, Thailand, Sri Lanka & Indonesia", place: "Diplomatic Gathering" },
+      { src: "/profile/social-china-cpec.jpg", label: "With H.E. Li Bijian", place: "CPEC BOI Meeting · Karachi" },
+      { src: "/profile/social-usa-rotary.jpg", label: "With H.E. Nicole Theriot", place: "Rotary Square Mile · London Night" },
+      { src: "/profile/social-tajikistan.jpg", label: "With Honorary Consul of Tajikistan", place: "HIGH-Q Pharmaceuticals" },
+    ],
+  },
+  {
+    id: "gallery-award",
+    eyebrow: "Chapter II",
+    title: (
+      <>
+        Receiving the <em className="text-gold not-italic">Global Leadership Excellence</em> Award.
+      </>
+    ),
+    items: [
+      { src: "/profile/award-global-leadership-1.jpg", label: "Global Leadership Excellence Award", place: "Global Image Award · Dubai 2025" },
+      { src: "/profile/award-global-leadership-2.jpg", label: "On Stage in Dubai", place: "Middle East · 2025" },
+      { src: "/profile/award-pbbc-london.jpg", label: "PBBC Certificate & MIP Award", place: "House of Lords · London" },
+      { src: "/profile/award-shehbaz.jpg", label: "Export Award by Former PM Shehbaz Sharif", place: "6th Pakistan Pharma Summit & PESA '23" },
+      { src: "/profile/award-export-1.jpg", label: "Top 50 Export Award", place: "8th Pakistan Pharma Summit & PESA 2025" },
+      { src: "/profile/award-ceo-summit.jpg", label: "CEO Summit Award", place: "Islamabad · 2025" },
+      { src: "/profile/award-patron.jpg", label: "Patron Award", place: "Governor Sindh Kamran Tessori · Youth Parliament 2024" },
+    ],
+  },
+  {
+    id: "gallery-speaker",
+    eyebrow: "Chapter III",
+    title: (
+      <>
+        Participation as <em className="text-gold not-italic">Guest Speaker</em> / Guest of Honor.
+      </>
+    ),
+    items: [
+      { src: "/profile/speaker-roshan.jpg", label: "2nd Roshan Pakistan Corporate Business Forum & Awards", place: "Guest Speaker" },
+      { src: "/profile/speaker-podium.jpg", label: "Keynote Address", place: "Industry Forum" },
+      { src: "/profile/speaker-ziauddin.jpg", label: "Ziauddin University Commencement", place: "2022" },
+      { src: "/profile/speaker-ribbon.jpg", label: "Inauguration Ceremony", place: "Ribbon Cutting" },
+      { src: "/profile/speaker-jsmu.jpg", label: "First JSMU Pharma Career Fair", place: "2022" },
+    ],
+  },
+  {
+    id: "gallery-fpcci",
+    eyebrow: "Chapter IV",
+    title: (
+      <>
+        <em className="text-gold not-italic">FPCCI</em> achievements &amp; bilateral appointments.
+      </>
+    ),
+    items: [
+      { src: "/profile/fpcci-finland.jpg", label: "Appointed Vice Chairman, Pakistan–Finland Business Council", place: "Federation of Pakistan Chambers" },
+      { src: "/profile/fpcci-morocco-yemen.jpg", label: "With H.E. Ishtiaq Baig (Morocco) & H.E. Dr. Mirza Ikhtiar Baig (Yemen)", place: "Honorary Consuls General" },
+    ],
+  },
+  {
+    id: "gallery-press",
+    eyebrow: "Chapter V",
+    title: (
+      <>
+        Newspaper clippings &amp; <em className="text-gold not-italic">magazine features.</em>
+      </>
+    ),
+    items: [
+      { src: "/profile/media-ceo-today.jpg", label: "CEO Today Magazine — Cover Feature", place: "Paving the Way for Growth · Issue LXV", contain: true },
+      { src: "/profile/media-pakistan-today.jpg", label: "Pakistan Today", place: "EU envoy on pharmaceutical imports from Pakistan", contain: true },
+      { src: "/profile/media-financial-daily.jpg", label: "The Financial Daily", place: "Nominated as RKSM Chairman", contain: true },
+    ],
+  },
+  {
+    id: "gallery-certs",
+    eyebrow: "Chapter VI",
+    title: (
+      <>
+        Certifications &amp; <em className="text-gold not-italic">memberships.</em>
+      </>
+    ),
+    items: [
+      { src: "/profile/cert-fpcci-rwanda-myanmar.jpg", label: "Chairman — Pakistan–Rwanda & Pakistan–Myanmar Business Councils", place: "FPCCI · 2026", contain: true },
+      { src: "/profile/cert-fpcci-3.jpg", label: "FPCCI Standing Committee", place: "Federation of Pakistan Chambers", contain: true },
+      { src: "/profile/cert-kcfr.jpg", label: "Karachi Council on Foreign Relations", place: "Lifetime Member · 2024", contain: true },
+      { src: "/profile/cert-fpcci-philippines.jpg", label: "Chairman — Pakistan–Philippines Business Council", place: "FPCCI · 2024–2025", contain: true },
+      { src: "/profile/cert-pcfr.jpg", label: "Pakistan Council on Foreign Relations", place: "Certificate of Membership · 2023", contain: true },
+      { src: "/profile/cert-iba.jpg", label: "IBA — Managerial Communication Strategies", place: "Institute of Business Administration", contain: true },
+      { src: "/profile/cert-dbc.jpg", label: "Diplomatic Business Club", place: "Platinum Member", contain: true },
+    ],
+  },
+];
+
+function bentoSpanFor(count: number, index: number): string {
+  // Editorial bento layout: alternate hero-sized and standard tiles based on total count
+  if (count <= 3) return "md:col-span-4 min-h-[360px]";
+  if (count === 4) return "md:col-span-6 min-h-[380px]";
+  // 5+: first tile large, then a rhythmic mix
+  const pattern = [
+    "md:col-span-8 min-h-[520px]",
+    "md:col-span-4 min-h-[520px]",
+    "md:col-span-4 min-h-[320px]",
+    "md:col-span-4 min-h-[320px]",
+    "md:col-span-4 min-h-[320px]",
+    "md:col-span-6 min-h-[360px]",
+    "md:col-span-6 min-h-[360px]",
+    "md:col-span-4 min-h-[320px]",
+    "md:col-span-4 min-h-[320px]",
+    "md:col-span-4 min-h-[320px]",
+  ];
+  return pattern[index % pattern.length];
+}
+
+function GallerySectionBlock({ section, index }: { section: GallerySection; index: number }) {
+  return (
+    <div id={section.id} className={index === 0 ? "" : "mt-24"}>
+      <div className="max-w-3xl mb-12">
+        <p className="eyebrow mb-6">
+          <span className="gold-rule mr-4" /> {section.eyebrow}
+        </p>
+        <h3 className="font-serif text-3xl md:text-5xl leading-[1.1] text-cream">{section.title}</h3>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+        {section.items.map((g, i) => (
+          <figure
+            key={g.src}
+            className={`group relative overflow-hidden cinema-card ${bentoSpanFor(section.items.length, i)}`}
+          >
+            <img
+              src={g.src}
+              alt={g.label}
+              loading="lazy"
+              className={`absolute inset-0 w-full h-full ${g.contain ? "object-contain bg-noir-soft p-3" : "object-cover object-top"} grayscale-[35%] group-hover:grayscale-0 scale-[1.03] group-hover:scale-100 transition-all duration-[1400ms]`}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/30 to-transparent pointer-events-none" />
+            <figcaption className="absolute inset-x-0 bottom-0 p-5">
+              <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{g.place}</p>
+              <p className="font-serif italic text-lg md:text-xl text-cream mt-1.5 leading-tight">{g.label}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Gallery() {
   return (
     <section id="gallery" className="py-32 bg-noir">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="max-w-3xl mb-20">
           <p className="eyebrow mb-6">
-            <span className="gold-rule mr-4" /> Moments
+            <span className="gold-rule mr-4" /> The Archive
           </p>
           <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-cream">
             A visual record of engagements, awards, and
@@ -466,39 +612,9 @@ function Gallery() {
           </h2>
         </div>
 
-        {/* True bento: 12-col with mixed tile sizes */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-          {[
-            { i: 0, span: "md:col-span-8 md:row-span-2", h: "min-h-[560px]" },
-            { i: 1, span: "md:col-span-4", h: "min-h-[270px]" },
-            { i: 2, span: "md:col-span-4", h: "min-h-[270px]" },
-            { i: 3, span: "md:col-span-4", h: "min-h-[300px]" },
-            { i: 4, span: "md:col-span-4", h: "min-h-[300px]" },
-            { i: 5, span: "md:col-span-4", h: "min-h-[300px]" },
-          ].map(({ i, span, h }) => {
-            const g = gallery[i];
-            return (
-              <figure
-                key={g.label}
-                className={`group relative overflow-hidden cinema-card ${span} ${h}`}
-              >
-                <img
-                  src={g.src}
-                  alt={g.label}
-                  loading="lazy"
-                  width={1200}
-                  height={800}
-                  className={`absolute inset-0 w-full h-full object-cover object-top grayscale-[45%] group-hover:grayscale-0 scale-105 group-hover:scale-100 transition-all duration-[1400ms]`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/40 to-transparent" />
-                <figcaption className="absolute inset-x-0 bottom-0 p-6">
-                  <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{g.place}</p>
-                  <p className="font-serif italic text-2xl text-cream mt-2 leading-tight">{g.label}</p>
-                </figcaption>
-              </figure>
-            );
-          })}
-        </div>
+        {gallerySections.map((s, i) => (
+          <GallerySectionBlock key={s.id} section={s} index={i} />
+        ))}
       </div>
     </section>
   );
