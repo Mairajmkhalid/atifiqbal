@@ -88,7 +88,7 @@ function Nav() {
             <li key={id}>
               <a
                 href={`#${id}`}
-                className="text-[10px] uppercase tracking-[0.4em] text-cream/60 hover:text-gold transition-colors duration-500"
+                className="nav-link text-[10px] uppercase tracking-[0.4em] text-cream/60"
               >
                 {label}
               </a>
@@ -98,7 +98,7 @@ function Nav() {
         <a
           href="/Atif_Iqbal_CV.pdf"
           download
-          className="hidden md:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-4 lg:px-5 py-2.5 hover:bg-gold-soft transition-colors duration-500"
+          className="btn-gold hidden md:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-4 lg:px-5 py-2.5"
         >
           <span className="hidden lg:inline">Download CV</span>
           <span className="lg:hidden">CV</span>
@@ -228,7 +228,7 @@ function Hero() {
           <a
             href="/Atif_Iqbal_CV.pdf"
             download
-            className="group inline-flex items-center justify-center gap-3 bg-gold text-noir px-6 sm:px-8 py-3.5 sm:py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold-soft transition-colors duration-500"
+            className="btn-gold group inline-flex items-center justify-center gap-3 bg-gold text-noir px-7 sm:px-9 py-4 sm:py-[1.05rem] text-[10px] uppercase tracking-[0.4em]"
           >
             Download CV
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-y-0.5">
@@ -237,7 +237,7 @@ function Hero() {
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-3 border border-gold/50 text-cream px-6 sm:px-8 py-3.5 sm:py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold/10 transition-colors duration-500"
+            className="btn-ghost-gold inline-flex items-center justify-center gap-3 border border-gold/40 text-cream px-7 sm:px-9 py-4 sm:py-[1.05rem] text-[10px] uppercase tracking-[0.4em]"
           >
             Contact
           </a>
@@ -260,10 +260,10 @@ function Stats() {
         {stats.map((s, i) => (
           <div
             key={s.label}
-            className={`py-10 md:py-14 px-4 sm:px-6 text-center md:text-left ${i > 0 ? "md:border-l border-gold/15" : ""} ${i >= 2 ? "border-t md:border-t-0 border-gold/15" : ""}`}
+            className={`stat-tile py-12 md:py-16 px-5 sm:px-8 text-center md:text-left group ${i > 0 ? "md:border-l border-gold/15" : ""} ${i >= 2 ? "border-t md:border-t-0 border-gold/15" : ""}`}
           >
-            <p className="font-serif text-4xl sm:text-5xl md:text-6xl text-gold leading-none">{s.value}</p>
-            <p className="mt-3 sm:mt-4 text-[10px] uppercase tracking-[0.4em] text-cream/50">{s.label}</p>
+            <p className="font-serif text-4xl sm:text-5xl md:text-6xl text-gold leading-none transition-colors duration-500 group-hover:text-gold-soft">{s.value}</p>
+            <p className="mt-3 sm:mt-4 text-[10px] uppercase tracking-[0.42em] text-cream/50">{s.label}</p>
           </div>
         ))}
       </div>
@@ -288,7 +288,7 @@ function About() {
         {/* Bento */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Portrait tile */}
-          <div className="md:col-span-5 md:row-span-2 cinema-card overflow-hidden group">
+          <div className="md:col-span-5 md:row-span-2 cinema-card cinema-card-hover overflow-hidden group">
             <div className="relative h-full min-h-[360px] md:min-h-[520px]">
               <img
                 src={atifDesk}
@@ -306,7 +306,7 @@ function About() {
           </div>
 
           {/* Biography prose */}
-          <div className="md:col-span-7 cinema-card p-6 sm:p-10 md:p-12">
+          <div className="md:col-span-7 cinema-card cinema-card-hover p-6 sm:p-10 md:p-12">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">The Vision</p>
             <div className="space-y-5 text-cream/75 leading-relaxed text-base sm:text-[17px] font-light">
               <p>
@@ -330,7 +330,7 @@ function About() {
           </div>
 
           {/* Academics tile */}
-          <div className="md:col-span-4 cinema-card p-6 sm:p-8">
+          <div className="md:col-span-4 cinema-card cinema-card-hover p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Academics</p>
             <ul className="space-y-3 text-sm text-cream/70">
               <li>MBA Marketing — Newport Institute University, 1999</li>
@@ -340,7 +340,7 @@ function About() {
           </div>
 
           {/* Certifications tile */}
-          <div className="md:col-span-3 cinema-card p-6 sm:p-8">
+          <div className="md:col-span-3 cinema-card cinema-card-hover p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Certifications</p>
             <ul className="space-y-3 text-sm text-cream/70">
               <li>IBA — cGMP</li>
@@ -371,16 +371,24 @@ function Memberships() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Featured — Gold slab */}
-          <div className="md:col-span-4 bg-gold text-noir p-8 sm:p-10 flex flex-col justify-between min-h-[240px] md:min-h-[300px]">
-            <div>
+          <div className="md:col-span-4 relative overflow-hidden bg-gradient-to-br from-gold to-[#b8933e] text-noir p-8 sm:p-10 flex flex-col justify-between min-h-[260px] md:min-h-[320px] transition-transform duration-700 hover:-translate-y-1">
+            <div
+              className="absolute -top-16 -right-16 w-56 h-56 rounded-full pointer-events-none opacity-30"
+              style={{ background: "radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 65%)" }}
+              aria-hidden
+            />
+            <div className="relative">
               <p className="text-[10px] uppercase tracking-[0.4em] text-noir/60 mb-4">Chairman · 2026</p>
               <h3 className="font-serif text-2xl sm:text-3xl leading-tight">
                 Pakistan – Rwanda &amp; Pakistan – Myanmar Business Councils
               </h3>
             </div>
-            <p className="text-xs uppercase tracking-[0.3em] text-noir/70 mt-6">
-              Founding chairmanships
-            </p>
+            <div className="relative flex items-center gap-3 mt-6">
+              <span className="h-px w-10 bg-noir/50" />
+              <p className="text-[10px] uppercase tracking-[0.35em] text-noir/70">
+                Founding chairmanships
+              </p>
+            </div>
           </div>
 
           {/* Council list */}
@@ -389,24 +397,25 @@ function Memberships() {
               {memberships.slice(2).map((m, i) => (
                 <div
                   key={m.name}
-                  className={`p-5 sm:p-6 min-w-0 ${i % 2 === 0 ? "sm:border-r border-gold/10" : ""} border-b border-gold/10 last:border-b-0 hover:bg-gold/5 transition-colors duration-500`}
+                  className={`group relative p-5 sm:p-7 min-w-0 ${i % 2 === 0 ? "sm:border-r border-gold/10" : ""} border-b border-gold/10 last:border-b-0 transition-colors duration-500 hover:bg-gold/[0.04]`}
                 >
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-gold">{m.role}</p>
-                  <p className="font-serif text-base sm:text-lg text-cream mt-2 leading-snug break-words">{m.name}</p>
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-cream/40 mt-2">{m.year}</p>
+                  <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 bg-gold transition-all duration-500 group-hover:h-2/3" />
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-gold">{m.role}</p>
+                  <p className="font-serif text-base sm:text-lg text-cream mt-2 leading-snug break-words transition-colors duration-500 group-hover:text-gold-soft">{m.name}</p>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-cream/40 mt-2">{m.year}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Affiliations chips */}
-          <div className="md:col-span-12 cinema-card p-6 sm:p-8">
+          <div className="md:col-span-12 cinema-card cinema-card-hover p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Also Affiliated With</p>
             <div className="flex flex-wrap gap-2">
               {affiliations.map((a) => (
                 <span
                   key={a}
-                  className="text-xs tracking-wide border border-gold/25 text-cream/70 px-3 sm:px-4 py-2 hover:border-gold hover:text-gold transition-colors duration-500"
+                  className="text-xs tracking-wide border border-gold/25 text-cream/70 px-3.5 sm:px-4 py-2 hover:border-gold hover:text-gold hover:bg-gold/5 transition-all duration-500 cursor-default"
                 >
                   {a}
                 </span>
@@ -436,7 +445,7 @@ function Awards() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Featured award — spotlight tile */}
-          <div className="md:col-span-6 cinema-card p-8 sm:p-10 md:p-14 relative overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col justify-between">
+          <div className="md:col-span-6 cinema-card cinema-card-hover p-8 sm:p-10 md:p-14 relative overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col justify-between">
             <div
               className="absolute -top-20 -right-20 w-64 sm:w-80 h-64 sm:h-80 rounded-full pointer-events-none gold-pulse"
               style={{ background: "radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 65%)" }}
@@ -455,7 +464,7 @@ function Awards() {
           </div>
 
           {/* Media strip */}
-          <div className="md:col-span-6 cinema-card p-8 sm:p-10">
+          <div className="md:col-span-6 cinema-card cinema-card-hover p-8 sm:p-10">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6 sm:mb-8">Featured In</p>
             <ul className="space-y-5">
               {media.map((m) => (
@@ -473,7 +482,7 @@ function Awards() {
           {rest.map((a) => (
             <div
               key={a.title}
-              className="md:col-span-3 cinema-card p-6 sm:p-8 hover:border-gold/60 transition-colors duration-500"
+              className="md:col-span-3 cinema-card cinema-card-hover p-6 sm:p-8 hover:border-gold/60 transition-colors duration-500"
             >
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{a.year}</p>
               <h3 className="font-serif text-lg sm:text-xl text-cream mt-3 leading-tight">{a.title}</h3>
@@ -628,15 +637,18 @@ function GallerySectionBlock({ section, index }: { section: GallerySection; inde
         {section.items.map((g, i) => (
           <figure
             key={g.src}
-            className={`group relative overflow-hidden cinema-card ${bentoSpanFor(section.items.length, i)}`}
+            className={`group relative overflow-hidden cinema-card cinema-card-hover ${bentoSpanFor(section.items.length, i)}`}
           >
             <img
               src={g.src}
               alt={g.label}
               loading="lazy"
-              className={`absolute inset-0 w-full h-full ${g.contain ? "object-contain bg-noir-soft p-3" : "object-cover object-top"} grayscale-[35%] group-hover:grayscale-0 scale-[1.03] group-hover:scale-100 transition-all duration-[1400ms]`}
+              className={`absolute inset-0 w-full h-full ${g.contain ? "object-contain bg-noir-soft p-3" : "object-cover object-top"} grayscale-[35%] group-hover:grayscale-0 scale-[1.03] group-hover:scale-[1.06] transition-all duration-[1400ms]`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/30 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/40 to-transparent pointer-events-none opacity-95 group-hover:opacity-80 transition-opacity duration-700" />
+            {/* Gold corner accents */}
+            <span className="pointer-events-none absolute top-3 left-3 w-4 h-4 border-t border-l border-gold/0 group-hover:border-gold/80 transition-all duration-500" />
+            <span className="pointer-events-none absolute bottom-3 right-3 w-4 h-4 border-b border-r border-gold/0 group-hover:border-gold/80 transition-all duration-500" />
             <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{g.place}</p>
               <p className="font-serif italic text-base sm:text-lg md:text-xl text-cream mt-1.5 leading-tight">{g.label}</p>
