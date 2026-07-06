@@ -356,13 +356,13 @@ function About() {
 
 function Memberships() {
   return (
-    <section id="memberships" className="py-32 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="max-w-3xl mb-20">
+    <section id="memberships" className="py-20 md:py-32 bg-noir">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+        <div className="max-w-3xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
             <span className="gold-rule mr-4" /> Councils & Memberships
           </p>
-          <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-cream">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-cream">
             Serving on councils that shape trade, health, and diplomacy across
             <em className="text-gold not-italic"> four continents.</em>
           </h2>
@@ -370,10 +370,10 @@ function Memberships() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Featured — Gold slab */}
-          <div className="md:col-span-4 bg-gold text-noir p-10 flex flex-col justify-between min-h-[300px]">
+          <div className="md:col-span-4 bg-gold text-noir p-8 sm:p-10 flex flex-col justify-between min-h-[240px] md:min-h-[300px]">
             <div>
               <p className="text-[10px] uppercase tracking-[0.4em] text-noir/60 mb-4">Chairman · 2026</p>
-              <h3 className="font-serif text-3xl leading-tight">
+              <h3 className="font-serif text-2xl sm:text-3xl leading-tight">
                 Pakistan – Rwanda &amp; Pakistan – Myanmar Business Councils
               </h3>
             </div>
@@ -384,14 +384,14 @@ function Memberships() {
 
           {/* Council list */}
           <div className="md:col-span-8 cinema-card p-2">
-            <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2">
               {memberships.slice(2).map((m, i) => (
                 <div
                   key={m.name}
-                  className={`p-6 ${i % 2 === 0 ? "md:border-r border-gold/10" : ""} border-b border-gold/10 last:border-b-0 hover:bg-gold/5 transition-colors duration-500`}
+                  className={`p-5 sm:p-6 min-w-0 ${i % 2 === 0 ? "sm:border-r border-gold/10" : ""} border-b border-gold/10 last:border-b-0 hover:bg-gold/5 transition-colors duration-500`}
                 >
                   <p className="text-[10px] uppercase tracking-[0.3em] text-gold">{m.role}</p>
-                  <p className="font-serif text-lg text-cream mt-2 leading-snug">{m.name}</p>
+                  <p className="font-serif text-base sm:text-lg text-cream mt-2 leading-snug break-words">{m.name}</p>
                   <p className="text-[10px] uppercase tracking-[0.3em] text-cream/40 mt-2">{m.year}</p>
                 </div>
               ))}
@@ -399,13 +399,13 @@ function Memberships() {
           </div>
 
           {/* Affiliations chips */}
-          <div className="md:col-span-12 cinema-card p-8">
+          <div className="md:col-span-12 cinema-card p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Also Affiliated With</p>
             <div className="flex flex-wrap gap-2">
               {affiliations.map((a) => (
                 <span
                   key={a}
-                  className="text-xs tracking-wide border border-gold/25 text-cream/70 px-4 py-2 hover:border-gold hover:text-gold transition-colors duration-500"
+                  className="text-xs tracking-wide border border-gold/25 text-cream/70 px-3 sm:px-4 py-2 hover:border-gold hover:text-gold transition-colors duration-500"
                 >
                   {a}
                 </span>
