@@ -88,7 +88,7 @@ function Nav() {
             <li key={id}>
               <a
                 href={`#${id}`}
-                className="text-[10px] uppercase tracking-[0.4em] text-cream/60 hover:text-gold transition-colors duration-500"
+                className="nav-link text-[10px] uppercase tracking-[0.4em] text-cream/60"
               >
                 {label}
               </a>
@@ -98,7 +98,7 @@ function Nav() {
         <a
           href="/Atif_Iqbal_CV.pdf"
           download
-          className="hidden md:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-4 lg:px-5 py-2.5 hover:bg-gold-soft transition-colors duration-500"
+          className="btn-gold hidden md:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-4 lg:px-5 py-2.5"
         >
           <span className="hidden lg:inline">Download CV</span>
           <span className="lg:hidden">CV</span>
