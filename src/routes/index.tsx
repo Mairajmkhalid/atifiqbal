@@ -329,7 +329,7 @@ function About() {
           </div>
 
           {/* Academics tile */}
-          <div className="md:col-span-4 cinema-card p-8">
+          <div className="md:col-span-4 cinema-card p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Academics</p>
             <ul className="space-y-3 text-sm text-cream/70">
               <li>MBA Marketing — Newport Institute University, 1999</li>
@@ -339,7 +339,7 @@ function About() {
           </div>
 
           {/* Certifications tile */}
-          <div className="md:col-span-3 cinema-card p-8">
+          <div className="md:col-span-3 cinema-card p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Certifications</p>
             <ul className="space-y-3 text-sm text-cream/70">
               <li>IBA — cGMP</li>
