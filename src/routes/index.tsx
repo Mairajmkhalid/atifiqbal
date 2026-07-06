@@ -484,31 +484,88 @@ function Awards() {
           />
         </div>
 
-        {/* Partnerships strip */}
-        <div className="cinema-card p-5 sm:p-6 mb-4">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-5">
-            06 · Global Partnerships Across the World
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        {/* Global Partnerships — cinematic pack */}
+        <div className="cinema-card p-5 sm:p-8 mb-4">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6 sm:mb-8">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-3">
+                06 · Global Partnerships
+              </p>
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-cream leading-tight">
+                Partnering beyond borders.<br />
+                <em className="text-gold not-italic">Impacting lives worldwide.</em>
+              </h3>
+            </div>
+            <p className="text-xs sm:text-sm text-cream/60 italic max-w-sm md:text-right">
+              “Through strategic partnerships and global collaborations, we are expanding access to quality healthcare and building a healthier future together.”
+            </p>
+          </div>
+
+          {/* Hero: globe + 2×2 country grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 mb-3">
+            <div className="lg:col-span-6 relative overflow-hidden aspect-[4/3] lg:aspect-auto border border-gold/15">
+              <img
+                src="/profile/partners-globe.jpg"
+                alt="Global partnership network illuminated across the world"
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                ["China", "/profile/partners-china.jpg"],
+                ["Myanmar", "/profile/partners-myanmar.jpg"],
+                ["Philippines", "/profile/partners-philippines.jpg"],
+                ["USA", "/profile/partners-usa.jpg"],
+              ].map(([country, src]) => (
+                <div key={country} className="group relative overflow-hidden aspect-[16/10] border border-gold/15">
+                  <img
+                    src={src}
+                    alt={`Partnership with ${country}`}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Second row: Oman, Lebanon, world map */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6 sm:mb-8">
             {[
-              ["China", "/profile/partners-china.jpg"],
-              ["Myanmar", "/profile/partners-myanmar.jpg"],
-              ["Philippines", "/profile/partners-philippines.jpg"],
-              ["USA", "/profile/partners-usa.jpg"],
               ["Oman", "/profile/partners-oman.jpg"],
               ["Lebanon", "/profile/partners-lebanon.jpg"],
             ].map(([country, src]) => (
               <div key={country} className="group relative overflow-hidden aspect-[4/3] border border-gold/15">
                 <img
                   src={src}
-                  alt={country}
+                  alt={`Partnership with ${country}`}
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent" />
-                <span className="absolute left-3 bottom-2 text-[10px] uppercase tracking-[0.35em] text-gold">
-                  {country}
-                </span>
+              </div>
+            ))}
+            <div className="relative overflow-hidden aspect-[4/3] border border-gold/15">
+              <img
+                src="/profile/partners-worldmap.jpg"
+                alt="A global network with a local impact"
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Stat strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-gold/15">
+            {[
+              ["40+", "Countries reached"],
+              ["Strategic", "Global partnerships"],
+              ["Millions", "Lives touched"],
+              ["Global · Local", "Standards & commitment"],
+            ].map(([k, v]) => (
+              <div key={v as string}>
+                <p className="font-serif text-xl sm:text-2xl text-gold leading-tight">{k}</p>
+                <p className="text-[11px] uppercase tracking-[0.28em] text-cream/60 mt-2">{v}</p>
               </div>
             ))}
           </div>
