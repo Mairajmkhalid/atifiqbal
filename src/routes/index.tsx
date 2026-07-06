@@ -421,13 +421,13 @@ function Memberships() {
 function Awards() {
   const [featured, ...rest] = awards;
   return (
-    <section id="awards" className="py-32 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="max-w-3xl mb-20">
+    <section id="awards" className="py-20 md:py-32 bg-noir">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
+        <div className="max-w-3xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
             <span className="gold-rule mr-4" /> Awards & Media
           </p>
-          <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] text-cream">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-cream">
             Recognised on the world stage — from the House of Lords to the
             <em className="text-gold not-italic"> Middle East.</em>
           </h2>
@@ -435,16 +435,16 @@ function Awards() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Featured award — spotlight tile */}
-          <div className="md:col-span-6 cinema-card p-10 md:p-14 relative overflow-hidden min-h-[380px] flex flex-col justify-between">
+          <div className="md:col-span-6 cinema-card p-8 sm:p-10 md:p-14 relative overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col justify-between">
             <div
-              className="absolute -top-20 -right-20 w-80 h-80 rounded-full pointer-events-none gold-pulse"
+              className="absolute -top-20 -right-20 w-64 sm:w-80 h-64 sm:h-80 rounded-full pointer-events-none gold-pulse"
               style={{ background: "radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 65%)" }}
               aria-hidden
             />
             <div className="relative">
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-4">{featured.year} · Featured</p>
-              <h3 className="font-serif text-4xl md:text-5xl text-cream leading-tight">{featured.title}</h3>
-              <p className="mt-6 text-cream/60 text-sm">{featured.place}</p>
+              <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-cream leading-tight">{featured.title}</h3>
+              <p className="mt-5 sm:mt-6 text-cream/60 text-sm">{featured.place}</p>
             </div>
             <div className="relative text-gold mt-8">
               <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
@@ -454,13 +454,13 @@ function Awards() {
           </div>
 
           {/* Media strip */}
-          <div className="md:col-span-6 cinema-card p-10">
-            <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-8">Featured In</p>
+          <div className="md:col-span-6 cinema-card p-8 sm:p-10">
+            <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6 sm:mb-8">Featured In</p>
             <ul className="space-y-5">
               {media.map((m) => (
-                <li key={m.outlet} className="flex items-baseline justify-between gap-6 border-b border-gold/10 pb-4 last:border-0">
-                  <div>
-                    <p className="font-serif italic text-xl text-cream">{m.outlet}</p>
+                <li key={m.outlet} className="flex items-baseline justify-between gap-4 sm:gap-6 border-b border-gold/10 pb-4 last:border-0">
+                  <div className="min-w-0">
+                    <p className="font-serif italic text-lg sm:text-xl text-cream break-words">{m.outlet}</p>
                     <p className="text-xs text-cream/50 mt-1">{m.note}</p>
                   </div>
                 </li>
@@ -472,10 +472,10 @@ function Awards() {
           {rest.map((a) => (
             <div
               key={a.title}
-              className="md:col-span-3 cinema-card p-8 hover:border-gold/60 transition-colors duration-500"
+              className="md:col-span-3 cinema-card p-6 sm:p-8 hover:border-gold/60 transition-colors duration-500"
             >
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{a.year}</p>
-              <h3 className="font-serif text-xl text-cream mt-3 leading-tight">{a.title}</h3>
+              <h3 className="font-serif text-lg sm:text-xl text-cream mt-3 leading-tight">{a.title}</h3>
               <p className="text-xs text-cream/50 mt-3 leading-relaxed">{a.place}</p>
             </div>
           ))}
