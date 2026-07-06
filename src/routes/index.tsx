@@ -168,7 +168,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex items-start justify-start overflow-hidden px-6 lg:px-24 pt-32 lg:pt-40"
+      className="relative min-h-[100svh] flex items-start justify-start overflow-hidden px-5 sm:px-6 lg:px-24 pt-28 sm:pt-32 lg:pt-40 pb-24"
     >
       {/* Background portrait — cinematic, right-aligned, feathered */}
       <div className="absolute inset-0 bg-noir" aria-hidden />
@@ -203,31 +203,31 @@ function Hero() {
       />
 
       {/* Top-left cinematic title */}
-      <div className="relative z-10 text-left max-w-4xl">
-        <p className="eyebrow mb-8 hero-rise" style={{ animationDelay: "0.2s" }}>
+      <div className="relative z-10 text-left max-w-4xl w-full">
+        <p className="eyebrow mb-6 sm:mb-8 hero-rise" style={{ animationDelay: "0.2s" }}>
           Group CEO · HIGH-Q Pharmaceuticals
         </p>
         <h1
-          className="font-serif font-light text-white leading-[0.9] text-6xl md:text-8xl lg:text-[10rem] mb-8 hero-rise"
+          className="font-serif font-light text-white leading-[0.9] text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] mb-6 sm:mb-8 hero-rise break-words"
           style={{ animationDelay: "0.45s" }}
         >
           Atif <span className="italic text-gold">Iqbal</span>
         </h1>
         <p
-          className="max-w-2xl text-base md:text-lg text-cream/70 font-light leading-relaxed hero-rise"
+          className="max-w-2xl text-sm sm:text-base md:text-lg text-cream/70 font-light leading-relaxed hero-rise"
           style={{ animationDelay: "0.7s" }}
         >
           Industrial leader, diplomat, and philanthropist. Steward of the HIGH-Q Group and
           Vida Laboratories — building bridges between industry, medicine, and nations.
         </p>
         <div
-          className="mt-12 flex flex-wrap justify-start gap-4 hero-rise"
+          className="mt-10 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-start gap-3 sm:gap-4 hero-rise"
           style={{ animationDelay: "0.95s" }}
         >
           <a
             href="/Atif_Iqbal_CV.pdf"
             download
-            className="group inline-flex items-center gap-3 bg-gold text-noir px-8 py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold-soft transition-colors duration-500"
+            className="group inline-flex items-center justify-center gap-3 bg-gold text-noir px-6 sm:px-8 py-3.5 sm:py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold-soft transition-colors duration-500"
           >
             Download CV
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-y-0.5">
@@ -236,7 +236,7 @@ function Hero() {
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 border border-gold/50 text-cream px-8 py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold/10 transition-colors duration-500"
+            className="inline-flex items-center justify-center gap-3 border border-gold/50 text-cream px-6 sm:px-8 py-3.5 sm:py-4 text-[10px] uppercase tracking-[0.4em] hover:bg-gold/10 transition-colors duration-500"
           >
             Contact
           </a>
@@ -244,7 +244,7 @@ function Hero() {
       </div>
 
       {/* Cinematic hairline */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+      <div className="hidden sm:flex absolute bottom-12 left-1/2 -translate-x-1/2 flex-col items-center gap-4">
         <div className="h-16 w-px bg-gradient-to-b from-transparent via-gold to-transparent gold-drop" />
         <span className="text-[10px] uppercase tracking-[0.5em] text-cream/40">Scroll</span>
       </div>
@@ -255,14 +255,14 @@ function Hero() {
 function Stats() {
   return (
     <section className="border-y border-gold/15 bg-noir">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4">
         {stats.map((s, i) => (
           <div
             key={s.label}
-            className={`py-14 px-6 text-center md:text-left ${i > 0 ? "md:border-l border-gold/15" : ""}`}
+            className={`py-10 md:py-14 px-4 sm:px-6 text-center md:text-left ${i > 0 ? "md:border-l border-gold/15" : ""} ${i >= 2 ? "border-t md:border-t-0 border-gold/15" : ""}`}
           >
-            <p className="font-serif text-5xl md:text-6xl text-gold leading-none">{s.value}</p>
-            <p className="mt-4 text-[10px] uppercase tracking-[0.4em] text-cream/50">{s.label}</p>
+            <p className="font-serif text-4xl sm:text-5xl md:text-6xl text-gold leading-none">{s.value}</p>
+            <p className="mt-3 sm:mt-4 text-[10px] uppercase tracking-[0.4em] text-cream/50">{s.label}</p>
           </div>
         ))}
       </div>
