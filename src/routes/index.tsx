@@ -155,6 +155,12 @@ function Hero() {
         src={portrait}
         alt="Portrait of Atif Iqbal, Group CEO of HIGH-Q Pharmaceuticals"
         className="hero-image absolute inset-0 w-full h-full object-contain object-right"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.15) 15%, rgba(0,0,0,0.6) 30%, #000 45%)",
+          maskImage:
+            "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.15) 15%, rgba(0,0,0,0.6) 30%, #000 45%)",
+        }}
       />
       <div
         className="absolute inset-0"
