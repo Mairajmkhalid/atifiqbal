@@ -429,7 +429,6 @@ function Memberships() {
 }
 
 function Awards() {
-  const [featured, ...rest] = awards;
   return (
     <section id="awards" className="py-20 md:py-32 bg-noir">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
