@@ -124,7 +124,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 lg:px-24"
+      className="relative min-h-screen flex items-start justify-start overflow-hidden px-6 lg:px-24 pt-32 lg:pt-40"
     >
       {/* Background portrait — cinematic, right-aligned, feathered */}
       <div className="absolute inset-0 bg-noir" aria-hidden />
