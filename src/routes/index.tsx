@@ -572,17 +572,6 @@ function Awards() {
         </div>
 
         {/* Media strip */}
-        <div className="cinema-card cinema-card-hover p-8 sm:p-10">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6 sm:mb-8">Featured In</p>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {media.map((m) => (
-              <li key={m.outlet} className="flex flex-col border-b border-gold/10 pb-4 last:border-0 sm:last:border-b">
-                <p className="font-serif italic text-lg sm:text-xl text-cream break-words">{m.outlet}</p>
-                <p className="text-xs text-cream/50 mt-1">{m.note}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </section>
   );
