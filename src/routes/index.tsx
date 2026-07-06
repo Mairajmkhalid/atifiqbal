@@ -59,6 +59,38 @@ const stats = [
   { value: "2007", label: "HIGH-Q Plant Established" },
 ];
 
+async function downloadProfilePdf(setBusy: (b: boolean) => void) {
+  const el = document.getElementById("profile-root");
+  if (!el) return;
+  try {
+    setBusy(true);
+    const mod = await import("html2pdf.js");
+    const html2pdf = (mod as { default: (...args: unknown[]) => unknown }).default;
+    // wait a tick so any lazy images render
+    await new Promise((r) => setTimeout(r, 100));
+    await (html2pdf as (...args: unknown[]) => { set: (o: unknown) => { from: (e: HTMLElement) => { save: () => Promise<void> } } })()
+      .set({
+        margin: 0,
+        filename: "Atif-Iqbal-Profile.pdf",
+        image: { type: "jpeg", quality: 0.95 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: "#0a0a0a",
+          windowWidth: 1280,
+        },
+        jsPDF: { unit: "px", format: [1280, el.scrollHeight], orientation: "portrait" },
+        pagebreak: { mode: ["css", "legacy"] },
+      })
+      .from(el)
+      .save();
+  } catch (err) {
+    console.error("PDF export failed", err);
+  } finally {
+    setBusy(false);
+  }
+}
+
 function Nav() {
   const items: [string, string][] = [
     ["about", "About"],
