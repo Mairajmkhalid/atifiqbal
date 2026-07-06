@@ -934,7 +934,7 @@ function Footer() {
 
 function Profile() {
   return (
-    <div className="min-h-screen bg-noir text-cream overflow-x-hidden">
+    <div id="profile-root" className="min-h-screen bg-noir text-cream overflow-x-hidden">
       <Nav />
       <ReelBadge scene="01" section="Profile" />
       <Hero />
