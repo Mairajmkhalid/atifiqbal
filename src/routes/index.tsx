@@ -628,15 +628,18 @@ function GallerySectionBlock({ section, index }: { section: GallerySection; inde
         {section.items.map((g, i) => (
           <figure
             key={g.src}
-            className={`group relative overflow-hidden cinema-card ${bentoSpanFor(section.items.length, i)}`}
+            className={`group relative overflow-hidden cinema-card cinema-card-hover ${bentoSpanFor(section.items.length, i)}`}
           >
             <img
               src={g.src}
               alt={g.label}
               loading="lazy"
-              className={`absolute inset-0 w-full h-full ${g.contain ? "object-contain bg-noir-soft p-3" : "object-cover object-top"} grayscale-[35%] group-hover:grayscale-0 scale-[1.03] group-hover:scale-100 transition-all duration-[1400ms]`}
+              className={`absolute inset-0 w-full h-full ${g.contain ? "object-contain bg-noir-soft p-3" : "object-cover object-top"} grayscale-[35%] group-hover:grayscale-0 scale-[1.03] group-hover:scale-[1.06] transition-all duration-[1400ms]`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/30 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/40 to-transparent pointer-events-none opacity-95 group-hover:opacity-80 transition-opacity duration-700" />
+            {/* Gold corner accents */}
+            <span className="pointer-events-none absolute top-3 left-3 w-4 h-4 border-t border-l border-gold/0 group-hover:border-gold/80 transition-all duration-500" />
+            <span className="pointer-events-none absolute bottom-3 right-3 w-4 h-4 border-b border-r border-gold/0 group-hover:border-gold/80 transition-all duration-500" />
             <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{g.place}</p>
               <p className="font-serif italic text-base sm:text-lg md:text-xl text-cream mt-1.5 leading-tight">{g.label}</p>
