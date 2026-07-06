@@ -59,6 +59,38 @@ const stats = [
   { value: "2007", label: "HIGH-Q Plant Established" },
 ];
 
+async function downloadProfilePdf(setBusy: (b: boolean) => void) {
+  const el = document.getElementById("profile-root");
+  if (!el) return;
+  try {
+    setBusy(true);
+    const mod = await import("html2pdf.js");
+    const html2pdf = (mod as { default: (...args: unknown[]) => unknown }).default;
+    // wait a tick so any lazy images render
+    await new Promise((r) => setTimeout(r, 100));
+    await (html2pdf as (...args: unknown[]) => { set: (o: unknown) => { from: (e: HTMLElement) => { save: () => Promise<void> } } })()
+      .set({
+        margin: 0,
+        filename: "Atif-Iqbal-Profile.pdf",
+        image: { type: "jpeg", quality: 0.95 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: "#0a0a0a",
+          windowWidth: 1280,
+        },
+        jsPDF: { unit: "px", format: [1280, el.scrollHeight], orientation: "portrait" },
+        pagebreak: { mode: ["css", "legacy"] },
+      })
+      .from(el)
+      .save();
+  } catch (err) {
+    console.error("PDF export failed", err);
+  } finally {
+    setBusy(false);
+  }
+}
+
 function Nav() {
   const items: [string, string][] = [
     ["about", "About"],
@@ -68,6 +100,7 @@ function Nav() {
     ["contact", "Contact"],
   ];
   const [open, setOpen] = useState(false);
+  const [busy, setBusy] = useState(false);
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-noir/70 border-b border-gold/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between">
@@ -89,17 +122,28 @@ function Nav() {
             </li>
           ))}
         </ul>
-        <a
-          href="/Atif_Iqbal_CV.pdf"
-          download
-          className="btn-gold hidden md:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-4 lg:px-5 py-2.5"
-        >
-          <span className="hidden lg:inline">Download CV</span>
-          <span className="lg:hidden">CV</span>
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" strokeLinecap="square" />
-          </svg>
-        </a>
+        <div className="hidden md:flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => downloadProfilePdf(setBusy)}
+            disabled={busy}
+            className="no-print inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-gold border border-gold/40 hover:bg-gold/10 px-3 lg:px-4 py-2.5 disabled:opacity-50"
+          >
+            <span className="hidden lg:inline">{busy ? "Preparing…" : "Download Profile"}</span>
+            <span className="lg:hidden">{busy ? "…" : "PDF"}</span>
+          </button>
+          <a
+            href="/Atif_Iqbal_CV.pdf"
+            download
+            className="btn-gold inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-4 lg:px-5 py-2.5"
+          >
+            <span className="hidden lg:inline">Download CV</span>
+            <span className="lg:hidden">CV</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" strokeLinecap="square" />
+            </svg>
+          </a>
+        </div>
         <button
           type="button"
           aria-label="Toggle menu"
@@ -130,12 +174,23 @@ function Nav() {
                 </a>
               </li>
             ))}
-            <li>
+            <li className="flex flex-col gap-2 pt-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  downloadProfilePdf(setBusy);
+                }}
+                disabled={busy}
+                className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-gold border border-gold/40 px-5 py-3 disabled:opacity-50"
+              >
+                {busy ? "Preparing PDF…" : "Download Profile PDF"}
+              </button>
               <a
                 href="/Atif_Iqbal_CV.pdf"
                 download
                 onClick={() => setOpen(false)}
-                className="mt-3 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-5 py-3"
+                className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-5 py-3"
               >
                 Download CV
               </a>
@@ -879,7 +934,7 @@ function Footer() {
 
 function Profile() {
   return (
-    <div className="min-h-screen bg-noir text-cream overflow-x-hidden">
+    <div id="profile-root" className="min-h-screen bg-noir text-cream overflow-x-hidden">
       <Nav />
       <ReelBadge scene="01" section="Profile" />
       <Hero />
