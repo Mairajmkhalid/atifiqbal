@@ -568,10 +568,6 @@ function AwardTile({
     </div>
   );
 }
-      </div>
-    </section>
-  );
-}
 
 type GalleryItem = { src: string; label: string; place: string; contain?: boolean };
 type GallerySection = { id: string; eyebrow: string; title: ReactNode; items: GalleryItem[] };
