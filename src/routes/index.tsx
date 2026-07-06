@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroBg from "@/assets/hero-bg.jpg";
-import portrait from "@/assets/portrait-silhouette.jpg";
-import galleryAward from "@/assets/gallery-award.jpg";
-import galleryFlags from "@/assets/gallery-flags.jpg";
-import galleryPodium from "@/assets/gallery-podium.jpg";
-import galleryFacility from "@/assets/gallery-facility.jpg";
+import portrait from "@/assets/atif-portrait.png";
+import atifDesk from "@/assets/atif-desk.png";
+import galleryCeoSummit from "@/assets/gallery-ceo-summit.jpg";
+import galleryDubai from "@/assets/gallery-dubai.jpg";
+import galleryPresidential from "@/assets/gallery-presidential.jpg";
+import galleryPhilippines from "@/assets/gallery-philippines.jpg";
+import galleryDiplomatic from "@/assets/gallery-diplomatic.jpg";
+import galleryCeoToday from "@/assets/gallery-ceo-today.jpg";
 
 export const Route = createFileRoute("/")({
   component: Profile,
@@ -81,10 +84,12 @@ const media = [
 ];
 
 const gallery = [
-  { src: galleryAward, label: "Global Leadership Excellence Award — Dubai, 2025" },
-  { src: galleryFlags, label: "Diplomatic Forums & Consular Engagements" },
-  { src: galleryPodium, label: "Guest Speaker — Business & Academic Summits" },
-  { src: galleryFacility, label: "HIGH-Q Pharmaceuticals Manufacturing Plant" },
+  { src: galleryDubai, label: "Global Leadership Excellence Award — Global Image Award, Dubai, 2025" },
+  { src: galleryPresidential, label: "Receiving a National Award — Pakistan" },
+  { src: galleryCeoSummit, label: "CEO Summit Award — Islamabad, 2025" },
+  { src: galleryPhilippines, label: "127th Philippine Independence Day — Diplomatic Reception, 2025" },
+  { src: galleryDiplomatic, label: "Consular Reception — Diplomatic Engagement" },
+  { src: galleryCeoToday, label: "CEO Today Magazine — Cover Feature" },
 ];
 
 const stats = [
