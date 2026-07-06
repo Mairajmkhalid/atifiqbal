@@ -475,6 +475,7 @@ const gallerySections: GallerySection[] = [
       </>
     ),
     items: [
+      { src: globalLeadershipDubai, label: "Global Leadership Excellence Award", place: "Honouring Visionaries · Dubai 2024" },
       { src: "/profile/award-global-leadership-1.jpg", label: "Global Leadership Excellence Award", place: "Global Image Award · Dubai 2025" },
       { src: "/profile/award-global-leadership-2.jpg", label: "On Stage in Dubai", place: "Middle East · 2025" },
       { src: "/profile/award-pbbc-london.jpg", label: "PBBC Certificate & MIP Award", place: "House of Lords · London" },
