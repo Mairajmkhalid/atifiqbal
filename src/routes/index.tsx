@@ -169,7 +169,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[100svh] flex items-start justify-start overflow-hidden px-5 sm:px-6 lg:px-24 pt-28 sm:pt-32 lg:pt-40 pb-24"
+      className="relative min-h-[100svh] flex items-end lg:items-start justify-start overflow-hidden px-5 sm:px-6 lg:px-24 pt-28 sm:pt-32 lg:pt-40 pb-16 sm:pb-20 lg:pb-24"
     >
       {/* Background portrait — cinematic, right-aligned, feathered */}
       <div className="absolute inset-0 bg-noir" aria-hidden />
