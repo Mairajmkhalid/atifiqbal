@@ -288,7 +288,7 @@ function About() {
         {/* Bento */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Portrait tile */}
-          <div className="md:col-span-5 md:row-span-2 cinema-card overflow-hidden group">
+          <div className="md:col-span-5 md:row-span-2 cinema-card cinema-card-hover overflow-hidden group">
             <div className="relative h-full min-h-[360px] md:min-h-[520px]">
               <img
                 src={atifDesk}
@@ -306,7 +306,7 @@ function About() {
           </div>
 
           {/* Biography prose */}
-          <div className="md:col-span-7 cinema-card p-6 sm:p-10 md:p-12">
+          <div className="md:col-span-7 cinema-card cinema-card-hover p-6 sm:p-10 md:p-12">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">The Vision</p>
             <div className="space-y-5 text-cream/75 leading-relaxed text-base sm:text-[17px] font-light">
               <p>
@@ -330,7 +330,7 @@ function About() {
           </div>
 
           {/* Academics tile */}
-          <div className="md:col-span-4 cinema-card p-6 sm:p-8">
+          <div className="md:col-span-4 cinema-card cinema-card-hover p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Academics</p>
             <ul className="space-y-3 text-sm text-cream/70">
               <li>MBA Marketing — Newport Institute University, 1999</li>
@@ -340,7 +340,7 @@ function About() {
           </div>
 
           {/* Certifications tile */}
-          <div className="md:col-span-3 cinema-card p-6 sm:p-8">
+          <div className="md:col-span-3 cinema-card cinema-card-hover p-6 sm:p-8">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6">Certifications</p>
             <ul className="space-y-3 text-sm text-cream/70">
               <li>IBA — cGMP</li>
@@ -436,7 +436,7 @@ function Awards() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Featured award — spotlight tile */}
-          <div className="md:col-span-6 cinema-card p-8 sm:p-10 md:p-14 relative overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col justify-between">
+          <div className="md:col-span-6 cinema-card cinema-card-hover p-8 sm:p-10 md:p-14 relative overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col justify-between">
             <div
               className="absolute -top-20 -right-20 w-64 sm:w-80 h-64 sm:h-80 rounded-full pointer-events-none gold-pulse"
               style={{ background: "radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 65%)" }}
@@ -455,7 +455,7 @@ function Awards() {
           </div>
 
           {/* Media strip */}
-          <div className="md:col-span-6 cinema-card p-8 sm:p-10">
+          <div className="md:col-span-6 cinema-card cinema-card-hover p-8 sm:p-10">
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6 sm:mb-8">Featured In</p>
             <ul className="space-y-5">
               {media.map((m) => (
@@ -473,7 +473,7 @@ function Awards() {
           {rest.map((a) => (
             <div
               key={a.title}
-              className="md:col-span-3 cinema-card p-6 sm:p-8 hover:border-gold/60 transition-colors duration-500"
+              className="md:col-span-3 cinema-card cinema-card-hover p-6 sm:p-8 hover:border-gold/60 transition-colors duration-500"
             >
               <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{a.year}</p>
               <h3 className="font-serif text-lg sm:text-xl text-cream mt-3 leading-tight">{a.title}</h3>
