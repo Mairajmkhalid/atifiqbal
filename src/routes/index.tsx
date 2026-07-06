@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroBg from "@/assets/hero-bg.jpg";
-import portrait from "@/assets/portrait-silhouette.jpg";
-import galleryAward from "@/assets/gallery-award.jpg";
-import galleryFlags from "@/assets/gallery-flags.jpg";
-import galleryPodium from "@/assets/gallery-podium.jpg";
-import galleryFacility from "@/assets/gallery-facility.jpg";
+import portrait from "@/assets/atif-portrait.png";
+import atifDesk from "@/assets/atif-desk.png";
+import galleryCeoSummit from "@/assets/gallery-ceo-summit.jpg";
+import galleryDubai from "@/assets/gallery-dubai.jpg";
+import galleryPresidential from "@/assets/gallery-presidential.jpg";
+import galleryPhilippines from "@/assets/gallery-philippines.jpg";
+import galleryDiplomatic from "@/assets/gallery-diplomatic.jpg";
+import galleryCeoToday from "@/assets/gallery-ceo-today.jpg";
 
 export const Route = createFileRoute("/")({
   component: Profile,
@@ -81,10 +84,12 @@ const media = [
 ];
 
 const gallery = [
-  { src: galleryAward, label: "Global Leadership Excellence Award — Dubai, 2025" },
-  { src: galleryFlags, label: "Diplomatic Forums & Consular Engagements" },
-  { src: galleryPodium, label: "Guest Speaker — Business & Academic Summits" },
-  { src: galleryFacility, label: "HIGH-Q Pharmaceuticals Manufacturing Plant" },
+  { src: galleryDubai, label: "Global Leadership Excellence Award — Global Image Award, Dubai, 2025" },
+  { src: galleryPresidential, label: "Receiving a National Award — Pakistan" },
+  { src: galleryCeoSummit, label: "CEO Summit Award — Islamabad, 2025" },
+  { src: galleryPhilippines, label: "127th Philippine Independence Day — Diplomatic Reception, 2025" },
+  { src: galleryDiplomatic, label: "Consular Reception — Diplomatic Engagement" },
+  { src: galleryCeoToday, label: "CEO Today Magazine — Cover Feature" },
 ];
 
 const stats = [
@@ -188,7 +193,7 @@ function Hero() {
             alt="Portrait of Atif Iqbal"
             width={960}
             height={1280}
-            className="relative w-full h-[520px] object-cover grayscale-[20%]"
+            className="relative w-full h-[560px] object-cover object-top"
           />
           <div className="absolute -bottom-6 -left-6 bg-gold text-navy-deep px-5 py-3">
             <p className="text-[10px] uppercase tracking-[0.3em]">Est. 1994</p>
@@ -232,6 +237,17 @@ function About() {
             A life built at the intersection of <em className="text-gold not-italic">industry</em>,
             diplomacy, and service.
           </h2>
+          <div className="mt-10 relative">
+            <div className="absolute -inset-3 border border-gold/40" aria-hidden />
+            <img
+              src={atifDesk}
+              alt="Atif Iqbal at the HIGH-Q Group office"
+              width={1500}
+              height={1000}
+              loading="lazy"
+              className="relative w-full h-[340px] object-cover"
+            />
+          </div>
         </div>
         <div className="space-y-6 text-navy/90 leading-relaxed text-lg">
           <p>
@@ -393,29 +409,32 @@ function Gallery() {
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
-          {gallery.map((g, i) => (
-            <figure
-              key={g.label}
-              className={`group relative overflow-hidden border border-gold/20 ${
-                i === 0 ? "md:col-span-2" : ""
-              }`}
-            >
-              <img
-                src={g.src}
-                alt={g.label}
-                loading="lazy"
-                width={1024}
-                height={1024}
-                className={`w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105 ${
-                  i === 0 ? "h-[420px]" : "h-[340px]"
+          {gallery.map((g, i) => {
+            const wide = i === 0 || i === gallery.length - 1;
+            return (
+              <figure
+                key={g.label}
+                className={`group relative overflow-hidden border border-gold/20 ${
+                  wide ? "md:col-span-2" : ""
                 }`}
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-deep via-navy-deep/70 to-transparent p-6">
-                <p className="text-xs uppercase tracking-[0.24em] text-gold">Portfolio</p>
-                <p className="font-serif text-xl text-cream mt-1">{g.label}</p>
-              </figcaption>
-            </figure>
-          ))}
+              >
+                <img
+                  src={g.src}
+                  alt={g.label}
+                  loading="lazy"
+                  width={1024}
+                  height={1024}
+                  className={`w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105 ${
+                    wide ? "h-[460px]" : "h-[340px]"
+                  }`}
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-deep via-navy-deep/70 to-transparent p-6">
+                  <p className="text-xs uppercase tracking-[0.24em] text-gold">Portfolio</p>
+                  <p className="font-serif text-xl text-cream mt-1">{g.label}</p>
+                </figcaption>
+              </figure>
+            );
+          })}
         </div>
       </div>
     </section>
