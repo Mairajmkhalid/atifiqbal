@@ -193,7 +193,7 @@ function Hero() {
             alt="Portrait of Atif Iqbal"
             width={960}
             height={1280}
-            className="relative w-full h-[520px] object-cover grayscale-[20%]"
+            className="relative w-full h-[560px] object-cover object-top"
           />
           <div className="absolute -bottom-6 -left-6 bg-gold text-navy-deep px-5 py-3">
             <p className="text-[10px] uppercase tracking-[0.3em]">Est. 1994</p>
