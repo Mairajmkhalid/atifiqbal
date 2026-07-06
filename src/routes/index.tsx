@@ -148,7 +148,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-start overflow-hidden"
     >
       <img
         src={portrait}
