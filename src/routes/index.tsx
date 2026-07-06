@@ -424,8 +424,10 @@ function Gallery() {
                   loading="lazy"
                   width={1024}
                   height={1024}
-                  className={`w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105 ${
-                    wide ? "h-[460px]" : "h-[340px]"
+                  className={`w-full transition-transform duration-[1200ms] group-hover:scale-105 ${
+                    g.label.startsWith("CEO Today")
+                      ? "h-[560px] object-contain bg-navy-deep"
+                      : `object-cover object-top ${wide ? "h-[460px]" : "h-[340px]"}`
                   }`}
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-deep via-navy-deep/70 to-transparent p-6">
