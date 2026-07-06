@@ -150,10 +150,11 @@ function Hero() {
       id="top"
       className="relative min-h-screen flex items-start overflow-hidden"
     >
+      <div className="absolute inset-0 bg-navy-deep" aria-hidden />
       <img
         src={portrait}
         alt="Portrait of Atif Iqbal, Group CEO of HIGH-Q Pharmaceuticals"
-        className="hero-image absolute inset-0 w-full h-full object-cover object-center"
+        className="hero-image absolute inset-0 w-full h-full object-contain object-right"
       />
       <div
         className="absolute inset-0"
