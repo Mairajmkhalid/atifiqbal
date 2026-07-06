@@ -153,14 +153,14 @@ function Hero() {
       <img
         src={portrait}
         alt="Portrait of Atif Iqbal, Group CEO of HIGH-Q Pharmaceuticals"
-        className="hero-image absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-[65%_center]"
+        className="hero-image absolute inset-0 w-full h-full object-cover object-center"
       />
       <div
         className="absolute inset-0"
         aria-hidden
         style={{
           background:
-            "linear-gradient(90deg, rgba(11,15,32,0.92) 0%, rgba(11,15,32,0.78) 40%, rgba(11,15,32,0.35) 65%, rgba(11,15,32,0.05) 100%)",
+            "linear-gradient(90deg, rgba(11,15,32,0.85) 0%, rgba(11,15,32,0.55) 35%, rgba(11,15,32,0.15) 60%, rgba(11,15,32,0) 100%)",
         }}
       />
       <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-24">
