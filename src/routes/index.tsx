@@ -429,7 +429,6 @@ function Memberships() {
 }
 
 function Awards() {
-  const [featured, ...rest] = awards;
   return (
     <section id="awards" className="py-20 md:py-32 bg-noir">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
@@ -443,55 +442,129 @@ function Awards() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-          {/* Featured award — spotlight tile */}
-          <div className="md:col-span-6 cinema-card cinema-card-hover p-8 sm:p-10 md:p-14 relative overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col justify-between">
-            <div
-              className="absolute -top-20 -right-20 w-64 sm:w-80 h-64 sm:h-80 rounded-full pointer-events-none gold-pulse"
-              style={{ background: "radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 65%)" }}
-              aria-hidden
-            />
-            <div className="relative">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-4">{featured.year} · Featured</p>
-              <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-cream leading-tight">{featured.title}</h3>
-              <p className="mt-5 sm:mt-6 text-cream/60 text-sm">{featured.place}</p>
-            </div>
-            <div className="relative text-gold mt-8">
-              <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 3l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-              </svg>
-            </div>
-          </div>
+        {/* Trophy wall — cinematic image tiles */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-4">
+          <AwardTile
+            className="md:col-span-6"
+            src="/profile/award-dubai-globe.jpg"
+            eyebrow="01 · Dubai, UAE"
+            title="Global Leadership Excellence Award"
+            note="Recognised for visionary leadership and outstanding contributions to healthcare and the global community."
+          />
+          <AwardTile
+            className="md:col-span-6"
+            src="/profile/award-house-of-lords.jpg"
+            eyebrow="02 · London, United Kingdom"
+            title="Honoured at the House of Lords"
+            note="At the heart of global dialogue on healthcare, innovation and sustainable growth."
+          />
+          <AwardTile
+            className="md:col-span-4"
+            src="/profile/award-ceo-summit-crystal.jpg"
+            eyebrow="03 · Asia 2023"
+            title="CEO Summit Leadership Award"
+            note="Honouring exceptional leadership, strategic vision and industry excellence."
+            compact
+          />
+          <AwardTile
+            className="md:col-span-4"
+            src="/profile/award-export-excellence.jpg"
+            eyebrow="04 · Pakistan"
+            title="Export Excellence Award"
+            note="Outstanding contributions to exports and strengthening Pakistan's presence globally."
+            compact
+          />
+          <AwardTile
+            className="md:col-span-4"
+            src="/profile/award-global-partnerships.jpg"
+            eyebrow="05 · Worldwide"
+            title="Strengthening Global Partnerships"
+            note="Building bridges. Creating opportunities. Transforming healthcare together."
+            compact
+          />
+        </div>
 
-          {/* Media strip */}
-          <div className="md:col-span-6 cinema-card cinema-card-hover p-8 sm:p-10">
-            <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6 sm:mb-8">Featured In</p>
-            <ul className="space-y-5">
-              {media.map((m) => (
-                <li key={m.outlet} className="flex items-baseline justify-between gap-4 sm:gap-6 border-b border-gold/10 pb-4 last:border-0">
-                  <div className="min-w-0">
-                    <p className="font-serif italic text-lg sm:text-xl text-cream break-words">{m.outlet}</p>
-                    <p className="text-xs text-cream/50 mt-1">{m.note}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        {/* Partnerships strip */}
+        <div className="cinema-card p-5 sm:p-6 mb-4">
+          <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-5">
+            06 · Global Partnerships Across the World
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {[
+              ["China", "/profile/partners-china.jpg"],
+              ["Myanmar", "/profile/partners-myanmar.jpg"],
+              ["Philippines", "/profile/partners-philippines.jpg"],
+              ["USA", "/profile/partners-usa.jpg"],
+              ["Oman", "/profile/partners-oman.jpg"],
+              ["Lebanon", "/profile/partners-lebanon.jpg"],
+            ].map(([country, src]) => (
+              <div key={country} className="group relative overflow-hidden aspect-[4/3] border border-gold/15">
+                <img
+                  src={src}
+                  alt={country}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent" />
+                <span className="absolute left-3 bottom-2 text-[10px] uppercase tracking-[0.35em] text-gold">
+                  {country}
+                </span>
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Awards list — bento cards */}
-          {rest.map((a) => (
-            <div
-              key={a.title}
-              className="md:col-span-3 cinema-card cinema-card-hover p-6 sm:p-8 hover:border-gold/60 transition-colors duration-500"
-            >
-              <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{a.year}</p>
-              <h3 className="font-serif text-lg sm:text-xl text-cream mt-3 leading-tight">{a.title}</h3>
-              <p className="text-xs text-cream/50 mt-3 leading-relaxed">{a.place}</p>
-            </div>
-          ))}
+        {/* Media strip */}
+        <div className="cinema-card cinema-card-hover p-8 sm:p-10">
+          <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-6 sm:mb-8">Featured In</p>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {media.map((m) => (
+              <li key={m.outlet} className="flex flex-col border-b border-gold/10 pb-4 last:border-0 sm:last:border-b">
+                <p className="font-serif italic text-lg sm:text-xl text-cream break-words">{m.outlet}</p>
+                <p className="text-xs text-cream/50 mt-1">{m.note}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
+  );
+}
+
+function AwardTile({
+  className = "",
+  src,
+  eyebrow,
+  title,
+  note,
+  compact = false,
+}: {
+  className?: string;
+  src: string;
+  eyebrow: string;
+  title: string;
+  note: string;
+  compact?: boolean;
+}) {
+  return (
+    <div
+      className={`group relative overflow-hidden cinema-card cinema-card-hover ${compact ? "min-h-[280px] md:min-h-[320px]" : "min-h-[340px] md:min-h-[420px]"} ${className}`}
+    >
+      <img
+        src={src}
+        alt={title}
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover opacity-70 transition-all duration-700 group-hover:opacity-90 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/60 to-noir/10" />
+      <div className="relative h-full flex flex-col justify-end p-6 sm:p-8">
+        <p className="text-[10px] uppercase tracking-[0.4em] text-gold mb-3">{eyebrow}</p>
+        <h3 className={`font-serif text-cream leading-tight ${compact ? "text-xl sm:text-2xl" : "text-2xl sm:text-3xl md:text-4xl"}`}>
+          {title}
+        </h3>
+        <p className="mt-3 text-xs sm:text-sm text-cream/70 leading-relaxed max-w-md">{note}</p>
+      </div>
+    </div>
   );
 }
 
