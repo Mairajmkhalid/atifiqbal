@@ -152,7 +152,7 @@ function Hero() {
       <img
         src={portrait}
         alt="Portrait of Atif Iqbal, Group CEO of HIGH-Q Pharmaceuticals"
-        className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-[65%_center]"
+        className="hero-image absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-[65%_center]"
       />
       <div
         className="absolute inset-0"
@@ -164,18 +164,27 @@ function Hero() {
       />
       <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-24">
         <div className="max-w-xl text-cream">
-          <p className="eyebrow mb-6">
-            <span className="gold-rule mr-4" />
+          <p className="eyebrow mb-6 hero-rise" style={{ animationDelay: "0.1s" }}>
+            <span className="gold-rule mr-4 hero-rule-anim" />
             Group CEO — HIGH-Q Pharmaceuticals
           </p>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-8">
+          <h1
+            className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-8 hero-rise"
+            style={{ animationDelay: "0.3s" }}
+          >
             Atif <span className="italic text-gold">Iqbal</span>
           </h1>
-          <p className="text-lg md:text-xl text-cream/85 leading-relaxed font-light">
+          <p
+            className="text-lg md:text-xl text-cream/85 leading-relaxed font-light hero-rise"
+            style={{ animationDelay: "0.55s" }}
+          >
             Industrial leader, diplomat, and philanthropist. Steward of the HIGH-Q Group
             and Vida Laboratories — building bridges between industry, medicine, and nations.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div
+            className="mt-10 flex flex-wrap gap-4 hero-rise"
+            style={{ animationDelay: "0.8s" }}
+          >
             <a
               href="/Atif_Iqbal_CV.pdf"
               download
@@ -193,14 +202,18 @@ function Hero() {
               Contact
             </a>
           </div>
-          <p className="mt-12 text-[10px] uppercase tracking-[0.4em] text-gold/80">
+          <p
+            className="mt-12 text-[10px] uppercase tracking-[0.4em] text-gold/80 hero-rise"
+            style={{ animationDelay: "1s" }}
+          >
             Est. 1994
           </p>
         </div>
       </div>
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/50 text-[10px] uppercase tracking-[0.4em]">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/50 text-[10px] uppercase tracking-[0.4em] animate-pulse">
         Scroll
       </div>
+
     </section>
   );
 }
