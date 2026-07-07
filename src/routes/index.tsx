@@ -467,7 +467,7 @@ function HeroPortraitSlider() {
 
   return (
     <div
-      className="hero-image relative w-full h-full overflow-hidden shadow-cinema group"
+      className="hero-image relative w-full h-full overflow-hidden shadow-cinema group bg-black"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -476,13 +476,12 @@ function HeroPortraitSlider() {
           key={s.src}
           src={s.src}
           alt={s.alt}
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ease-out"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{
             objectPosition: s.pos,
             opacity: i === active ? 1 : 0,
-            transform: i === active ? "scale(1.02)" : "scale(1)",
-            transitionProperty: "opacity, transform",
-            transitionDuration: "1200ms",
+            zIndex: i === active ? 2 : 1,
+            transition: "opacity 700ms ease-in-out",
           }}
           loading={i === 0 ? "eager" : "lazy"}
           decoding="async"
