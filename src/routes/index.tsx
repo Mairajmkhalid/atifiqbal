@@ -275,7 +275,7 @@ function Hero() {
 
       {/* Text pane — solid noir, no image behind, guaranteed no overlap */}
       <div className="relative flex-1 bg-noir">
-        <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 pt-10 sm:pt-14 pb-16 sm:pb-20 flex flex-col">
+        <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 pt-4 sm:pt-6 pb-16 sm:pb-20 -mt-16 sm:-mt-20 relative z-10 flex flex-col">
           {/* Gold hairline */}
           <div
             className="hero-rise w-12 h-px bg-gold mb-6"
