@@ -101,6 +101,19 @@
     font-weight: 600;
     letter-spacing: -0.035em;
     font-feature-settings: "kern", "liga", "ss01";
+    background: linear-gradient(120deg, #f0d78c 0%, #ff2bd6 25%, #7c3aed 50%, #22d3ee 75%, #c9a84c 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: neon-shift 8s ease-in-out infinite;
+    filter: drop-shadow(0 0 18px rgba(124, 58, 237, 0.35)) drop-shadow(0 0 30px rgba(34, 211, 238, 0.18));
+  }
+
+  @keyframes neon-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 
   ::selection {
