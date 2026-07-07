@@ -120,7 +120,7 @@
     font-weight: 600;
     letter-spacing: -0.035em;
     font-feature-settings: "kern", "liga", "ss01";
-    background: linear-gradient(120deg, #f0d78c 0%, #c9a24c 22%, #f1f3f6 50%, #c9ccd1 72%, #f0d78c 100%);
+    background: linear-gradient(120deg, #f0d78c 0%, #c9a24c 30%, #6b5a2a 55%, #c9a24c 80%, #f0d78c 100%);
     background-size: 220% 220%;
     -webkit-background-clip: text;
     background-clip: text;
