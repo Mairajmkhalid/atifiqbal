@@ -2,6 +2,8 @@ import { useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroAtifAsset from "@/assets/hero-atif.png.asset.json";
 const portrait = heroAtifAsset.url;
+import ceoHeroAsset from "@/assets/ceo-atif-hero.jpeg.asset.json";
+const ceoHero = ceoHeroAsset.url;
 import atifDesk from "@/assets/atif-desk.png";
 import globalLeadershipDubaiAsset from "@/assets/global-leadership-dubai.png.asset.json";
 const globalLeadershipDubai = globalLeadershipDubaiAsset.url;
