@@ -130,9 +130,19 @@
     transition: background-position 1.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
+  /* Children with their own color (text-cream, text-gold, text-noir, text-transparent, em, strong)
+     must render as that color instead of inheriting the parent's transparent text-fill. */
+  h1 :where(span, em, strong, small, a, i, b),
+  h2 :where(span, em, strong, small, a, i, b),
+  h3 :where(span, em, strong, small, a, i, b),
+  h4 :where(span, em, strong, small, a, i, b) {
+    -webkit-text-fill-color: currentColor;
+  }
+
   h1:hover, h2:hover, h3:hover, h4:hover {
     background-position: 100% 50%;
   }
+
 
   @keyframes metallic-shift {
     0%, 100% { background-position: 0% 50%; }
