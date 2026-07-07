@@ -298,7 +298,7 @@ function Hero() {
             <span
               className="block text-transparent bg-clip-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
               style={{
-                fontFamily: '"Italiana", serif',
+                fontFamily: '"DM Serif Display", serif',
                 backgroundImage:
                   "linear-gradient(180deg, #F9E29C 0%, #D4AF37 45%, #8A6E2F 100%)",
               }}
@@ -306,6 +306,7 @@ function Hero() {
               Atif Iqbal
             </span>
           </h1>
+
 
           {/* Tagline */}
           <p
