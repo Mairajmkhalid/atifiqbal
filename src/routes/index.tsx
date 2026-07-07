@@ -440,25 +440,10 @@ function HeroDesktop() {
           {/* Offset gold frame */}
           <div aria-hidden className="absolute inset-6 border border-gold/15 translate-x-4 translate-y-4 pointer-events-none" />
 
-          {/* Portrait */}
-          <div className="hero-image relative w-full h-full overflow-hidden shadow-cinema group">
-            <img
-              src={ceoHero}
-              alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
-              className="absolute inset-0 w-full h-full object-cover object-[center_25%] transition-transform duration-[1400ms] group-hover:scale-[1.03]"
-              loading="eager"
-              decoding="async"
-            />
-            {/* Depth overlay */}
-            <div
-              aria-hidden
-              className="absolute inset-0 pointer-events-none"
-              style={{ background: "linear-gradient(180deg, rgba(15,17,20,0) 55%, rgba(15,17,20,0.55) 100%)" }}
-            />
-            {/* Corner filaments */}
-            <span aria-hidden className="absolute top-3 left-3 w-6 h-6 border-t border-l border-gold/60" />
-            <span aria-hidden className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-gold/60" />
-          </div>
+          {/* Portrait slider */}
+          <HeroPortraitSlider />
+        </div>
+
         </div>
 
       </div>
