@@ -453,6 +453,104 @@ function HeroDesktop() {
   );
 }
 
+function HeroPortraitSlider() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % heroSlides.length);
+    }, 4200);
+    return () => clearInterval(id);
+  }, [paused]);
+
+  return (
+    <div
+      className="hero-image relative w-full h-full overflow-hidden shadow-cinema group"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {heroSlides.map((s, i) => (
+        <img
+          key={s.src}
+          src={s.src}
+          alt={s.alt}
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ease-out"
+          style={{
+            objectPosition: s.pos,
+            opacity: i === active ? 1 : 0,
+            transform: i === active ? "scale(1.02)" : "scale(1)",
+            transitionProperty: "opacity, transform",
+            transitionDuration: "1200ms",
+          }}
+          loading={i === 0 ? "eager" : "lazy"}
+          decoding="async"
+        />
+      ))}
+
+      {/* Depth overlay */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(180deg, rgba(15,17,20,0) 40%, rgba(15,17,20,0.85) 100%)" }}
+      />
+
+      {/* Corner filaments */}
+      <span aria-hidden className="absolute top-3 left-3 w-6 h-6 border-t border-l border-gold/60" />
+      <span aria-hidden className="absolute top-3 right-3 w-6 h-6 border-t border-r border-gold/60" />
+
+      {/* Thumbnails */}
+      <div className="absolute inset-x-4 bottom-4 z-10 flex items-center gap-2">
+        {heroSlides.map((s, i) => (
+          <button
+            key={s.src}
+            type="button"
+            onClick={() => setActive(i)}
+            aria-label={`Show portrait ${i + 1}`}
+            className={`group/thumb relative flex-1 h-14 overflow-hidden border transition-all duration-500 ${
+              i === active
+                ? "border-gold shadow-[0_0_0_1px_rgba(201,162,76,0.6)]"
+                : "border-cream/15 opacity-60 hover:opacity-100 hover:border-gold/60"
+            }`}
+          >
+            <img
+              src={s.src}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: s.pos }}
+              loading="lazy"
+              decoding="async"
+            />
+            <span
+              aria-hidden
+              className={`absolute inset-0 transition-colors ${
+                i === active ? "bg-noir/0" : "bg-noir/40 group-hover/thumb:bg-noir/10"
+              }`}
+            />
+            {i === active && (
+              <span
+                aria-hidden
+                className="absolute bottom-0 left-0 h-0.5 bg-gold"
+                style={{ width: "100%" }}
+              />
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Slide counter */}
+      <div className="absolute top-4 right-4 z-10 flex items-center gap-2 text-[10px] uppercase tracking-[0.32em] text-cream/80 font-semibold">
+        <span className="text-gold">{String(active + 1).padStart(2, "0")}</span>
+        <span className="w-4 h-px bg-gold/40" />
+        <span>{String(heroSlides.length).padStart(2, "0")}</span>
+      </div>
+    </div>
+  );
+}
+
+
 function Hero() {
   return (
     <section id="top" className="relative w-full bg-noir flex flex-col">
