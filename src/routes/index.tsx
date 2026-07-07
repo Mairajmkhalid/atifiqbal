@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroAtifAsset from "@/assets/hero-atif.png.asset.json";
 const portrait = heroAtifAsset.url;
@@ -7,6 +7,24 @@ const ceoHero = ceoHeroAsset.url;
 import atifDesk from "@/assets/atif-desk.png";
 import globalLeadershipDubaiAsset from "@/assets/global-leadership-dubai.png.asset.json";
 const globalLeadershipDubai = globalLeadershipDubaiAsset.url;
+import atif1 from "@/assets/portraits/atif-1.jpg.asset.json";
+import atif2 from "@/assets/portraits/atif-2.jpg.asset.json";
+import atif3 from "@/assets/portraits/atif-3.jpg.asset.json";
+import atif4 from "@/assets/portraits/atif-4.jpg.asset.json";
+import atif5 from "@/assets/portraits/atif-5.jpg.asset.json";
+import atif6 from "@/assets/portraits/atif-6.jpg.asset.json";
+import atif7 from "@/assets/portraits/atif-7.jpg.asset.json";
+const heroSlides = [
+  { src: ceoHero, alt: "Atif Iqbal — Group CEO at his executive desk", pos: "center 25%" },
+  { src: atif1.url, alt: "Atif Iqbal — portrait in brown paisley suit", pos: "center 20%" },
+  { src: atif2.url, alt: "Atif Iqbal — in Dubai skyline", pos: "center 30%" },
+  { src: atif3.url, alt: "Atif Iqbal — at an event", pos: "center 30%" },
+  { src: atif4.url, alt: "Atif Iqbal — in navy pinstripe suit", pos: "center 30%" },
+  { src: atif5.url, alt: "Atif Iqbal — signing at HIGH-Q Group", pos: "center 30%" },
+  { src: atif6.url, alt: "Atif Iqbal — in light blue suit", pos: "center 30%" },
+  { src: atif7.url, alt: "Atif Iqbal — Group CEO, HIGH-Q Group nameplate", pos: "center 30%" },
+];
+
 const COPYRIGHT_YEAR = 2026;
 
 export const Route = createFileRoute("/")({
