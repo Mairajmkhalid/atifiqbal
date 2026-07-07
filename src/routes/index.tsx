@@ -161,7 +161,7 @@ function Nav() {
         </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-gold/15 glass/95 backdrop-blur-xl">
+        <div className="md:hidden border-t border-gold/15 glass-strong">
           <ul className="px-4 py-4 flex flex-col divide-y divide-gold/10">
             {items.map(([id, label]) => (
               <li key={id}>
@@ -934,7 +934,7 @@ function Footer() {
 
 function Profile() {
   return (
-    <div id="profile-root" className="min-h-screen bg-noir text-cream overflow-x-hidden">
+    <div id="profile-root" className="min-h-screen text-cream overflow-x-hidden">
       <Nav />
       <ReelBadge scene="01" section="Profile" />
       <Hero />
