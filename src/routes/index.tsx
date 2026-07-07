@@ -296,23 +296,18 @@ function Hero() {
 
           <h1 className="leading-[0.86] mt-6 sm:mt-8">
             <span
-              className="hero-rise block text-cream italic font-black tracking-tight text-6xl sm:text-7xl md:text-8xl"
-              style={{ fontFamily: '"Italiana", serif', animationDelay: "0.3s" }}
-            >
-              Atif
-            </span>
-            <span
-              className="hero-rise block font-black tracking-tight text-transparent bg-clip-text text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] -mt-2 sm:-mt-3 md:-mt-4"
+              className="hero-rise block font-black tracking-tight text-transparent bg-clip-text text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
               style={{
                 fontFamily: '"Italiana", serif',
                 backgroundImage:
                   "linear-gradient(180deg, #F9E29C 0%, #D4AF37 45%, #8A6E2F 100%)",
-                animationDelay: "0.4s",
+                animationDelay: "0.3s",
               }}
             >
-              Iqbal
+              Atif Iqbal
             </span>
           </h1>
+
 
           <div
             className="hero-rise flex items-center gap-4 pt-6"
