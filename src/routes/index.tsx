@@ -444,9 +444,8 @@ function HeroDesktop() {
           <HeroPortraitSlider />
         </div>
 
-        </div>
-
       </div>
+
 
       {/* Bottom hairline */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
