@@ -226,7 +226,7 @@ function Hero() {
       <img
         src={ceoHero}
         alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
-        className="hero-image absolute inset-0 w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
+        className="hero-image absolute inset-0 w-full h-full object-cover object-[65%_top] sm:object-[60%_top] md:object-[center_top]"
         loading="eager"
         decoding="async"
       />
