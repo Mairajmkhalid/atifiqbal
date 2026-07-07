@@ -5,7 +5,7 @@ const portrait = heroAtifAsset.url;
 import atifDesk from "@/assets/atif-desk.png";
 import globalLeadershipDubaiAsset from "@/assets/global-leadership-dubai.png.asset.json";
 const globalLeadershipDubai = globalLeadershipDubaiAsset.url;
-const COPYRIGHT_YEAR = new Date().getFullYear();
+const COPYRIGHT_YEAR = 2026;
 
 export const Route = createFileRoute("/")({
   component: Profile,
