@@ -258,7 +258,8 @@ function Hero() {
           Group CEO · HIGH-Q Pharmaceuticals
         </p>
         <h1
-          className="font-sans font-semibold tracking-tight text-white leading-[0.9] text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] mb-6 sm:mb-8 hero-rise break-words"
+          className="font-semibold text-white leading-[0.9] text-6xl sm:text-7xl md:text-9xl lg:text-[12rem] mb-6 sm:mb-8 hero-rise break-words"
+          style={{ fontFamily: '"Dancing Script", cursive', animationDelay: "0.45s" }}
           style={{ animationDelay: "0.45s" }}
         >
           Atif <span className="italic text-gold">Iqbal</span>
