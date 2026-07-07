@@ -504,6 +504,32 @@
   100% { background-position: 300% 50%; }
 }
 
+/* Neon hover effect for all headings — matches hero name sweep */
+h1, h2, h3, h4, h5, h6 {
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+  transition: background-image 0.5s ease, -webkit-text-fill-color 0.5s ease, color 0.5s ease;
+}
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+  background-image: linear-gradient(
+    110deg,
+    #00e5ff 0%,
+    #7c4dff 18%,
+    #ff2bd6 36%,
+    #00ffa3 54%,
+    #ff2bd6 72%,
+    #7c4dff 86%,
+    #00e5ff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: hero-name-flow 3.2s linear infinite;
+}
+
+
+
 /* Section divider — metallic hairline */
 
 .section-divider {
