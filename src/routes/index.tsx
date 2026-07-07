@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroAtifAsset from "@/assets/hero-atif.png.asset.json";
 const portrait = heroAtifAsset.url;
@@ -7,6 +7,24 @@ const ceoHero = ceoHeroAsset.url;
 import atifDesk from "@/assets/atif-desk.png";
 import globalLeadershipDubaiAsset from "@/assets/global-leadership-dubai.png.asset.json";
 const globalLeadershipDubai = globalLeadershipDubaiAsset.url;
+import atif1 from "@/assets/portraits/atif-1.jpg.asset.json";
+import atif2 from "@/assets/portraits/atif-2.jpg.asset.json";
+import atif3 from "@/assets/portraits/atif-3.jpg.asset.json";
+import atif4 from "@/assets/portraits/atif-4.jpg.asset.json";
+import atif5 from "@/assets/portraits/atif-5.jpg.asset.json";
+import atif6 from "@/assets/portraits/atif-6.jpg.asset.json";
+import atif7 from "@/assets/portraits/atif-7.jpg.asset.json";
+const heroSlides = [
+  { src: ceoHero, alt: "Atif Iqbal — Group CEO at his executive desk", pos: "center 25%" },
+  { src: atif1.url, alt: "Atif Iqbal — portrait in brown paisley suit", pos: "center 20%" },
+  { src: atif2.url, alt: "Atif Iqbal — in Dubai skyline", pos: "center 30%" },
+  { src: atif3.url, alt: "Atif Iqbal — at an event", pos: "center 30%" },
+  { src: atif4.url, alt: "Atif Iqbal — in navy pinstripe suit", pos: "center 30%" },
+  { src: atif5.url, alt: "Atif Iqbal — signing at HIGH-Q Group", pos: "center 30%" },
+  { src: atif6.url, alt: "Atif Iqbal — in light blue suit", pos: "center 30%" },
+  { src: atif7.url, alt: "Atif Iqbal — Group CEO, HIGH-Q Group nameplate", pos: "center 30%" },
+];
+
 const COPYRIGHT_YEAR = 2026;
 
 export const Route = createFileRoute("/")({
@@ -422,34 +440,116 @@ function HeroDesktop() {
           {/* Offset gold frame */}
           <div aria-hidden className="absolute inset-6 border border-gold/15 translate-x-4 translate-y-4 pointer-events-none" />
 
-          {/* Portrait */}
-          <div className="hero-image relative w-full h-full overflow-hidden shadow-cinema group">
-            <img
-              src={ceoHero}
-              alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
-              className="absolute inset-0 w-full h-full object-cover object-[center_25%] transition-transform duration-[1400ms] group-hover:scale-[1.03]"
-              loading="eager"
-              decoding="async"
-            />
-            {/* Depth overlay */}
-            <div
-              aria-hidden
-              className="absolute inset-0 pointer-events-none"
-              style={{ background: "linear-gradient(180deg, rgba(15,17,20,0) 55%, rgba(15,17,20,0.55) 100%)" }}
-            />
-            {/* Corner filaments */}
-            <span aria-hidden className="absolute top-3 left-3 w-6 h-6 border-t border-l border-gold/60" />
-            <span aria-hidden className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-gold/60" />
-          </div>
+          {/* Portrait slider */}
+          <HeroPortraitSlider />
         </div>
 
       </div>
+
 
       {/* Bottom hairline */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
     </div>
   );
 }
+
+function HeroPortraitSlider() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % heroSlides.length);
+    }, 4200);
+    return () => clearInterval(id);
+  }, [paused]);
+
+  return (
+    <div
+      className="hero-image relative w-full h-full overflow-hidden shadow-cinema group"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {heroSlides.map((s, i) => (
+        <img
+          key={s.src}
+          src={s.src}
+          alt={s.alt}
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ease-out"
+          style={{
+            objectPosition: s.pos,
+            opacity: i === active ? 1 : 0,
+            transform: i === active ? "scale(1.02)" : "scale(1)",
+            transitionProperty: "opacity, transform",
+            transitionDuration: "1200ms",
+          }}
+          loading={i === 0 ? "eager" : "lazy"}
+          decoding="async"
+        />
+      ))}
+
+      {/* Depth overlay */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(180deg, rgba(15,17,20,0) 40%, rgba(15,17,20,0.85) 100%)" }}
+      />
+
+      {/* Corner filaments */}
+      <span aria-hidden className="absolute top-3 left-3 w-6 h-6 border-t border-l border-gold/60" />
+      <span aria-hidden className="absolute top-3 right-3 w-6 h-6 border-t border-r border-gold/60" />
+
+      {/* Thumbnails */}
+      <div className="absolute inset-x-4 bottom-4 z-10 flex items-center gap-2">
+        {heroSlides.map((s, i) => (
+          <button
+            key={s.src}
+            type="button"
+            onClick={() => setActive(i)}
+            aria-label={`Show portrait ${i + 1}`}
+            className={`group/thumb relative flex-1 h-14 overflow-hidden border transition-all duration-500 ${
+              i === active
+                ? "border-gold shadow-[0_0_0_1px_rgba(201,162,76,0.6)]"
+                : "border-cream/15 opacity-60 hover:opacity-100 hover:border-gold/60"
+            }`}
+          >
+            <img
+              src={s.src}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: s.pos }}
+              loading="lazy"
+              decoding="async"
+            />
+            <span
+              aria-hidden
+              className={`absolute inset-0 transition-colors ${
+                i === active ? "bg-noir/0" : "bg-noir/40 group-hover/thumb:bg-noir/10"
+              }`}
+            />
+            {i === active && (
+              <span
+                aria-hidden
+                className="absolute bottom-0 left-0 h-0.5 bg-gold"
+                style={{ width: "100%" }}
+              />
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Slide counter */}
+      <div className="absolute top-4 right-4 z-10 flex items-center gap-2 text-[10px] uppercase tracking-[0.32em] text-cream/80 font-semibold">
+        <span className="text-gold">{String(active + 1).padStart(2, "0")}</span>
+        <span className="w-4 h-px bg-gold/40" />
+        <span>{String(heroSlides.length).padStart(2, "0")}</span>
+      </div>
+    </div>
+  );
+}
+
 
 function Hero() {
   return (
