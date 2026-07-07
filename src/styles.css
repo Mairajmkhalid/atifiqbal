@@ -55,7 +55,7 @@
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 1rem;
 
   /* Metallics */
   --gold: #c9a24c;
