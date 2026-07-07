@@ -223,14 +223,15 @@ function Hero() {
       className="relative w-full bg-noir flex flex-col"
     >
       {/* Portrait pane — face always fully visible, never covered by text */}
-      <div className="relative w-full h-[42svh] min-h-[320px] max-h-[560px] sm:h-[48svh] sm:min-h-[380px] md:h-[56svh] md:max-h-[640px] overflow-hidden">
+      <div className="relative w-full h-[42svh] min-h-[340px] max-h-[560px] sm:h-[52svh] sm:min-h-[420px] sm:max-h-[620px] md:h-[70svh] md:min-h-[520px] md:max-h-[760px] overflow-hidden">
         <img
           src={ceoHero}
           alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
-          className="hero-image absolute inset-0 w-full h-full object-cover object-[62%_top] sm:object-[58%_top] md:object-[center_top]"
+          className="hero-image absolute inset-0 w-full h-full object-cover object-[62%_top] sm:object-[58%_top] md:object-[center_15%]"
           loading="eager"
           decoding="async"
         />
+
 
         {/* Cinematic tonal grade */}
         <div
