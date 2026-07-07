@@ -501,10 +501,14 @@ function Memberships() {
             />
             <div className="relative">
               <p className="text-[10px] uppercase tracking-[0.4em] text-noir/60 mb-4">Chairman · 2026</p>
-              <h3 className="font-serif text-2xl sm:text-3xl leading-tight">
+              <h3
+                className="font-serif text-2xl sm:text-3xl leading-tight text-noir"
+                style={{ background: "none", WebkitTextFillColor: "#0f1114", color: "#0f1114" }}
+              >
                 Pakistan – Rwanda &amp; Pakistan – Myanmar Business Councils
               </h3>
             </div>
+
             <div className="relative flex items-center gap-3 mt-6">
               <span className="h-px w-10 bg-noir/50" />
               <p className="text-[10px] uppercase tracking-[0.35em] text-noir/70">
