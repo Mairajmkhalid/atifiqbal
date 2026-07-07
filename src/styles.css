@@ -122,11 +122,16 @@
     font-feature-settings: "kern", "liga", "ss01";
     background: linear-gradient(120deg, #f0d78c 0%, #c9a24c 30%, #6b5a2a 55%, #c9a24c 80%, #f0d78c 100%);
     background-size: 220% 220%;
+    background-position: 0% 50%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    animation: metallic-shift 12s ease-in-out infinite;
+    transition: background-position 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  h1:hover, h2:hover, h3:hover, h4:hover {
+    background-position: 100% 50%;
   }
 
   @keyframes metallic-shift {
