@@ -260,7 +260,7 @@ function Hero() {
         <h1
           className="font-semibold text-white leading-[0.9] text-6xl sm:text-7xl md:text-9xl lg:text-[12rem] mb-6 sm:mb-8 hero-rise break-words"
           style={{ fontFamily: '"Dancing Script", cursive', animationDelay: "0.45s" }}
-          style={{ animationDelay: "0.45s" }}
+          
         >
           Atif <span className="italic text-gold">Iqbal</span>
         </h1>
