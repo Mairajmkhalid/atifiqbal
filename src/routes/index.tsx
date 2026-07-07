@@ -102,7 +102,7 @@ function Nav() {
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-noir/70 border-b border-gold/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-gold/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3 min-w-0" onClick={() => setOpen(false)}>
           <span className="font-serif italic text-2xl leading-none text-gold">AI</span>
@@ -161,7 +161,7 @@ function Nav() {
         </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-gold/10 bg-noir/95 backdrop-blur-xl">
+        <div className="md:hidden border-t border-gold/15 glass-strong">
           <ul className="px-4 py-4 flex flex-col divide-y divide-gold/10">
             {items.map(([id, label]) => (
               <li key={id}>
@@ -304,7 +304,7 @@ function Hero() {
 
 function Stats() {
   return (
-    <section className="border-y border-gold/15 bg-noir">
+    <section className="border-y border-gold/15">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4">
         {stats.map((s, i) => (
           <div
@@ -322,7 +322,7 @@ function Stats() {
 
 function About() {
   return (
-    <section id="about" className="py-20 md:py-32 bg-noir">
+    <section id="about" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
         <div className="max-w-2xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
@@ -406,7 +406,7 @@ function About() {
 
 function Memberships() {
   return (
-    <section id="memberships" className="py-20 md:py-32 bg-noir">
+    <section id="memberships" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
@@ -479,7 +479,7 @@ function Memberships() {
 
 function Awards() {
   return (
-    <section id="awards" className="py-20 md:py-32 bg-noir">
+    <section id="awards" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
@@ -830,7 +830,7 @@ function GallerySectionBlock({ section, index }: { section: GallerySection; inde
 
 function Gallery() {
   return (
-    <section id="gallery" className="py-20 md:py-32 bg-noir">
+    <section id="gallery" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
         <div className="max-w-3xl mb-14 md:mb-20">
           <p className="eyebrow mb-6">
@@ -852,7 +852,7 @@ function Gallery() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-20 md:py-32 bg-noir">
+    <section id="contact" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
         <div className="cinema-card p-6 sm:p-10 md:p-16 relative overflow-hidden">
           <div
@@ -916,7 +916,7 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="border-t border-gold/10 bg-noir">
+    <footer className="border-t border-gold/15 glass">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div className="flex items-center gap-3">
           <span className="font-serif italic text-2xl text-gold leading-none">AI</span>
@@ -934,7 +934,7 @@ function Footer() {
 
 function Profile() {
   return (
-    <div id="profile-root" className="min-h-screen bg-noir text-cream overflow-x-hidden">
+    <div id="profile-root" className="min-h-screen text-cream overflow-x-hidden">
       <Nav />
       <ReelBadge scene="01" section="Profile" />
       <Hero />
