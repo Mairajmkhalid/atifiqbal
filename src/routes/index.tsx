@@ -226,10 +226,11 @@ function Hero() {
       <img
         src={ceoHero}
         alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
-        className="hero-image absolute inset-0 w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
+        className="hero-image absolute inset-0 w-full h-full object-cover object-[65%_top] sm:object-[60%_top] md:object-[center_top] scale-[1.18] sm:scale-110 md:scale-100 origin-top -translate-y-[6%] sm:-translate-y-[4%] md:translate-y-0"
         loading="eager"
         decoding="async"
       />
+
 
       {/* Cinematic tonal grade */}
       <div
@@ -296,23 +297,18 @@ function Hero() {
 
           <h1 className="leading-[0.86] mt-6 sm:mt-8">
             <span
-              className="hero-rise block text-cream italic font-black tracking-tight text-6xl sm:text-7xl md:text-8xl"
-              style={{ fontFamily: '"Italiana", serif', animationDelay: "0.3s" }}
-            >
-              Atif
-            </span>
-            <span
-              className="hero-rise block font-black tracking-tight text-transparent bg-clip-text text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] -mt-2 sm:-mt-3 md:-mt-4"
+              className="hero-rise block font-black tracking-tight text-transparent bg-clip-text text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
               style={{
                 fontFamily: '"Italiana", serif',
                 backgroundImage:
                   "linear-gradient(180deg, #F9E29C 0%, #D4AF37 45%, #8A6E2F 100%)",
-                animationDelay: "0.4s",
+                animationDelay: "0.3s",
               }}
             >
-              Iqbal
+              Atif Iqbal
             </span>
           </h1>
+
 
           <div
             className="hero-rise flex items-center gap-4 pt-6"
