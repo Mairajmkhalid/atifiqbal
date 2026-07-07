@@ -411,7 +411,7 @@ function HeroDesktop() {
         </div>
 
         {/* Portrait column */}
-        <div className="col-span-6 relative flex items-center justify-center h-[72svh] max-h-[760px] min-h-[560px]">
+        <div className="col-span-6 relative flex items-stretch justify-center h-[82svh] max-h-[860px] min-h-[620px]">
           {/* Vertical accent hairline */}
           <div
             aria-hidden
@@ -423,7 +423,7 @@ function HeroDesktop() {
           <div aria-hidden className="absolute inset-6 border border-gold/15 translate-x-4 translate-y-4 pointer-events-none" />
 
           {/* Portrait */}
-          <div className="hero-image relative w-full h-full max-w-[520px] overflow-hidden shadow-cinema group">
+          <div className="hero-image relative w-full h-full overflow-hidden shadow-cinema group">
             <img
               src={ceoHero}
               alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
@@ -441,27 +441,8 @@ function HeroDesktop() {
             <span aria-hidden className="absolute top-3 left-3 w-6 h-6 border-t border-l border-gold/60" />
             <span aria-hidden className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-gold/60" />
           </div>
-
-          {/* Floating stat card */}
-          <div
-            className="hero-rise absolute -bottom-2 right-0 xl:-right-4 z-20 p-6 xl:p-7 border border-gold/20 backdrop-blur-md"
-            style={{
-              animationDelay: "0.9s",
-              background: "linear-gradient(135deg, rgba(28,30,36,0.95) 0%, rgba(15,17,20,0.95) 100%)",
-              boxShadow: "0 30px 60px -20px rgba(0,0,0,0.6)",
-            }}
-          >
-            <div
-              className="text-gold text-4xl xl:text-5xl leading-none mb-2"
-              style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, letterSpacing: "-0.03em" }}
-            >
-              4+
-            </div>
-            <p className="text-[9px] uppercase tracking-[0.32em] text-cream/60 font-semibold whitespace-nowrap">
-              Continents Impacted
-            </p>
-          </div>
         </div>
+
       </div>
 
       {/* Bottom hairline */}
