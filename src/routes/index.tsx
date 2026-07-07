@@ -218,7 +218,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center px-5 sm:px-6 lg:px-12 pt-28 sm:pt-32 lg:pt-36 pb-16"
+      className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center px-5 sm:px-6 lg:px-12 pt-28 sm:pt-32 lg:pt-36 pb-20"
     >
       {/* Background atmosphere */}
       <div className="absolute inset-0 z-0 bg-noir" aria-hidden />
@@ -243,33 +243,14 @@ function Hero() {
 
       {/* Glowing gold filaments */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-50 pointer-events-none"
+        className="absolute inset-0 w-full h-full opacity-40 pointer-events-none"
         viewBox="0 0 1000 1000"
         preserveAspectRatio="none"
         aria-hidden
       >
-        <path
-          d="M-100,700 C300,600 500,850 700,550 S1000,150 1200,250"
-          stroke="#D4AF37"
-          strokeWidth="0.6"
-          fill="none"
-          style={{ filter: "blur(1px)" }}
-        />
-        <path
-          d="M-100,300 C200,450 600,150 900,350 S1200,650 1300,450"
-          stroke="#F0D78C"
-          strokeWidth="0.4"
-          fill="none"
-          style={{ filter: "blur(2px)" }}
-        />
-        <path
-          d="M-50,500 C250,350 550,650 850,450 S1150,250 1300,350"
-          stroke="#C9A24C"
-          strokeWidth="0.3"
-          fill="none"
-          opacity="0.6"
-          style={{ filter: "blur(3px)" }}
-        />
+        <path d="M-100,700 C300,600 500,850 700,550 S1000,150 1200,250" stroke="#D4AF37" strokeWidth="0.6" fill="none" style={{ filter: "blur(1px)" }} />
+        <path d="M-100,300 C200,450 600,150 900,350 S1200,650 1300,450" stroke="#F0D78C" strokeWidth="0.4" fill="none" style={{ filter: "blur(2px)" }} />
+        <path d="M-50,500 C250,350 550,650 850,450 S1150,250 1300,350" stroke="#C9A24C" strokeWidth="0.3" fill="none" opacity="0.6" style={{ filter: "blur(3px)" }} />
       </svg>
 
       {/* Fine grain */}
@@ -283,42 +264,98 @@ function Hero() {
         }}
       />
 
+      {/* Giant editorial watermark */}
+      <div
+        aria-hidden
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0"
+      >
+        <span
+          className="font-black tracking-tighter leading-none whitespace-nowrap text-cream/[0.025]"
+          style={{
+            fontFamily: '"Playfair Display", serif',
+            fontSize: "clamp(10rem, 22vw, 22rem)",
+          }}
+        >
+          LEADERSHIP
+        </span>
+      </div>
+
+      {/* Corner accents */}
+      <div aria-hidden className="absolute top-24 left-6 lg:left-12 w-20 h-20 border-t border-l border-gold/25 z-10" />
+      <div aria-hidden className="absolute bottom-24 right-6 lg:right-12 w-20 h-20 border-b border-r border-gold/25 z-10" />
+
       {/* Main content grid */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-16 items-center">
         {/* Information column */}
-        <div className="flex flex-col space-y-8 max-w-2xl">
-          <div className="flex items-center gap-4 opacity-80 hero-rise" style={{ animationDelay: "0.15s" }}>
-            <span className="h-px w-8 bg-gold" />
-            <span className="text-[10px] uppercase tracking-[0.5em] text-gold font-semibold">
-              Executive Leadership
+        <div className="flex flex-col space-y-8">
+          <div
+            className="flex items-center gap-4 opacity-90 hero-rise"
+            style={{ animationDelay: "0.15s" }}
+          >
+            <span className="h-px w-10 bg-gold" />
+            <span
+              className="text-[10px] uppercase tracking-[0.5em] text-gold font-medium"
+              style={{ fontFamily: '"Cormorant SC", serif' }}
+            >
+              Excellence in Innovation
             </span>
           </div>
 
-          <div className="space-y-6">
-            <h1
-              className="hero-rise font-semibold leading-[0.9] text-6xl sm:text-7xl md:text-8xl lg:text-9xl break-words"
-              style={{ fontFamily: '"Dancing Script", cursive', animationDelay: "0.3s" }}
-            >
-              Atif <span className="italic text-gold">Iqbal</span>
+          {/* Name — Editorial Noir Luxe */}
+          <div className="space-y-2">
+            <h1 className="leading-[0.85]">
+              <span
+                className="hero-rise block text-cream italic font-black tracking-tight text-6xl sm:text-7xl md:text-8xl"
+                style={{
+                  fontFamily: '"Playfair Display", serif',
+                  animationDelay: "0.3s",
+                }}
+              >
+                Atif
+              </span>
+              <span
+                className="hero-rise block font-black tracking-tight text-transparent bg-clip-text text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] -mt-2 sm:-mt-3 md:-mt-4"
+                style={{
+                  fontFamily: '"Playfair Display", serif',
+                  backgroundImage:
+                    "linear-gradient(180deg, #F9E29C 0%, #D4AF37 45%, #8A6E2F 100%)",
+                  animationDelay: "0.4s",
+                }}
+              >
+                Iqbal
+              </span>
             </h1>
-            <p
-              className="hero-rise font-serif italic font-light tracking-wide text-lg sm:text-xl md:text-2xl text-cream/70"
-              style={{ animationDelay: "0.5s" }}
-            >
-              Defining the future of pharmaceutical excellence.
-            </p>
-          </div>
 
-          <div
-            className="hero-rise flex flex-col gap-1 border-l border-gold/30 pl-6"
-            style={{ animationDelay: "0.65s" }}
-          >
-            <p className="text-[10px] tracking-[0.4em] text-cream/50 uppercase font-medium">
-              Group Chief Executive Officer
-            </p>
-            <p className="text-lg sm:text-xl font-semibold text-gold tracking-tight">
-              HIGH-Q Pharmaceuticals
-            </p>
+            <div
+              className="hero-rise flex items-center gap-4 pt-4"
+              style={{ animationDelay: "0.55s" }}
+            >
+              <span className="h-px w-12 bg-gold" />
+              <p
+                className="text-lg sm:text-xl md:text-2xl text-cream/90 tracking-[0.12em] uppercase"
+                style={{ fontFamily: '"Cormorant SC", serif', fontWeight: 400 }}
+              >
+                Group Chief Executive Officer
+              </p>
+            </div>
+
+            <div
+              className="hero-rise flex items-center gap-3 pt-1 pl-16"
+              style={{ animationDelay: "0.65s" }}
+            >
+              <span
+                className="text-gold text-sm tracking-[0.35em] uppercase font-semibold"
+                style={{ fontFamily: "Urbanist, sans-serif" }}
+              >
+                HIGH-Q
+              </span>
+              <span
+                className="text-cream/50 text-sm tracking-[0.3em] uppercase italic"
+                style={{ fontFamily: '"Playfair Display", serif' }}
+              >
+                Pharmaceuticals
+              </span>
+            </div>
           </div>
 
           <p
@@ -356,9 +393,7 @@ function Hero() {
         {/* Portrait composition */}
         <div className="hidden lg:flex justify-end relative">
           <div className="relative w-[420px] h-[600px] xl:w-[460px] xl:h-[660px]">
-            {/* Outer frame */}
             <div className="absolute -inset-4 border border-gold/15 z-0" aria-hidden />
-            {/* Portrait */}
             <div className="relative w-full h-full bg-[#050505] overflow-hidden border border-cream/5 shadow-2xl">
               <img
                 src={portrait}
@@ -369,7 +404,6 @@ function Hero() {
                 className="absolute inset-0 bg-gradient-to-t from-noir via-noir/20 to-transparent pointer-events-none"
                 aria-hidden
               />
-              {/* Filaments over image */}
               <div className="absolute inset-0 pointer-events-none" aria-hidden>
                 <div
                   className="absolute top-1/4 -right-10 w-40 h-px rotate-45"
@@ -392,7 +426,10 @@ function Hero() {
 
             {/* Floating quote */}
             <div className="absolute -bottom-6 -right-6 p-7 xl:p-8 bg-noir-soft/85 backdrop-blur-xl border border-cream/10 shadow-2xl max-w-xs z-30">
-              <p className="text-cream/90 font-serif italic text-base xl:text-lg leading-relaxed">
+              <p
+                className="text-cream/90 italic text-base xl:text-lg leading-relaxed"
+                style={{ fontFamily: '"Playfair Display", serif' }}
+              >
                 “Our legacy is built on the health and trust of the global community.”
               </p>
               <div className="mt-4 h-[2px] w-8 bg-gold" />
@@ -402,8 +439,11 @@ function Hero() {
       </div>
 
       {/* Bottom hairline indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-50">
-        <span className="text-[10px] uppercase tracking-[0.5em] text-cream/60">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-60">
+        <span
+          className="text-[10px] uppercase tracking-[0.5em] text-cream/60"
+          style={{ fontFamily: '"Cormorant SC", serif' }}
+        >
           Legacy in Motion
         </span>
         <div className="h-16 w-px bg-gradient-to-b from-gold to-transparent gold-drop" />
@@ -411,6 +451,7 @@ function Hero() {
     </section>
   );
 }
+
 
 
 function Stats() {
