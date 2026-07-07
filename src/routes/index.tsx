@@ -220,78 +220,69 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center px-5 sm:px-6 lg:px-12 pt-28 sm:pt-32 lg:pt-36 pb-20"
+      className="relative h-[100svh] min-h-[720px] w-full overflow-hidden bg-noir"
     >
-      {/* Background atmosphere */}
-      <div className="absolute inset-0 z-0 bg-noir" aria-hidden />
-      <div
-        className="absolute top-[-20%] left-[-10%] w-[80%] h-full rounded-full pointer-events-none"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(circle, rgba(212,175,55,0.14) 0%, rgba(0,0,0,0) 70%)",
-          filter: "blur(120px)",
-        }}
-      />
-      <div
-        className="absolute bottom-[-30%] right-[-10%] w-[90%] h-[110%] rounded-full pointer-events-none gold-pulse"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(circle, rgba(184,134,11,0.10) 0%, rgba(0,0,0,0) 65%)",
-          filter: "blur(140px)",
-        }}
+      {/* Full-bleed CEO portrait */}
+      <img
+        src={ceoHero}
+        alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
+        className="hero-image absolute inset-0 w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
+        loading="eager"
+        decoding="async"
       />
 
-      {/* Glowing gold filaments */}
+      {/* Cinematic tonal grade */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(120% 90% at 70% 40%, rgba(0,0,0,0) 0%, rgba(10,10,10,0.35) 55%, rgba(10,10,10,0.9) 100%)",
+        }}
+      />
+      {/* Left readability veil */}
+      <div
+        aria-hidden
+        className="absolute inset-y-0 left-0 w-full md:w-[62%] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 35%, rgba(10,10,10,0.35) 70%, rgba(10,10,10,0) 100%)",
+        }}
+      />
+      {/* Bottom fade into page */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-56 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.85) 65%, #0a0a0a 100%)",
+        }}
+      />
+      {/* Gold filament accent */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-40 pointer-events-none"
+        aria-hidden
+        className="absolute inset-0 w-full h-full opacity-40 pointer-events-none mix-blend-screen"
         viewBox="0 0 1000 1000"
         preserveAspectRatio="none"
-        aria-hidden
       >
-        <path d="M-100,700 C300,600 500,850 700,550 S1000,150 1200,250" stroke="#D4AF37" strokeWidth="0.6" fill="none" style={{ filter: "blur(1px)" }} />
-        <path d="M-100,300 C200,450 600,150 900,350 S1200,650 1300,450" stroke="#F0D78C" strokeWidth="0.4" fill="none" style={{ filter: "blur(2px)" }} />
-        <path d="M-50,500 C250,350 550,650 850,450 S1150,250 1300,350" stroke="#C9A24C" strokeWidth="0.3" fill="none" opacity="0.6" style={{ filter: "blur(3px)" }} />
+        <path
+          d="M-50,780 C250,700 500,880 780,600 S1050,220 1200,300"
+          stroke="#D4AF37"
+          strokeWidth="0.5"
+          fill="none"
+          style={{ filter: "blur(1.2px)" }}
+        />
       </svg>
 
-      {/* Fine grain */}
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay"
-        aria-hidden
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)",
-          backgroundSize: "3px 3px",
-        }}
-      />
-
-      {/* Giant editorial watermark */}
-      <div
-        aria-hidden
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0"
-      >
-        <span
-          className="font-black tracking-tighter leading-none whitespace-nowrap text-cream/[0.025]"
-          style={{
-            fontFamily: '"Italiana", serif',
-            fontSize: "clamp(10rem, 22vw, 22rem)",
-          }}
-        >
-          LEADERSHIP
-        </span>
-      </div>
-
       {/* Corner accents */}
-      <div aria-hidden className="absolute top-24 left-6 lg:left-12 w-20 h-20 border-t border-l border-gold/25 z-10" />
-      <div aria-hidden className="absolute bottom-24 right-6 lg:right-12 w-20 h-20 border-b border-r border-gold/25 z-10" />
+      <div aria-hidden className="absolute top-24 left-6 lg:left-12 w-16 h-16 border-t border-l border-gold/40 z-10" />
+      <div aria-hidden className="absolute bottom-24 right-6 lg:right-12 w-16 h-16 border-b border-r border-gold/40 z-10" />
 
-      {/* Main content grid */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-16 items-center">
-        {/* Information column */}
-        <div className="flex flex-col space-y-8">
+      {/* Content */}
+      <div className="relative z-10 h-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-28 sm:pt-32 lg:pt-36 pb-28 flex flex-col justify-end lg:justify-center">
+        <div className="max-w-2xl">
           <div
-            className="flex items-center gap-4 opacity-90 hero-rise"
+            className="flex items-center gap-4 opacity-95 hero-rise"
             style={{ animationDelay: "0.15s" }}
           >
             <span className="h-px w-10 bg-gold" />
@@ -299,79 +290,54 @@ function Hero() {
               className="text-[10px] uppercase tracking-[0.5em] text-gold font-medium"
               style={{ fontFamily: '"Cormorant SC", serif' }}
             >
-              Excellence in Innovation
+              Group Chief Executive
             </span>
           </div>
 
-          {/* Name — Editorial Noir Luxe */}
-          <div className="space-y-2">
-            <h1 className="leading-[0.85]">
-              <span
-                className="hero-rise block text-cream italic font-black tracking-tight text-6xl sm:text-7xl md:text-8xl"
-                style={{
-                  fontFamily: '"Italiana", serif',
-                  animationDelay: "0.3s",
-                }}
-              >
-                Atif
-              </span>
-              <span
-                className="hero-rise block font-black tracking-tight text-transparent bg-clip-text text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] -mt-2 sm:-mt-3 md:-mt-4"
-                style={{
-                  fontFamily: '"Italiana", serif',
-                  backgroundImage:
-                    "linear-gradient(180deg, #F9E29C 0%, #D4AF37 45%, #8A6E2F 100%)",
-                  animationDelay: "0.4s",
-                }}
-              >
-                Atif Iqbal
-              </span>
-            </h1>
-
-            <div
-              className="hero-rise flex items-center gap-4 pt-4"
-              style={{ animationDelay: "0.55s" }}
+          <h1 className="leading-[0.86] mt-6 sm:mt-8">
+            <span
+              className="hero-rise block text-cream italic font-black tracking-tight text-6xl sm:text-7xl md:text-8xl"
+              style={{ fontFamily: '"Italiana", serif', animationDelay: "0.3s" }}
             >
-              <span className="h-px w-12 bg-gold" />
-              <p
-                className="text-lg sm:text-xl md:text-2xl text-cream/90 tracking-[0.12em] uppercase"
-                style={{ fontFamily: '"Cormorant SC", serif', fontWeight: 400 }}
-              >
-                Group Chief Executive Officer
-              </p>
-            </div>
-
-            <div
-              className="hero-rise flex items-center gap-3 pt-1 pl-16"
-              style={{ animationDelay: "0.65s" }}
+              Atif
+            </span>
+            <span
+              className="hero-rise block font-black tracking-tight text-transparent bg-clip-text text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] -mt-2 sm:-mt-3 md:-mt-4"
+              style={{
+                fontFamily: '"Italiana", serif',
+                backgroundImage:
+                  "linear-gradient(180deg, #F9E29C 0%, #D4AF37 45%, #8A6E2F 100%)",
+                animationDelay: "0.4s",
+              }}
             >
-              <span
-                className="text-gold text-sm tracking-[0.35em] uppercase font-semibold"
-                style={{ fontFamily: "Urbanist, sans-serif" }}
-              >
-                HIGH-Q
-              </span>
-              <span
-                className="text-cream/50 text-sm tracking-[0.3em] uppercase italic"
-                style={{ fontFamily: '"Italiana", serif' }}
-              >
-                Pharmaceuticals
-              </span>
-            </div>
+              Iqbal
+            </span>
+          </h1>
+
+          <div
+            className="hero-rise flex items-center gap-4 pt-6"
+            style={{ animationDelay: "0.55s" }}
+          >
+            <span className="h-px w-12 bg-gold" />
+            <p
+              className="text-base sm:text-lg md:text-xl text-cream/90 tracking-[0.14em] uppercase"
+              style={{ fontFamily: '"Cormorant SC", serif', fontWeight: 400 }}
+            >
+              HIGH-Q Pharmaceuticals · Vida Laboratories
+            </p>
           </div>
 
           <p
-            className="hero-rise text-sm sm:text-base text-cream/70 font-light leading-relaxed max-w-lg"
-            style={{ animationDelay: "0.8s" }}
+            className="hero-rise mt-6 text-sm sm:text-base text-cream/75 font-light leading-relaxed max-w-lg"
+            style={{ animationDelay: "0.75s" }}
           >
-            Industrial leader, diplomat, and philanthropist — steward of the HIGH-Q
-            Group and Vida Laboratories, building bridges between industry, medicine,
-            and nations.
+            Industrial leader, diplomat, and philanthropist — building bridges
+            between industry, medicine, and nations across four continents.
           </p>
 
           <div
-            className="hero-rise pt-2 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
-            style={{ animationDelay: "0.95s" }}
+            className="hero-rise mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
+            style={{ animationDelay: "0.9s" }}
           >
             <a
               href="/Atif_Iqbal_CV.pdf"
@@ -385,70 +351,23 @@ function Hero() {
             </a>
             <a
               href="#contact"
-              className="btn-ghost-gold inline-flex items-center justify-center gap-3 border border-gold/40 text-cream px-8 sm:px-10 py-4 text-[10px] uppercase tracking-[0.4em] font-bold"
+              className="btn-ghost-gold inline-flex items-center justify-center gap-3 border border-gold/50 text-cream px-8 sm:px-10 py-4 text-[10px] uppercase tracking-[0.4em] font-bold"
             >
               Contact
             </a>
           </div>
         </div>
-
-        {/* Portrait composition */}
-        <div className="hidden lg:flex justify-end relative">
-          <div className="relative w-[420px] h-[600px] xl:w-[460px] xl:h-[660px]">
-            <div className="absolute -inset-4 border border-gold/15 z-0" aria-hidden />
-            <div className="relative w-full h-full bg-[#050505] overflow-hidden border border-cream/5 shadow-2xl">
-              <img
-                src={portrait}
-                alt="Portrait of Atif Iqbal, Group CEO of HIGH-Q Pharmaceuticals"
-                className="hero-image w-full h-full object-cover object-[60%_center] grayscale contrast-125 opacity-90"
-              />
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-noir via-noir/20 to-transparent pointer-events-none"
-                aria-hidden
-              />
-              <div className="absolute inset-0 pointer-events-none" aria-hidden>
-                <div
-                  className="absolute top-1/4 -right-10 w-40 h-px rotate-45"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, transparent, #C9A24C, transparent)",
-                    filter: "blur(1px)",
-                  }}
-                />
-                <div
-                  className="absolute bottom-1/3 -left-10 w-60 h-px -rotate-12"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, transparent, #F0D78C, transparent)",
-                    filter: "blur(2px)",
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* Floating quote */}
-            <div className="absolute -bottom-6 -right-6 p-7 xl:p-8 bg-noir-soft/85 backdrop-blur-xl border border-cream/10 shadow-2xl max-w-xs z-30">
-              <p
-                className="text-cream/90 italic text-base xl:text-lg leading-relaxed"
-                style={{ fontFamily: '"Italiana", serif' }}
-              >
-                “Our legacy is built on the health and trust of the global community.”
-              </p>
-              <div className="mt-4 h-[2px] w-8 bg-gold" />
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Bottom hairline indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-60">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-70 z-10">
         <span
-          className="text-[10px] uppercase tracking-[0.5em] text-cream/60"
+          className="text-[10px] uppercase tracking-[0.5em] text-cream/70"
           style={{ fontFamily: '"Cormorant SC", serif' }}
         >
           Legacy in Motion
         </span>
-        <div className="h-16 w-px bg-gradient-to-b from-gold to-transparent gold-drop" />
+        <div className="h-14 w-px bg-gradient-to-b from-gold to-transparent gold-drop" />
       </div>
     </section>
   );
