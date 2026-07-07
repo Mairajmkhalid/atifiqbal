@@ -226,10 +226,11 @@ function Hero() {
       <img
         src={ceoHero}
         alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
-        className="hero-image absolute inset-0 w-full h-full object-cover object-[65%_top] sm:object-[60%_top] md:object-[center_top]"
+        className="hero-image absolute inset-0 w-full h-full object-cover object-[65%_top] sm:object-[60%_top] md:object-[center_top] scale-[1.18] sm:scale-110 md:scale-100 origin-top -translate-y-[6%] sm:-translate-y-[4%] md:translate-y-0"
         loading="eager"
         decoding="async"
       />
+
 
       {/* Cinematic tonal grade */}
       <div
