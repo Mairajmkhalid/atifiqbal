@@ -504,13 +504,12 @@
   100% { background-position: 300% 50%; }
 }
 
-/* Neon hover effect for all headings — matches hero name sweep */
-h1, h2, h3, h4, h5, h6 {
-  background-size: 300% 100%;
-  background-position: 0% 50%;
-  transition: background-image 0.5s ease, -webkit-text-fill-color 0.5s ease, color 0.5s ease;
+/* Neon hover effect for headings — matches hero name sweep.
+   Excludes the hero name (which has its own .hero-name-sweep). */
+h2:not(.hero-name-sweep), h3:not(.hero-name-sweep), h4:not(.hero-name-sweep), h5, h6 {
+  transition: background-image 0.5s ease;
 }
-h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   background-image: linear-gradient(
     110deg,
     #00e5ff 0%,
@@ -520,7 +519,8 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
     #ff2bd6 72%,
     #7c4dff 86%,
     #00e5ff 100%
-  );
+  ) !important;
+  background-size: 300% 100% !important;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
