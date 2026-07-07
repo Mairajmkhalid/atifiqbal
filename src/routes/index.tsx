@@ -322,7 +322,7 @@ function Hero() {
                   animationDelay: "0.4s",
                 }}
               >
-                Iqbal
+                Atif Iqbal
               </span>
             </h1>
 
