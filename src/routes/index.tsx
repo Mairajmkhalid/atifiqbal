@@ -220,17 +220,18 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative w-full bg-noir min-h-[100svh] flex flex-col"
+      className="relative w-full bg-noir flex flex-col"
     >
       {/* Portrait pane — face always fully visible, never covered by text */}
-      <div className="relative w-full h-[48svh] min-h-[360px] max-h-[640px] overflow-hidden">
+      <div className="relative w-full h-[42svh] min-h-[340px] max-h-[560px] sm:h-[52svh] sm:min-h-[420px] sm:max-h-[620px] md:h-[70svh] md:min-h-[520px] md:max-h-[760px] overflow-hidden">
         <img
           src={ceoHero}
           alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
-          className="hero-image absolute inset-0 w-full h-full object-cover object-[62%_top] sm:object-[58%_top] md:object-[center_top]"
+          className="hero-image absolute inset-0 w-full h-full object-cover object-[62%_top] sm:object-[58%_top] md:object-[center_35%]"
           loading="eager"
           decoding="async"
         />
+
 
         {/* Cinematic tonal grade */}
         <div
@@ -245,7 +246,7 @@ function Hero() {
         {/* Seamless fade into the text pane below */}
         <div
           aria-hidden
-          className="absolute inset-x-0 bottom-0 h-40 pointer-events-none"
+          className="absolute inset-x-0 bottom-0 h-32 sm:h-40 pointer-events-none"
           style={{
             background:
               "linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.9) 70%, #0a0a0a 100%)",
@@ -269,13 +270,13 @@ function Hero() {
         </svg>
 
         {/* Corner filaments */}
-        <div aria-hidden className="absolute top-24 left-6 lg:left-12 w-10 h-10 border-t border-l border-gold/50 z-10" />
-        <div aria-hidden className="absolute top-24 right-6 lg:right-12 w-10 h-10 border-t border-r border-gold/50 z-10" />
+        <div aria-hidden className="absolute top-20 sm:top-24 left-4 sm:left-6 lg:left-12 w-8 sm:w-10 h-8 sm:h-10 border-t border-l border-gold/50 z-10" />
+        <div aria-hidden className="absolute top-20 sm:top-24 right-4 sm:right-6 lg:right-12 w-8 sm:w-10 h-8 sm:h-10 border-t border-r border-gold/50 z-10" />
       </div>
 
       {/* Text pane — solid noir, no image behind, guaranteed no overlap */}
-      <div className="relative flex-1 bg-noir">
-        <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 pt-4 sm:pt-6 pb-16 sm:pb-20 -mt-16 sm:-mt-20 relative z-10 flex flex-col">
+      <div className="relative bg-noir">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12 pt-4 sm:pt-6 pb-14 sm:pb-20 -mt-14 sm:-mt-20 relative z-10 flex flex-col">
           {/* Gold hairline */}
           <div
             className="hero-rise w-12 h-px bg-gold mb-6"
