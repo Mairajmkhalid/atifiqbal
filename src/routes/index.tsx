@@ -285,7 +285,7 @@ function Hero() {
           {/* Eyebrow */}
           <p
             className="hero-rise text-[10px] sm:text-[11px] uppercase tracking-[0.42em] text-gold font-semibold mb-3"
-            style={{ fontFamily: '"Cormorant SC", serif', animationDelay: "0.25s" }}
+            style={{ letterSpacing: "0.02em", animationDelay: "0.25s" }}
           >
             Group Chief Executive
           </p>
@@ -298,7 +298,7 @@ function Hero() {
             <span
               className="block text-transparent bg-clip-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
               style={{
-                fontFamily: '"DM Serif Display", serif',
+                fontWeight: 700, letterSpacing: "-0.045em",
                 backgroundImage:
                   "linear-gradient(180deg, #F9E29C 0%, #D4AF37 45%, #8A6E2F 100%)",
               }}
@@ -311,7 +311,7 @@ function Hero() {
           {/* Tagline */}
           <p
             className="hero-rise text-[10px] sm:text-[11px] tracking-[0.28em] uppercase text-gold/90 font-medium mb-6"
-            style={{ fontFamily: '"Cormorant SC", serif', animationDelay: "0.5s" }}
+            style={{ letterSpacing: "0.02em", animationDelay: "0.5s" }}
           >
             HIGH-Q Pharmaceuticals
             <span className="mx-2 opacity-60">·</span>
@@ -354,7 +354,7 @@ function Hero() {
           <div className="mt-12 flex items-center gap-3 opacity-70">
             <span
               className="text-[10px] uppercase tracking-[0.5em] text-cream/70"
-              style={{ fontFamily: '"Cormorant SC", serif' }}
+              style={{ letterSpacing: "0.02em" }}
             >
               Legacy in Motion
             </span>
