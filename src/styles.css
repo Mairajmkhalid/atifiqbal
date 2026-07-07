@@ -467,7 +467,45 @@
   animation: glow-pulse 4s ease-in-out infinite;
 }
 
+/* Apple-style flowing gradient: idle gold, hover shifts to neon and animates */
+.hero-name-sweep {
+  background-image: linear-gradient(
+    110deg,
+    #f9e29c 0%,
+    #d4af37 20%,
+    #8a6e2f 35%,
+    #f0d78c 50%,
+    #d4af37 65%,
+    #8a6e2f 80%,
+    #f9e29c 100%
+  );
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-image 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hero-name-sweep:hover {
+  background-image: linear-gradient(
+    110deg,
+    #00e5ff 0%,
+    #7c4dff 18%,
+    #ff2bd6 36%,
+    #00ffa3 54%,
+    #ff2bd6 72%,
+    #7c4dff 86%,
+    #00e5ff 100%
+  );
+  animation: hero-name-flow 3.2s linear infinite;
+}
+@keyframes hero-name-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
 /* Section divider — metallic hairline */
+
 .section-divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(201, 162, 76, 0.4), rgba(217, 221, 227, 0.35), transparent);
