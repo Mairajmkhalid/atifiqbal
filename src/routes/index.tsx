@@ -223,7 +223,7 @@ function Hero() {
       className="relative w-full bg-noir min-h-[100svh] flex flex-col"
     >
       {/* Portrait pane — face always fully visible, never covered by text */}
-      <div className="relative w-full h-[58svh] min-h-[420px] max-h-[720px] overflow-hidden">
+      <div className="relative w-full h-[48svh] min-h-[360px] max-h-[640px] overflow-hidden">
         <img
           src={ceoHero}
           alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
@@ -275,7 +275,7 @@ function Hero() {
 
       {/* Text pane — solid noir, no image behind, guaranteed no overlap */}
       <div className="relative flex-1 bg-noir">
-        <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 pt-10 sm:pt-14 pb-16 sm:pb-20 flex flex-col">
+        <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 pt-4 sm:pt-6 pb-16 sm:pb-20 -mt-16 sm:-mt-20 relative z-10 flex flex-col">
           {/* Gold hairline */}
           <div
             className="hero-rise w-12 h-px bg-gold mb-6"
