@@ -37,8 +37,8 @@
   --color-noir-line: var(--noir-line);
   --color-cream: var(--cream);
 
-  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
-  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
 
   --shadow-cinema: 0 40px 120px -30px rgba(201, 168, 76, 0.25);
   --shadow-gold: 0 0 60px -12px rgba(201, 168, 76, 0.55);
