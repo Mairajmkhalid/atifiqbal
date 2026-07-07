@@ -216,14 +216,11 @@ function ReelBadge({ scene, section }: { scene: string; section: string }) {
   );
 }
 
-function Hero() {
+function HeroMobile() {
   return (
-    <section
-      id="top"
-      className="relative w-full bg-noir flex flex-col"
-    >
+    <>
       {/* Portrait pane — face always fully visible, never covered by text */}
-      <div className="relative w-full h-[42svh] min-h-[340px] max-h-[560px] sm:h-[52svh] sm:min-h-[420px] sm:max-h-[620px] md:h-[70svh] md:min-h-[520px] md:max-h-[760px] overflow-hidden">
+      <div className="relative w-full h-[42svh] min-h-[340px] max-h-[560px] sm:h-[52svh] sm:min-h-[420px] sm:max-h-[620px] md:h-[62svh] md:min-h-[520px] md:max-h-[720px] overflow-hidden">
         <img
           src={ceoHero}
           alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
@@ -231,7 +228,6 @@ function Hero() {
           loading="eager"
           decoding="async"
         />
-
 
         {/* Cinematic tonal grade */}
         <div
@@ -253,51 +249,24 @@ function Hero() {
           }}
         />
 
-        {/* Gold filament accent */}
-        <svg
-          aria-hidden
-          className="absolute inset-0 w-full h-full opacity-40 pointer-events-none mix-blend-screen"
-          viewBox="0 0 1000 600"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M-50,480 C250,420 500,540 780,360 S1050,120 1200,180"
-            stroke="#D4AF37"
-            strokeWidth="0.5"
-            fill="none"
-            style={{ filter: "blur(1.2px)" }}
-          />
-        </svg>
-
         {/* Corner filaments */}
-        <div aria-hidden className="absolute top-20 sm:top-24 left-4 sm:left-6 lg:left-12 w-8 sm:w-10 h-8 sm:h-10 border-t border-l border-gold/50 z-10" />
-        <div aria-hidden className="absolute top-20 sm:top-24 right-4 sm:right-6 lg:right-12 w-8 sm:w-10 h-8 sm:h-10 border-t border-r border-gold/50 z-10" />
+        <div aria-hidden className="absolute top-20 sm:top-24 left-4 sm:left-6 w-8 sm:w-10 h-8 sm:h-10 border-t border-l border-gold/50 z-10" />
+        <div aria-hidden className="absolute top-20 sm:top-24 right-4 sm:right-6 w-8 sm:w-10 h-8 sm:h-10 border-t border-r border-gold/50 z-10" />
       </div>
 
       {/* Text pane — solid noir, no image behind, guaranteed no overlap */}
       <div className="relative bg-noir">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12 pt-4 sm:pt-6 pb-14 sm:pb-20 -mt-14 sm:-mt-20 relative z-10 flex flex-col">
-          {/* Gold hairline */}
-          <div
-            className="hero-rise w-12 h-px bg-gold mb-6"
-            style={{ animationDelay: "0.15s" }}
-          />
-
-          {/* Eyebrow */}
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 pt-4 sm:pt-6 pb-14 sm:pb-20 -mt-14 sm:-mt-20 relative z-10 flex flex-col">
+          <div className="hero-rise w-12 h-px bg-gold mb-6" style={{ animationDelay: "0.15s" }} />
           <p
             className="hero-rise text-[10px] sm:text-[11px] uppercase tracking-[0.42em] text-gold font-semibold mb-3"
             style={{ letterSpacing: "0.02em", animationDelay: "0.25s" }}
           >
             Group Chief Executive
           </p>
-
-          {/* Headline */}
-          <h1
-            className="hero-rise leading-[0.95] mb-3"
-            style={{ animationDelay: "0.35s" }}
-          >
+          <h1 className="hero-rise leading-[0.95] mb-3" style={{ animationDelay: "0.35s" }}>
             <span
-              className="block text-transparent bg-clip-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
+              className="block text-transparent bg-clip-text text-5xl sm:text-6xl md:text-7xl"
               style={{
                 fontWeight: 700, letterSpacing: "-0.045em",
                 backgroundImage:
@@ -307,9 +276,6 @@ function Hero() {
               Atif Iqbal
             </span>
           </h1>
-
-
-          {/* Tagline */}
           <p
             className="hero-rise text-[10px] sm:text-[11px] tracking-[0.28em] uppercase text-gold/90 font-medium mb-6"
             style={{ letterSpacing: "0.02em", animationDelay: "0.5s" }}
@@ -318,8 +284,6 @@ function Hero() {
             <span className="mx-2 opacity-60">·</span>
             Vida Laboratories
           </p>
-
-          {/* Body */}
           <p
             className="hero-rise text-sm sm:text-base text-cream/75 font-light leading-relaxed max-w-lg mb-8"
             style={{ animationDelay: "0.65s" }}
@@ -327,12 +291,7 @@ function Hero() {
             Industrial leader, diplomat, and philanthropist — building bridges
             between industry, medicine, and nations across four continents.
           </p>
-
-          {/* CTAs */}
-          <div
-            className="hero-rise flex flex-col sm:flex-row gap-3 sm:gap-4"
-            style={{ animationDelay: "0.8s" }}
-          >
+          <div className="hero-rise flex flex-col sm:flex-row gap-3 sm:gap-4" style={{ animationDelay: "0.8s" }}>
             <a
               href="/Atif_Iqbal_CV.pdf"
               download
@@ -350,8 +309,6 @@ function Hero() {
               Contact
             </a>
           </div>
-
-          {/* Legacy indicator */}
           <div className="mt-12 flex items-center gap-3 opacity-70">
             <span
               className="text-[10px] uppercase tracking-[0.5em] text-cream/70"
@@ -362,13 +319,172 @@ function Hero() {
             <div className="h-px flex-1 bg-gradient-to-r from-gold/60 to-transparent" />
           </div>
         </div>
-
-        {/* Bottom filament */}
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+      </div>
+    </>
+  );
+}
+
+function HeroDesktop() {
+  return (
+    <div className="relative w-full min-h-[100svh] flex items-center justify-center px-8 xl:px-12 pt-24 pb-16 overflow-hidden">
+      {/* Faint background wordmark */}
+      <div aria-hidden className="pointer-events-none select-none absolute -top-8 -left-6 opacity-[0.035]">
+        <span
+          className="block leading-none text-cream"
+          style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: "clamp(12rem, 18vw, 22rem)", letterSpacing: "-0.04em" }}
+        >
+          EXCELLENCE
+        </span>
+      </div>
+
+      {/* Ambient gold glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-40 top-1/3 w-[520px] h-[520px] rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(201,162,76,0.10) 0%, transparent 70%)" }}
+      />
+
+      <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-12 gap-8 xl:gap-12 items-center">
+        {/* Text column */}
+        <div className="col-span-6 flex flex-col gap-8 pr-4 xl:pr-8">
+          <div className="space-y-5">
+            <div className="hero-rise flex items-center gap-4" style={{ animationDelay: "0.15s" }}>
+              <div className="h-px w-12 bg-gold" />
+              <span
+                className="text-[10px] uppercase tracking-[0.4em] text-gold font-semibold"
+                style={{ letterSpacing: "0.02em" }}
+              >
+                Group Chief Executive
+              </span>
+            </div>
+
+            <h1 className="hero-rise leading-[0.85]" style={{ animationDelay: "0.3s" }}>
+              <span
+                className="block text-transparent bg-clip-text"
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontWeight: 700,
+                  letterSpacing: "-0.045em",
+                  fontSize: "clamp(4.5rem, 8vw, 8.5rem)",
+                  backgroundImage:
+                    "linear-gradient(180deg, #F9E29C 0%, #D4AF37 45%, #8A6E2F 100%)",
+                }}
+              >
+                Atif Iqbal
+              </span>
+            </h1>
+          </div>
+
+          <div className="hero-rise space-y-5 max-w-lg" style={{ animationDelay: "0.5s" }}>
+            <p
+              className="text-[11px] uppercase tracking-[0.32em] text-gold/90 font-medium"
+              style={{ letterSpacing: "0.02em" }}
+            >
+              HIGH-Q Pharmaceuticals
+              <span className="mx-3 opacity-60">·</span>
+              Vida Laboratories
+            </p>
+            <p className="text-cream/70 leading-relaxed text-base xl:text-[17px] font-light border-l border-gold/25 pl-5">
+              Industrial leader, diplomat, and philanthropist — building bridges between
+              industry, medicine, and nations across four continents.
+            </p>
+          </div>
+
+          <div className="hero-rise flex flex-wrap items-center gap-4 pt-2" style={{ animationDelay: "0.7s" }}>
+            <a
+              href="/Atif_Iqbal_CV.pdf"
+              download
+              className="btn-gold group inline-flex items-center gap-3 bg-gold text-noir px-9 py-4 text-[10px] uppercase tracking-[0.4em] font-bold"
+            >
+              Download CV
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-y-0.5">
+                <path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" strokeLinecap="square" />
+              </svg>
+            </a>
+            <a
+              href="#contact"
+              className="btn-ghost-gold inline-flex items-center gap-3 border border-gold/40 text-cream px-9 py-4 text-[10px] uppercase tracking-[0.4em] font-bold"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+
+        {/* Portrait column */}
+        <div className="col-span-6 relative flex items-center justify-center h-[72svh] max-h-[760px] min-h-[560px]">
+          {/* Vertical accent hairline */}
+          <div
+            aria-hidden
+            className="absolute -left-2 top-1/2 -translate-y-1/2 w-px h-40 hidden xl:block"
+            style={{ background: "linear-gradient(180deg, transparent, #c9a24c 50%, transparent)" }}
+          />
+
+          {/* Offset gold frame */}
+          <div aria-hidden className="absolute inset-6 border border-gold/15 translate-x-4 translate-y-4 pointer-events-none" />
+
+          {/* Portrait */}
+          <div className="hero-image relative w-full h-full max-w-[520px] overflow-hidden shadow-cinema group">
+            <img
+              src={ceoHero}
+              alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
+              className="absolute inset-0 w-full h-full object-cover object-[center_25%] transition-transform duration-[1400ms] group-hover:scale-[1.03]"
+              loading="eager"
+              decoding="async"
+            />
+            {/* Depth overlay */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: "linear-gradient(180deg, rgba(15,17,20,0) 55%, rgba(15,17,20,0.55) 100%)" }}
+            />
+            {/* Corner filaments */}
+            <span aria-hidden className="absolute top-3 left-3 w-6 h-6 border-t border-l border-gold/60" />
+            <span aria-hidden className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-gold/60" />
+          </div>
+
+          {/* Floating stat card */}
+          <div
+            className="hero-rise absolute -bottom-2 right-0 xl:-right-4 z-20 p-6 xl:p-7 border border-gold/20 backdrop-blur-md"
+            style={{
+              animationDelay: "0.9s",
+              background: "linear-gradient(135deg, rgba(28,30,36,0.95) 0%, rgba(15,17,20,0.95) 100%)",
+              boxShadow: "0 30px 60px -20px rgba(0,0,0,0.6)",
+            }}
+          >
+            <div
+              className="text-gold text-4xl xl:text-5xl leading-none mb-2"
+              style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, letterSpacing: "-0.03em" }}
+            >
+              4+
+            </div>
+            <p className="text-[9px] uppercase tracking-[0.32em] text-cream/60 font-semibold whitespace-nowrap">
+              Continents Impacted
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom hairline */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+    </div>
+  );
+}
+
+function Hero() {
+  return (
+    <section id="top" className="relative w-full bg-noir flex flex-col">
+      <div className="lg:hidden">
+        <HeroMobile />
+      </div>
+      <div className="hidden lg:block">
+        <HeroDesktop />
       </div>
     </section>
   );
 }
+
+
 
 
 
