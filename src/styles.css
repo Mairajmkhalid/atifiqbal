@@ -183,29 +183,63 @@
 /* ————— Metallic text sweeps ————— */
 @utility text-gold {
   background: linear-gradient(120deg, #f0d78c 0%, #c9a24c 45%, #8a6d24 65%, #f0d78c 100%);
-  background-size: 200% 200%;
+  background-size: 220% 220%;
+  background-position: 0% 50%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  transition: background-position 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    background-position: 100% 50%;
+  }
 }
 
 @utility text-silver {
   background: linear-gradient(120deg, #f1f3f6 0%, #c9ccd1 50%, #8b8f95 80%, #f1f3f6 100%);
-  background-size: 200% 200%;
+  background-size: 220% 220%;
+  background-position: 0% 50%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  transition: background-position 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    background-position: 100% 50%;
+  }
 }
 
 @utility text-platinum {
   background: linear-gradient(120deg, #ffffff 0%, #d9dde3 40%, #a4a8ae 65%, #ffffff 100%);
-  background-size: 200% 200%;
+  background-size: 220% 220%;
+  background-position: 0% 50%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  transition: background-position 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    background-position: 100% 50%;
+  }
+}
+
+/* Generic reusable sweep for subheadings and labels */
+@utility gold-sweep {
+  background: linear-gradient(120deg, #f0d78c 0%, #c9a24c 45%, #8a6d24 65%, #f0d78c 100%);
+  background-size: 220% 220%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    background-position: 100% 50%;
+  }
 }
 
 /* ————— Existing utilities, updated ————— */
@@ -217,8 +251,20 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.42em;
-  color: var(--gold-soft);
+  background: linear-gradient(120deg, #f0d78c 0%, #c9a24c 45%, #8a6d24 65%, #f0d78c 100%);
+  background-size: 220% 220%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    background-position: 100% 50%;
+  }
 }
+
 
 @utility gold-rule {
   display: inline-block;
