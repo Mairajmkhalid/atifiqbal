@@ -272,7 +272,7 @@ function Hero() {
         <span
           className="font-black tracking-tighter leading-none whitespace-nowrap text-cream/[0.025]"
           style={{
-            fontFamily: '"Bodoni Moda", serif',
+            fontFamily: '"Italiana", serif',
             fontSize: "clamp(10rem, 22vw, 22rem)",
           }}
         >
@@ -307,7 +307,7 @@ function Hero() {
               <span
                 className="hero-rise block text-cream italic font-black tracking-tight text-6xl sm:text-7xl md:text-8xl"
                 style={{
-                  fontFamily: '"Bodoni Moda", serif',
+                  fontFamily: '"Italiana", serif',
                   animationDelay: "0.3s",
                 }}
               >
@@ -316,7 +316,7 @@ function Hero() {
               <span
                 className="hero-rise block font-black tracking-tight text-transparent bg-clip-text text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] -mt-2 sm:-mt-3 md:-mt-4"
                 style={{
-                  fontFamily: '"Bodoni Moda", serif',
+                  fontFamily: '"Italiana", serif',
                   backgroundImage:
                     "linear-gradient(180deg, #F9E29C 0%, #D4AF37 45%, #8A6E2F 100%)",
                   animationDelay: "0.4s",
@@ -351,7 +351,7 @@ function Hero() {
               </span>
               <span
                 className="text-cream/50 text-sm tracking-[0.3em] uppercase italic"
-                style={{ fontFamily: '"Bodoni Moda", serif' }}
+                style={{ fontFamily: '"Italiana", serif' }}
               >
                 Pharmaceuticals
               </span>
@@ -428,7 +428,7 @@ function Hero() {
             <div className="absolute -bottom-6 -right-6 p-7 xl:p-8 bg-noir-soft/85 backdrop-blur-xl border border-cream/10 shadow-2xl max-w-xs z-30">
               <p
                 className="text-cream/90 italic text-base xl:text-lg leading-relaxed"
-                style={{ fontFamily: '"Bodoni Moda", serif' }}
+                style={{ fontFamily: '"Italiana", serif' }}
               >
                 “Our legacy is built on the health and trust of the global community.”
               </p>
