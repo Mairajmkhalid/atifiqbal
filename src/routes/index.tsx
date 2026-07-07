@@ -361,19 +361,18 @@ function HeroDesktop() {
 
             <h1 className="hero-rise leading-[0.85]" style={{ animationDelay: "0.3s" }}>
               <span
-                className="block text-transparent bg-clip-text"
+                className="hero-name-sweep block text-transparent bg-clip-text"
                 style={{
                   fontFamily: 'var(--font-serif)',
                   fontWeight: 700,
                   letterSpacing: "-0.045em",
                   fontSize: "clamp(4.5rem, 8vw, 8.5rem)",
-                  backgroundImage:
-                    "linear-gradient(180deg, #F9E29C 0%, #D4AF37 45%, #8A6E2F 100%)",
                 }}
               >
                 Atif Iqbal
               </span>
             </h1>
+
           </div>
 
           <div className="hero-rise space-y-5 max-w-lg" style={{ animationDelay: "0.5s" }}>
