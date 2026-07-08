@@ -521,10 +521,10 @@ h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
     #00e5ff 100%
   ) !important;
   background-size: 300% 100% !important;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
   animation: hero-name-flow 3.2s linear infinite;
 }
 
