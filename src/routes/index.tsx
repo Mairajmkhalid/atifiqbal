@@ -14,6 +14,8 @@ import atif4 from "@/assets/portraits/atif-4.jpg.asset.json";
 import atif5 from "@/assets/portraits/atif-5.jpg.asset.json";
 import atif6 from "@/assets/portraits/atif-6.jpg.asset.json";
 import atif7 from "@/assets/portraits/atif-7.jpg.asset.json";
+import profilePdfAsset from "@/assets/Atif_Iqbal_Profile.pdf.asset.json";
+const profilePdfUrl = profilePdfAsset.url;
 const heroSlides = [
   { src: ceoHero, alt: "Atif Iqbal — Group CEO at his executive desk", pos: "center 25%" },
   { src: atif1.url, alt: "Atif Iqbal — portrait in brown paisley suit", pos: "center 20%" },
@@ -79,37 +81,6 @@ const stats = [
   { value: "2007", label: "HIGH-Q Plant Established" },
 ];
 
-async function downloadProfilePdf(setBusy: (b: boolean) => void) {
-  const el = document.getElementById("profile-root");
-  if (!el) return;
-  try {
-    setBusy(true);
-    const mod = await import("html2pdf.js");
-    const html2pdf = (mod as { default: (...args: unknown[]) => unknown }).default;
-    // wait a tick so any lazy images render
-    await new Promise((r) => setTimeout(r, 100));
-    await (html2pdf as (...args: unknown[]) => { set: (o: unknown) => { from: (e: HTMLElement) => { save: () => Promise<void> } } })()
-      .set({
-        margin: 0,
-        filename: "Atif-Iqbal-Profile.pdf",
-        image: { type: "jpeg", quality: 0.95 },
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          backgroundColor: "#0a0a0a",
-          windowWidth: 1280,
-        },
-        jsPDF: { unit: "px", format: [1280, el.scrollHeight], orientation: "portrait" },
-        pagebreak: { mode: ["css", "legacy"] },
-      })
-      .from(el)
-      .save();
-  } catch (err) {
-    console.error("PDF export failed", err);
-  } finally {
-    setBusy(false);
-  }
-}
 
 function Nav() {
   const items: [string, string][] = [
@@ -120,7 +91,6 @@ function Nav() {
     ["contact", "Contact"],
   ];
   const [open, setOpen] = useState(false);
-  const [busy, setBusy] = useState(false);
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-gold/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between">
@@ -143,15 +113,14 @@ function Nav() {
           ))}
         </ul>
         <div className="hidden md:flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => downloadProfilePdf(setBusy)}
-            disabled={busy}
-            className="no-print inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-gold border border-gold/40 hover:bg-gold/10 px-3 lg:px-4 py-2.5 disabled:opacity-50"
+          <a
+            href={profilePdfUrl}
+            download="Atif-Iqbal-Profile.pdf"
+            className="no-print inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-gold border border-gold/40 hover:bg-gold/10 px-3 lg:px-4 py-2.5"
           >
-            <span className="hidden lg:inline">{busy ? "Preparing…" : "Download Profile"}</span>
-            <span className="lg:hidden">{busy ? "…" : "PDF"}</span>
-          </button>
+            <span className="hidden lg:inline">Download Profile</span>
+            <span className="lg:hidden">PDF</span>
+          </a>
           <a
             href="#contact"
             className="btn-gold inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-4 lg:px-5 py-2.5"
@@ -190,17 +159,14 @@ function Nav() {
               </li>
             ))}
             <li className="flex flex-col gap-2 pt-3">
-              <button
-                type="button"
-                onClick={() => {
-                  setOpen(false);
-                  downloadProfilePdf(setBusy);
-                }}
-                disabled={busy}
-                className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-gold border border-gold/40 px-5 py-3 disabled:opacity-50"
+              <a
+                href={profilePdfUrl}
+                download="Atif-Iqbal-Profile.pdf"
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-gold border border-gold/40 px-5 py-3"
               >
-                {busy ? "Preparing PDF…" : "Download Profile PDF"}
-              </button>
+                Download Profile
+              </a>
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
@@ -305,11 +271,11 @@ function HeroMobile() {
           </p>
           <div className="hero-rise flex flex-col sm:flex-row gap-3 sm:gap-4" style={{ animationDelay: "0.8s" }}>
             <a
-              href="/Atif_Iqbal_CV.pdf"
-              download
+              href={profilePdfUrl}
+              download="Atif-Iqbal-Profile.pdf"
               className="btn-gold group inline-flex items-center justify-center gap-3 bg-gold text-noir px-8 sm:px-10 py-4 text-[10px] uppercase tracking-[0.4em] font-bold"
             >
-              Download CV
+              Download Profile
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-y-0.5">
                 <path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" strokeLinecap="square" />
               </svg>
@@ -404,8 +370,8 @@ function HeroDesktop() {
 
           <div className="hero-rise flex flex-wrap items-center gap-4 pt-2" style={{ animationDelay: "0.7s" }}>
             <a
-              href="/Atif_Iqbal_CV.pdf"
-              download
+              href={profilePdfUrl}
+              download="Atif-Iqbal-Profile.pdf"
               className="btn-gold group inline-flex items-center gap-3 bg-gold text-noir px-9 py-4 text-[10px] uppercase tracking-[0.4em] font-bold"
             >
               Download Profile
