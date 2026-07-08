@@ -1062,7 +1062,15 @@ function bentoSpanFor(count: number, index: number): string {
   return pattern[index % pattern.length];
 }
 
-function GallerySectionBlock({ section, index }: { section: GallerySection; index: number }) {
+function GallerySectionBlock({
+  section,
+  index,
+  onOpen,
+}: {
+  section: GallerySection;
+  index: number;
+  onOpen: (item: GalleryItem) => void;
+}) {
   return (
     <div id={section.id} className={index === 0 ? "" : "mt-16 md:mt-24"}>
       <div className="max-w-3xl mb-10 md:mb-12">
@@ -1075,7 +1083,16 @@ function GallerySectionBlock({ section, index }: { section: GallerySection; inde
         {section.items.map((g, i) => (
           <figure
             key={g.src}
-            className={`group relative overflow-hidden cinema-card cinema-card-hover ${bentoSpanFor(section.items.length, i)}`}
+            className={`group relative overflow-hidden cinema-card cinema-card-hover cursor-zoom-in ${bentoSpanFor(section.items.length, i)}`}
+            onClick={() => onOpen(g)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onOpen(g);
+              }
+            }}
           >
             <img
               src={g.src}
@@ -1084,7 +1101,6 @@ function GallerySectionBlock({ section, index }: { section: GallerySection; inde
               className={`absolute inset-0 w-full h-full ${g.contain ? "object-contain bg-noir-soft p-3" : "object-cover object-top"} grayscale-[35%] group-hover:grayscale-0 scale-[1.03] group-hover:scale-[1.06] transition-all duration-[1400ms]`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/40 to-transparent pointer-events-none opacity-95 group-hover:opacity-80 transition-opacity duration-700" />
-            {/* Gold corner accents */}
             <span className="pointer-events-none absolute top-3 left-3 w-4 h-4 border-t border-l border-gold/0 group-hover:border-gold/80 transition-all duration-500" />
             <span className="pointer-events-none absolute bottom-3 right-3 w-4 h-4 border-b border-r border-gold/0 group-hover:border-gold/80 transition-all duration-500" />
             <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
@@ -1098,7 +1114,93 @@ function GallerySectionBlock({ section, index }: { section: GallerySection; inde
   );
 }
 
+function Lightbox({ items, index, onClose, onPrev, onNext }: {
+  items: GalleryItem[];
+  index: number;
+  onClose: () => void;
+  onPrev: () => void;
+  onNext: () => void;
+}) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") onPrev();
+      if (e.key === "ArrowRight") onNext();
+    };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [onClose, onPrev, onNext]);
+
+  const item = items[index];
+  if (!item) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-noir/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fade-in"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <button
+        type="button"
+        aria-label="Close"
+        onClick={onClose}
+        className="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 flex items-center justify-center text-cream/80 hover:text-gold border border-gold/30 hover:border-gold/70 transition-colors"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M6 6l12 12M18 6L6 18" strokeLinecap="square" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        aria-label="Previous"
+        onClick={(e) => { e.stopPropagation(); onPrev(); }}
+        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center text-cream/80 hover:text-gold border border-gold/30 hover:border-gold/70 transition-colors"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M15 6l-6 6 6 6" strokeLinecap="square" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        aria-label="Next"
+        onClick={(e) => { e.stopPropagation(); onNext(); }}
+        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center text-cream/80 hover:text-gold border border-gold/30 hover:border-gold/70 transition-colors"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M9 6l6 6-6 6" strokeLinecap="square" />
+        </svg>
+      </button>
+      <figure
+        className="relative max-w-6xl max-h-full w-full flex flex-col items-center gap-4 animate-scale-in"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <img
+          src={item.src}
+          alt={item.label}
+          className="max-h-[80svh] w-auto max-w-full object-contain shadow-2xl"
+        />
+        <figcaption className="text-center">
+          <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{item.place}</p>
+          <p className="font-serif italic text-lg sm:text-xl text-cream mt-1.5">{item.label}</p>
+        </figcaption>
+      </figure>
+    </div>
+  );
+}
+
 function Gallery() {
+  const allItems = gallerySections.flatMap((s) => s.items);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const openItem = (item: GalleryItem) => {
+    const idx = allItems.findIndex((it) => it.src === item.src);
+    if (idx >= 0) setOpenIndex(idx);
+  };
   return (
     <section id="gallery" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
@@ -1113,9 +1215,18 @@ function Gallery() {
         </div>
 
         {gallerySections.map((s, i) => (
-          <GallerySectionBlock key={s.id} section={s} index={i} />
+          <GallerySectionBlock key={s.id} section={s} index={i} onOpen={openItem} />
         ))}
       </div>
+      {openIndex !== null && (
+        <Lightbox
+          items={allItems}
+          index={openIndex}
+          onClose={() => setOpenIndex(null)}
+          onPrev={() => setOpenIndex((i) => (i === null ? i : (i - 1 + allItems.length) % allItems.length))}
+          onNext={() => setOpenIndex((i) => (i === null ? i : (i + 1) % allItems.length))}
+        />
+      )}
     </section>
   );
 }
