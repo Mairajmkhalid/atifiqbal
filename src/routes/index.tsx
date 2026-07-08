@@ -202,12 +202,11 @@ function Nav() {
                 {busy ? "Preparing PDF…" : "Download Profile PDF"}
               </button>
               <a
-                href="/Atif_Iqbal_CV.pdf"
-                download
+                href="#contact"
                 onClick={() => setOpen(false)}
                 className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-noir bg-gold px-5 py-3"
               >
-                Download CV
+                Contact
               </a>
             </li>
           </ul>
