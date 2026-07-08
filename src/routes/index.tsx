@@ -408,7 +408,7 @@ function HeroDesktop() {
               download
               className="btn-gold group inline-flex items-center gap-3 bg-gold text-noir px-9 py-4 text-[10px] uppercase tracking-[0.4em] font-bold"
             >
-              Download CV
+              Download Profile
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-y-0.5">
                 <path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" strokeLinecap="square" />
               </svg>
