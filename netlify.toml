@@ -3,6 +3,9 @@
   publish = "dist/client"
 
 [build.environment]
+  DEPLOY_TARGET = "netlify"
+
+[build.environment]
   NODE_VERSION = "20"
 
 [functions]
