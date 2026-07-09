@@ -1,0 +1,10 @@
+[build]
+  command = "bun run build"
+  publish = "dist/client"
+
+[build.environment]
+  NODE_VERSION = "20"
+  DEPLOY_TARGET = "netlify"
+
+# TanStack Start's Nitro build (preset: "netlify") emits the server handler
+# and _redirects into the publish dir, so no manual redirect rules are needed.
