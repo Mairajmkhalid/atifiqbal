@@ -20,11 +20,11 @@ import logoAsset from "@/assets/atif-iqbal-logo.png.asset.json";
 const brandLogo = logoAsset.url;
 const heroSlides = [
   { src: ceoHero, alt: "Atif Iqbal — Group CEO at his executive desk", pos: "center 25%" },
+  { src: atif5.url, alt: "Atif Iqbal — signing at HIGH-Q Group", pos: "center 30%" },
   { src: atif1.url, alt: "Atif Iqbal — portrait in brown paisley suit", pos: "center 20%" },
   { src: atif2.url, alt: "Atif Iqbal — in Dubai skyline", pos: "center 30%" },
   { src: atif3.url, alt: "Atif Iqbal — at an event", pos: "center 30%" },
   { src: atif4.url, alt: "Atif Iqbal — in navy pinstripe suit", pos: "center 30%" },
-  { src: atif5.url, alt: "Atif Iqbal — signing at HIGH-Q Group", pos: "center 30%" },
   { src: atif6.url, alt: "Atif Iqbal — in light blue suit", pos: "center 30%" },
   { src: atif7.url, alt: "Atif Iqbal — Group CEO, HIGH-Q Group nameplate", pos: "center 30%" },
 ];
