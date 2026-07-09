@@ -95,9 +95,9 @@ function Nav() {
   const [open, setOpen] = useState(false);
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-gold/15">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-24 sm:h-28 lg:h-32 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 sm:h-18 lg:h-20 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3 min-w-0" onClick={() => setOpen(false)} aria-label="Atif Iqbal — Home">
-          <img src={brandLogo} alt="Atif Iqbal monogram logo" className="h-20 sm:h-24 lg:h-[7.5rem] w-auto object-contain drop-shadow-[0_2px_10px_rgba(201,162,76,0.35)]" />
+          <img src={brandLogo} alt="Atif Iqbal monogram logo" className="h-14 sm:h-16 lg:h-20 w-auto object-contain drop-shadow-[0_2px_10px_rgba(201,162,76,0.35)]" />
         </a>
         <ul className="hidden md:flex items-center gap-6 lg:gap-10">
           {items.map(([id, label]) => (
