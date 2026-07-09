@@ -3,14 +3,8 @@
   publish = "dist/client"
 
 [build.environment]
+  NODE_VERSION = "20"
   DEPLOY_TARGET = "netlify"
 
-[build.environment]
-  NODE_VERSION = "20"
-
-[functions]
-  directory = ".netlify/functions-internal"
-  node_bundler = "esbuild"
-
-# TanStack Start (Nitro) generates a Netlify Functions handler.
-# The nitro netlify preset writes _redirects/headers to publish dir automatically.
+# TanStack Start's Nitro build (preset: "netlify") emits the server handler
+# and _redirects into the publish dir, so no manual redirect rules are needed.
