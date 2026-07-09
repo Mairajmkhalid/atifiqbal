@@ -197,14 +197,8 @@ function HeroMobile() {
   return (
     <>
       {/* Portrait pane — face always fully visible, never covered by text */}
-      <div className="relative w-full h-[42svh] min-h-[340px] max-h-[560px] sm:h-[52svh] sm:min-h-[420px] sm:max-h-[620px] md:h-[62svh] md:min-h-[520px] md:max-h-[720px] overflow-hidden">
-        <img
-          src={ceoHero}
-          alt="Atif Iqbal — Group CEO of HIGH-Q Pharmaceuticals, seated at his executive desk"
-          className="hero-image absolute inset-0 w-full h-full object-cover object-[62%_top] sm:object-[58%_top] md:object-[center_35%]"
-          loading="eager"
-          decoding="async"
-        />
+      <div className="relative w-full h-[52svh] min-h-[420px] max-h-[620px] sm:h-[60svh] sm:min-h-[480px] sm:max-h-[700px] md:h-[68svh] md:min-h-[560px] md:max-h-[780px] overflow-hidden">
+        <HeroPortraitSlider />
 
         {/* Cinematic tonal grade */}
         <div
