@@ -11,4 +11,14 @@
 #   - SSR handler    -> .netlify/functions-internal/server.mjs
 #   - _redirects     -> dist/_redirects  (routes all requests to the SSR function)
 # Netlify auto-detects `.netlify/functions-internal/`, so no [functions] block
-# or manual [[redirects]] rules are needed.
+# or manual SSR redirect rules are needed.
+
+# Lovable-hosted binary assets (images, PDFs, fonts) live behind the
+# `/__l5e/assets-v1/...` path. That path only exists on Lovable's own
+# infrastructure, so on Netlify we transparently proxy it to the Lovable CDN.
+# This must come BEFORE the SSR catch-all that the netlify preset emits.
+[[redirects]]
+  from = "/__l5e/*"
+  to = "https://atifiqbal.lovable.app/__l5e/:splat"
+  status = 200
+  force = true
