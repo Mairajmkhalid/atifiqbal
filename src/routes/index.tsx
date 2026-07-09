@@ -16,6 +16,8 @@ import atif6 from "@/assets/portraits/atif-6.jpg.asset.json";
 import atif7 from "@/assets/portraits/atif-7.jpg.asset.json";
 import profilePdfAsset from "@/assets/Atif_Iqbal_Profile.pdf.asset.json";
 const profilePdfUrl = profilePdfAsset.url;
+import logoAsset from "@/assets/atif-iqbal-logo.png.asset.json";
+const brandLogo = logoAsset.url;
 const heroSlides = [
   { src: ceoHero, alt: "Atif Iqbal — Group CEO at his executive desk", pos: "center 25%" },
   { src: atif1.url, alt: "Atif Iqbal — portrait in brown paisley suit", pos: "center 20%" },
@@ -94,11 +96,8 @@ function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-gold/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-3 min-w-0" onClick={() => setOpen(false)}>
-          <span className="font-serif italic text-2xl leading-none text-gold">AI</span>
-          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.4em] text-cream/60 truncate">
-            Atif Iqbal
-          </span>
+        <a href="#top" className="flex items-center gap-3 min-w-0" onClick={() => setOpen(false)} aria-label="Atif Iqbal — Home">
+          <img src={brandLogo} alt="Atif Iqbal monogram logo" className="h-10 sm:h-11 w-auto object-contain drop-shadow-[0_2px_10px_rgba(201,162,76,0.35)]" />
         </a>
         <ul className="hidden md:flex items-center gap-6 lg:gap-10">
           {items.map(([id, label]) => (
