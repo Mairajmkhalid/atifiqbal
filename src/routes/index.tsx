@@ -1267,9 +1267,9 @@ function Footer() {
 }
 
 function LogoIntro() {
-  const [gone, setGone] = React.useState(false);
-  const [fading, setFading] = React.useState(false);
-  React.useEffect(() => {
+  const [gone, setGone] = useState(false);
+  const [fading, setFading] = useState(false);
+  useEffect(() => {
     try {
       if (sessionStorage.getItem("logo-intro-seen")) {
         setGone(true);
