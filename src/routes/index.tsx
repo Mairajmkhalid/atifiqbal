@@ -1266,9 +1266,49 @@ function Footer() {
   );
 }
 
+function LogoIntro() {
+  const [gone, setGone] = useState(false);
+  const [fading, setFading] = useState(false);
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem("logo-intro-seen")) {
+        setGone(true);
+        return;
+      }
+      sessionStorage.setItem("logo-intro-seen", "1");
+    } catch {}
+    const t1 = setTimeout(() => setFading(true), 2200);
+    const t2 = setTimeout(() => setGone(true), 3000);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+  if (gone) return null;
+  return (
+    <div
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#0f1114] transition-opacity duration-700 ${
+        fading ? "opacity-0 pointer-events-none" : "opacity-100"
+      }`}
+      aria-hidden="true"
+    >
+      <div className="absolute inset-0 gold-glow opacity-60" />
+      <div className="relative flex flex-col items-center gap-6">
+        <img
+          src={logoAsset.url}
+          alt=""
+          className="logo-intro-mark h-40 sm:h-56 md:h-64 w-auto drop-shadow-[0_0_40px_rgba(201,162,76,0.45)]"
+        />
+        <div className="logo-intro-rule h-px w-40 bg-gradient-to-r from-transparent via-[#c9a24c] to-transparent" />
+      </div>
+    </div>
+  );
+}
+
 function Profile() {
   return (
     <div id="profile-root" className="min-h-screen text-cream overflow-x-hidden">
+      <LogoIntro />
       <Nav />
       <ReelBadge scene="01" section="Profile" />
       <Hero />
@@ -1282,3 +1322,4 @@ function Profile() {
     </div>
   );
 }
+
